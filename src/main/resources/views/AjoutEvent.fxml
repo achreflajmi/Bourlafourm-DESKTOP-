@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" stylesheets="@../CSS/Style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controllers.AjoutEventController">
+
+
+    <children>
+        <ImageView fx:id="btnBack" fitHeight="41.0" fitWidth="46.0" layoutX="31.0" layoutY="696.0" onDragDetected="#RetournerAJout" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../Icons/icons8_back_arrow_64px_1.png" />
+            </image>
+        </ImageView>
+        <HBox layoutX="7.0" layoutY="5.0" prefHeight="40.0" prefWidth="1247.0" spacing="10.0">
+            <children>
+                <ImageView fx:id="btnClose" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../Icons/exit.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../Icons/reduce.png" />
+                    </image>
+                </ImageView>
+                <ImageView fx:id="btnReduce" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../Icons/grandir.png" />
+                    </image>
+                </ImageView>
+            </children>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+        </HBox>
+
+        <Pane fx:id="paneLogin" layoutX="14.0" layoutY="131.0" prefHeight="556.0" prefWidth="599.0" style="-fx-background-color: white;">
+            <children>
+                <Label layoutX="14.0" layoutY="128.0" prefHeight="51.0" prefWidth="158.0" text="Welcome!">
+                    <font>
+                        <Font name="System Bold" size="33.0" />
+                    </font>
+                </Label>
+                <VBox alignment="CENTER" layoutX="106.0" layoutY="189.0" prefHeight="308.0" prefWidth="389.0" spacing="45.0">
+                    <children>
+                        <TextField fx:id="txtusername" prefHeight="40.0" prefWidth="324.0" promptText="USERNAME" />
+                        <TextField fx:id="txtpassword" prefHeight="40.0" promptText="PASSWORD" />
+                        <JFXButton fx:id="BTNSignIn" prefHeight="40.0" prefWidth="150.0" stylesheets="@../CSS/Style.css" text="SIGN IN">
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                        </JFXButton>
+                    </children>
+                </VBox>
+                <JFXButton id="button1" fx:id="btnSignUp" layoutX="84.0" layoutY="474.0" prefHeight="40.0" prefWidth="434.0" text="VOUS N'AVEZ PAS DE COMPTE? S'INSCRIRE!" textFill="#3f7a57">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </JFXButton>
+                <Hyperlink fx:id="ForgotPass" layoutX="378.0" layoutY="364.0" prefHeight="28.0" prefWidth="126.0" text="Forgot Password ?">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Hyperlink>
+                <Label id="lblerror" layoutX="105.0" layoutY="384.0" prefHeight="20.0" prefWidth="389.0" textFill="#b22121">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+            </children>
+        </Pane>
+
+        <Pane id="PaneAdmin" fx:id="AjoutEvenement" layoutX="727.0" prefHeight="759.0" prefWidth="533.0" style="-fx-background-color: linear-gradient(#91e291 , #3f7a57);;" stylesheets="@../CSS/Style.css">
+            <children>
+                <ImageView fitHeight="465.0" fitWidth="481.0" layoutX="85.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../Icons/clientIllus.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </Pane>
+
+              <Pane fx:id="paneSignUp" layoutX="14.0" layoutY="138.0" prefHeight="556.0" prefWidth="624.0" style="-fx-background-color: white;">
+
+      
+      
+      
+      
+      
+                  <children>
+                <VBox alignment="CENTER_LEFT" layoutX="73.0" layoutY="38.0" prefHeight="465.0" prefWidth="346.0" spacing="30.0">
+                    <children>
+                        <TextField fx:id="NomEvent" prefHeight="35.0" promptText="Nom_Evenement" />
+                        <TextField fx:id="Organisateur" layoutX="10.0" layoutY="117.0" prefHeight="35.0" promptText="Organisateur" />
+                        <TextField fx:id="Capacite" layoutX="10.0" layoutY="187.0" prefHeight="35.0" prefWidth="385.0" promptText="Capacite" />
+                        <TextField fx:id="Type" prefHeight="35.0" promptText="Type" />
+                        <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="453.0" spacing="70.0">
+                            <children>
+                                <DatePicker fx:id="Date_deb" prefHeight="35.0" promptText="Date_Debut" />
+                                <DatePicker fx:id="Date_fin" prefHeight="35.0" promptText="Date_Fin" />
+                            </children>
+                        </HBox>
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+                              <HBox alignment="CENTER" prefHeight="46.0" prefWidth="453.0" spacing="50.0">
+                            <children>
+                                <JFXButton fx:id="Ajouter" onAction="#ajout_evenement" prefHeight="40.0" prefWidth="158.0" text="Save">
+                                    <font>
+                                        <Font name="System Bold" size="16.0" />
+                                    </font>
+                                </JFXButton>
+                                <JFXButton id="buttonReset" fx:id="btnReset" onAction="#reset" prefHeight="40.0" prefWidth="158.0" text="RESET">
+                                    <font>
+                                        <Font name="System Bold" size="16.0" />
+                                    </font>
+                                </JFXButton>
+                            </children>
+                        </HBox>
+                    </children>
+
+                      </VBox>
+                <JFXButton id="button1" fx:id="btnSignIn" layoutX="83.0" layoutY="512.0" prefHeight="40.0" prefWidth="434.0" text="VOUS AVEZ UN COMPTE ? SIGN IN" textFill="#3f7a57">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </JFXButton>
+                <Label id="lblerror" layoutX="112.0" layoutY="6.0" prefHeight="20.0" prefWidth="389.0" textFill="#b22121">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <JFXButton fx:id="Browse" layoutX="459.0" layoutY="412.0" onAction="#RecupererImage" prefHeight="46.0" prefWidth="137.0" text="Image" />
+                <ImageView fx:id="Image" fitHeight="258.0" fitWidth="235.0" layoutX="459.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../Icons/reduce.png" />
+                    </image>
+            </ImageView>
+              <ImageView fitHeight="319.0" fitWidth="249.0" layoutX="128.0" layoutY="-142.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                      <Image url="@../Icons/BourLaFourm.png" />
+                  </image>
+              </ImageView>
+            </children>
+      </Pane>
+
+
+
+
+
+
+
+
+    </children>
+
+
+
+</AnchorPane>

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AdminDashBoardPane" fx:id="AdminDashBoardPane" prefHeight="733.0" prefWidth="1353.0" style="-fx-background-color: white;" styleClass="mainFxmlClass" stylesheets="@../CSS/Style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controllers.AfficherEventController">
+    <children>
+        <VBox id="MenuVbox" alignment="CENTER_LEFT" prefHeight="745.0" prefWidth="262.0">
+            <children>
+                <Pane prefHeight="134.0" prefWidth="309.0">
+   
+                       <ImageView fitHeight="290.0" fitWidth="289.0" layoutX="-32.0" layoutY="-97.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../Icons/BourLaFourm.png" />
+                        </image>
+                    </ImageView>
+
+                </Pane>
+                <Button fx:id="btnClients" alignment="BASELINE_LEFT" graphicTextGap="5.0" lineSpacing="15.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="291.0" text="Clients">
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                    <padding>
+                        <Insets left="50.0" />
+                    </padding>
+                    <graphic>
+                        <ImageView fitHeight="31.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../Icons/icons8_account_64px.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="btnMentors" alignment="BASELINE_LEFT" graphicTextGap="15.0" lineSpacing="50.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="408.0" text="Coaches">
+                    <padding>
+                        <Insets left="50.0" />
+                    </padding>
+                    <graphic>
+                        <ImageView fitHeight="31.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../Icons/icons8_tuition_64px.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="btnRecettes" alignment="BASELINE_LEFT" graphicTextGap="15.0" lineSpacing="50.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="408.0" text="Recettes">
+                    <padding>
+                        <Insets left="50.0" />
+                    </padding>
+                    <graphic>
+                        <ImageView fitHeight="31.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../Icons/icons8_cutlery_64px.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="btnEvent" alignment="BASELINE_LEFT" graphicTextGap="15.0" lineSpacing="50.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="408.0" text="Evenements">
+                    <padding>
+                        <Insets left="50.0" />
+                    </padding>
+                    <graphic>
+                        <ImageView fitHeight="31.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../Icons/icons8_planner_64px.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="btnArticles" alignment="BASELINE_LEFT" graphicTextGap="15.0" lineSpacing="50.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="408.0" text="Articles">
+                    <padding>
+                        <Insets left="50.0" />
+                    </padding>
+                    <graphic>
+                        <ImageView fitHeight="31.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../Icons/icons8_news_64px.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="btnExercices" alignment="BASELINE_LEFT" graphicTextGap="15.0" lineSpacing="50.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="408.0" text="Exercices">
+                    <padding>
+                        <Insets left="50.0" />
+                    </padding>
+                    <graphic>
+                        <ImageView fitHeight="31.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../Icons/icons8_meditation_64px.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="btnLogout" alignment="BASELINE_LEFT" graphicTextGap="15.0" lineSpacing="50.0" mnemonicParsing="false" onAction="#Deconnecter" prefHeight="60.0" prefWidth="408.0" text="Deconnection">
+                    <padding>
+                        <Insets left="50.0" />
+                    </padding>
+                    <graphic>
+                        <ImageView fitHeight="31.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../Icons/icons8_logout_rounded_left_64px_1.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </children>
+        </VBox>
+        <HBox alignment="TOP_RIGHT" layoutX="6.0" layoutY="-1.0" prefHeight="40.0" prefWidth="1345.0" spacing="10.0">
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+        </HBox>
+        <Pane fx:id="pnlStatus" layoutX="261.0" layoutY="-2.0" prefHeight="96.0" prefWidth="1092.0" style="-fx-background-color: #91e291;">
+            <children>
+                <Label fx:id="lbltitle" alignment="CENTER" layoutX="289.0" layoutY="20.0" prefHeight="55.0" prefWidth="552.0" text="Gestionnaire des évenements" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="38.0" />
+                    </font>
+                </Label>
+                <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="997.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../Icons/reduce.png" />
+                    </image>
+                </ImageView>
+                <ImageView fx:id="btnReduce" fitHeight="20.0" fitWidth="20.0" layoutX="1028.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../Icons/grandir.png" />
+                    </image>
+                </ImageView>
+                <ImageView fx:id="btnClose" fitHeight="20.0" fitWidth="20.0" layoutX="1058.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../Icons/exit.png" />
+                    </image>
+                </ImageView>
+            </children></Pane>
+        <TableView fx:id="tableEvenement" layoutX="278.0" layoutY="196.0" prefHeight="282.0" prefWidth="1036.0">
+            <columns>
+                <TableColumn fx:id="cd_nom" editable="false" minWidth="0.0" prefWidth="103.0" text="Nom" />
+                <TableColumn fx:id="cd_Organisateur" editable="false" prefWidth="114.0" text="Organisateur" />
+                <TableColumn fx:id="cd_Date_Deb" editable="false" minWidth="0.0" prefWidth="123.20004272460938" text="Date_Debut" />
+                <TableColumn fx:id="cd_Date_Fin" editable="false" prefWidth="119.20001220703125" text="Date_Fin" />
+                <TableColumn fx:id="cd_type" editable="false" minWidth="0.0" prefWidth="128.0" text="Type" />
+                <TableColumn fx:id="Image_Col" prefWidth="120.0" text="Image" visible="false" />
+                <TableColumn fx:id="Path_Col" prefWidth="152.7999267578125" text="Path" visible="false" />
+            <TableColumn fx:id="cd_id" prefWidth="138.39996337890625" text="Identifiant" />
+            <TableColumn fx:id="cd_action" prefWidth="305.60001220703134" text="Action" />
+            </columns>
+        </TableView>
+        <ImageView fx:id="btnDelete" fitHeight="21.0" fitWidth="21.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../Icons/icons8_360_degrees_30px.png" />
+            </image>
+        </ImageView>
+        <JFXButton fx:id="Update" layoutX="278.0" layoutY="119.0" prefHeight="37.0" prefWidth="243.0" style="-fx-background-color: #ff9242;" text="Mettre Ã  jour Evenement" visible="false" />
+        <JFXButton fx:id="Delete" layoutX="560.0" layoutY="119.0" onAction="#SupprimerEvent" prefHeight="37.0" prefWidth="250.0" style="-fx-background-color: red;" text="Supprimer Evenement" visible="false" />
+        <JFXButton fx:id="AjoutEvenement" layoutX="278.0" layoutY="135.0" onAction="#AjouterEvent" prefHeight="37.0" prefWidth="195.0" style="-fx-background-color: green;" text="Ajouter un Evenement" />
+        <TextField fx:id="OrganisateurField" focusTraversable="false" layoutX="680.0" layoutY="548.0" visible="false" />
+        <DatePicker fx:id="DateFinField" focusTraversable="false" layoutX="685.0" layoutY="686.0" visible="false" />
+        <Label focusTraversable="false" layoutX="300.0" layoutY="626.0" text="Nom" visible="false" />
+        <TextField fx:id="TypeField" focusTraversable="false" layoutX="376.0" layoutY="665.0" visible="false" />
+        <TextField fx:id="NomField" focusTraversable="false" layoutX="376.0" layoutY="606.0" prefHeight="37.0" prefWidth="169.0" visible="false" />
+        <DatePicker fx:id="DateDebutField" focusTraversable="false" layoutX="680.0" layoutY="617.0" visible="false" />
+        <TextField fx:id="Identifiant" disable="true" editable="false" focusTraversable="false" layoutX="376.0" layoutY="549.0" visible="false" />
+        <Label focusTraversable="false" layoutX="289.0" layoutY="558.0" text="Identifiant" visible="false" />
+        <Label focusTraversable="false" layoutX="578.0" layoutY="568.0" text="Organisateur" visible="false" />
+        <Label focusTraversable="false" layoutX="300.0" layoutY="685.0" text="Type" visible="false" />
+        <Label focusTraversable="false" layoutX="583.0" layoutY="637.0" text="Date Debut" visible="false" />
+        <Label focusTraversable="false" layoutX="594.0" layoutY="706.0" text="Date Fin" visible="false" />
+        <JFXButton fx:id="Reload" layoutX="1039.0" layoutY="119.0" prefHeight="37.0" prefWidth="161.0" style="-fx-background-color: #03dbfc;" text="Reload" visible="false" />
+        <TextField fx:id="SearchFileld" layoutX="489.0" layoutY="138.0" prefHeight="31.0" prefWidth="824.0" promptText="Search inTable" />
+        <JFXButton fx:id="Save" layoutX="855.0" layoutY="119.0" prefHeight="37.0" prefWidth="140.0" text="Save PDF" visible="false" />
+        <ImageView fx:id="Image_Recup" fitHeight="202.0" fitWidth="301.0" layoutX="1011.0" layoutY="485.0" pickOnBounds="true" preserveRatio="true" />
+    </children>
+</AnchorPane>
