@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class MyDataBase {
 
-    private final String URL = "jdbc:mysql://localhost:3307/testform";
+    private final String URL = "jdbc:mysql://localhost:3307/validation";
     private final String USER = "root";
     private final String PSW = "";
     private Connection connection;

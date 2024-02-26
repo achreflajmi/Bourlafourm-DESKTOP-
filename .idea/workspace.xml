@@ -20,6 +20,7 @@
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/controllers/AjoutRegimeController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/controllers/ExerciceController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/controllers/UpDateRegimeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/controllers/UpdateExerciceController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/controllers/UpdateFormController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/entities/Coord.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/entities/Exercice.java" afterDir="false" />
@@ -36,11 +37,13 @@
       <change afterPath="$PROJECT_DIR$/src/main/resources/Afficher.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/AjoutCoord.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/AjoutExercice.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/AjoutR.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/AjoutRegime.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/CoordLayout.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/Exercice.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/PatientRecord.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/UpDateRegime.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/UpdateExercice.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/UpdateForm.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/test.fxml" afterDir="false" />
     </list>
@@ -55,8 +58,8 @@
         <option value="module-info" />
         <option value="Interface" />
         <option value="Enum" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -70,7 +73,9 @@
     <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2cXtMBfrAJ8eNybxss2bR7Fc7qK" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -137,7 +142,7 @@
       <workItem from="1708596945275" duration="3744000" />
       <workItem from="1708760009815" duration="15640000" />
       <workItem from="1708782466671" duration="17461000" />
-      <workItem from="1708859542472" duration="41613000" />
+      <workItem from="1708859542472" duration="57353000" />
     </task>
     <servers />
   </component>

@@ -46,7 +46,7 @@ public class AjoutCoordController {
     void ajouterCoord(MouseEvent event) {
         try {
             if (!isValidPositiveInteger(ageTF.getText())) {
-                throw new NumberFormatException("Invalid age. Please enter a positive integer.");
+                    throw new NumberFormatException("Invalid age. Please enter a positive integer.");
             }
 
             if (!isValidPositiveDouble(poidsTF.getText())) {
@@ -102,8 +102,7 @@ public class AjoutCoordController {
         }
     }
 
-    public void importImage(ActionEvent actionEvent) {
-    }
+
 }
 
 

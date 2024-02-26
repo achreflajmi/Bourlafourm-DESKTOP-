@@ -9,9 +9,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="859.0" prefWidth="802.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.AffController">
+<ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="895.0" prefWidth="802.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.AffController">
     <content>
-<AnchorPane prefHeight="841.0" prefWidth="800.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="897.0" prefWidth="800.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <GridPane fx:id="gridP" hgap="4.0" layoutX="59.0" layoutY="231.0" prefHeight="217.0" prefWidth="182.0">
             <columnConstraints>
@@ -76,28 +76,34 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                   <VBox prefHeight="161.0" prefWidth="401.0" style="-fx-border-color: #C7DDC5; -fx-border-radius: 29;">
+                   <VBox fx:id="gridPane" prefHeight="161.0" prefWidth="401.0" style="-fx-border-color: #C7DDC5; -fx-border-radius: 29;">
                        <children>
-                        <Label text="Label">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                           <VBox.margin>
+                              <Insets left="30.0" top="30.0" />
+                           </VBox.margin>
+                        </Text>
+                        <Label fx:id="nameLabel" text="Label">
                            <padding>
                               <Insets left="30.0" top="51.0" />
                            </padding>
                         </Label>
-                        <Label text="Label">
+                        <Label fx:id="descLabel" text="Label">
                            <padding>
                               <Insets left="30.0" />
                            </padding>
                         </Label>
-                        <Label text="Label">
+                        <Label fx:id="nbrLabel" text="Label">
                            <padding>
                               <Insets left="30.0" />
                            </padding>
                         </Label>
-                        <Label text="Label">
-                           <padding>
-                              <Insets left="30.0" />
-                           </padding>
-                        </Label>
+                        <ImageView fx:id="imageView" fitHeight="270.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                        <Button fx:id="upeBT" mnemonicParsing="false" onAction="#UpdateExercice" text="Update">
+                           <VBox.margin>
+                              <Insets left="350.0" />
+                           </VBox.margin>
+                        </Button>
                      </children>
                   </VBox>
                </children>
@@ -142,7 +148,7 @@
                               <Insets right="30.0" top="25.0" />
                            </HBox.margin>
                         </ImageView>
-                        <Button mnemonicParsing="false" text="Button">
+                        <Button mnemonicParsing="false" style="-fx-background-color: #008152;" text="Basket" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" top="30.0" />
                            </HBox.margin>
@@ -222,6 +228,9 @@
                 </VBox>
                </children>
             </GridPane>
+            <Button fx:id="dietBT" layoutX="59.0" layoutY="807.0" mnemonicParsing="false" onAction="#AjoutRegime" text="Diet" />
+            <Button fx:id="detailsBT" layoutX="353.0" layoutY="807.0" mnemonicParsing="false" onAction="#AjoutCoord" text="Details" />
+            <Button fx:id="sportBT" layoutX="645.0" layoutY="807.0" mnemonicParsing="false" onAction="#AjoutExercice" text="Sport" />
     </children>
 
 </AnchorPane>

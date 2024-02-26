@@ -20,7 +20,7 @@
       <VBox prefHeight="370.0" prefWidth="422.0">
          <children>
             <HBox alignment="TOP_CENTER" prefHeight="35.0" prefWidth="271.0" />
-            <HBox fx:id="descf" prefHeight="35.0" prefWidth="271.0">
+            <HBox prefHeight="35.0" prefWidth="271.0">
                <children>
                   <Label fx:id="descf" text="description">
                      <font>

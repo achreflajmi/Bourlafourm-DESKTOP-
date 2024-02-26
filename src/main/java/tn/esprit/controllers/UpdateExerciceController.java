@@ -1,28 +1,21 @@
 package tn.esprit.controllers;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.FileChooser;
-import tn.esprit.entities.Coord;
-import tn.esprit.entities.Exercice;
-import tn.esprit.services.ServiceCoord;
-import tn.esprit.services.ServiceExercice;
 import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
+import tn.esprit.entities.Exercice;
+import tn.esprit.services.ServiceExercice;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.net.URL;
 import java.sql.SQLException;
-import java.util.ResourceBundle;
 
-public class AjoutExerciceController {
-
-
+public class UpdateExerciceController {
     @FXML
     private TextField nameTF;
 
@@ -38,14 +31,6 @@ public class AjoutExerciceController {
     private ImageView imgTF;
     private String imgpath;
     private final ServiceExercice ps = new ServiceExercice();
-
-
-
-    private void initialize(URL url, ResourceBundle resourceBundle){
-        imgTF.setOnMouseClicked(event -> importImage());
-        path.setVisible(false);
-    }
-
     @FXML
     public void importImage() {
         FileChooser fileChooser = new FileChooser();
@@ -69,7 +54,8 @@ public class AjoutExerciceController {
     }
 
     @FXML
-    public void AjouterExercice() {
+    public void ModifierExercice() {
+        int exerciceIdToUpdate=1;
         try {
 
             if (!isValidPositiveInteger(nbrTF.getText())) {
@@ -90,11 +76,11 @@ public class AjoutExerciceController {
             String desc = descTF.getText();
             int nbr = Integer.parseInt(nbrTF.getText());
             Exercice exercice = new Exercice(name, desc, path1, nbr);
-            ps.ajouter(exercice);
+            ps.modifierExercicesById(exerciceIdToUpdate, name, desc, path1, nbr);
 
             Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
             successAlert.setTitle("Success");
-            successAlert.setContentText("Exercise added successfully!");
+            successAlert.setContentText("Exercise modified successfully!");
             successAlert.showAndWait();
 
         } catch (IllegalArgumentException | SQLException e) {
@@ -113,7 +99,6 @@ public class AjoutExerciceController {
             return false;
         }
     }
-
     private boolean isValidInput(String input) {
         // Use a regular expression to check for the absence of special characters
         return input.matches("[a-zA-Z0-9 ]+");

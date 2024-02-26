@@ -48,6 +48,8 @@ public class UpdateFormController {
 
 
             ps.modifierCoordonneesById(coordinateIdToUpdate, newAge, newPoids, newTaille);
+
+
             showSuccessAlert("Success", "Information updated successfully!");
         } catch (NumberFormatException e) {
             showAlert("Invalid Input", "Please enter valid numeric values.");

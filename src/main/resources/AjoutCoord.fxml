@@ -8,22 +8,22 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="890.0" prefWidth="1315.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.AjoutCoordController">
-   <children>
-      <TextField fx:id="ageTF" layoutX="658.0" layoutY="390.0" prefHeight="39.0" prefWidth="517.0" promptText="Age" AnchorPane.leftAnchor="658.0" AnchorPane.rightAnchor="140.0" />
-      <TextField fx:id="tailleTF" layoutX="658.0" layoutY="460.0" prefHeight="39.0" prefWidth="517.0" promptText="Height" AnchorPane.leftAnchor="658.0" AnchorPane.rightAnchor="140.0" />
-      <TextField fx:id="poidsTF" layoutX="658.0" layoutY="530.0" prefHeight="39.0" prefWidth="517.0" promptText="Weight" AnchorPane.leftAnchor="658.0" AnchorPane.rightAnchor="140.0" />
-      <Button fx:id="addBT" layoutX="1105.0" layoutY="669.0" mnemonicParsing="false" onMouseClicked="#ajouterCoord" prefHeight="39.0" prefWidth="70.0" style="-fx-background-color: #008152;" text="ADD" textFill="WHITE" AnchorPane.rightAnchor="140.0" />
-      <ChoiceBox fx:id="sexeCB" layoutX="745.0" layoutY="320.0" prefHeight="39.0" prefWidth="430.0" AnchorPane.leftAnchor="745.0" AnchorPane.rightAnchor="140.0" />
-      <TextField fx:id="imcTF" editable="false" layoutX="658.0" layoutY="600.0" prefHeight="39.0" prefWidth="517.0" promptText="BMI" AnchorPane.leftAnchor="658.0" AnchorPane.rightAnchor="140.0" />
-      <Text fill="#b2a6a6" layoutX="664.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sexe" />
-      <Text fill="WHITE" layoutX="754.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Details Form">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.AjoutCoordController">
+<children>
+      <TextField fx:id="ageTF" layoutX="385.0" layoutY="153.0" prefHeight="39.0" prefWidth="517.0" promptText="Age" AnchorPane.leftAnchor="280.0" AnchorPane.rightAnchor="30.0" />
+      <TextField fx:id="tailleTF" layoutX="385.0" layoutY="203.0" prefHeight="39.0" prefWidth="517.0" promptText="Height" AnchorPane.leftAnchor="280.0" AnchorPane.rightAnchor="30.0" />
+      <TextField fx:id="poidsTF" layoutX="385.0" layoutY="253.0" prefHeight="39.0" prefWidth="517.0" promptText="Weight" AnchorPane.leftAnchor="280.0" AnchorPane.rightAnchor="30.0" />
+      <Button fx:id="addBT" layoutX="390.0" layoutY="353.0" mnemonicParsing="false" onMouseClicked="#ajouterCoord" prefHeight="39.0" prefWidth="70.0" style="-fx-background-color: #008152;" text="ADD" textFill="WHITE" AnchorPane.rightAnchor="140.0" />
+      <ChoiceBox fx:id="sexeCB" layoutX="463.0" layoutY="103.0" prefHeight="39.0" prefWidth="118.0" AnchorPane.leftAnchor="463.0" AnchorPane.rightAnchor="29.0" />
+      <TextField fx:id="imcTF" editable="false" layoutX="385.0" layoutY="303.0" prefHeight="39.0" prefWidth="517.0" promptText="BMI" AnchorPane.leftAnchor="280.0" AnchorPane.rightAnchor="30.0" />
+      <Text fill="#b2a6a6" layoutX="392.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sexe" />
+      <Text fill="WHITE" layoutX="316.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Details Form" wrappingWidth="218.515625">
          <font>
-            <Font name="Algerian" size="48.0" />
+            <Font name="Algerian" size="30.0" />
          </font>
       </Text>
-      <AnchorPane opacity="0.6" prefHeight="890.0" prefWidth="517.0" style="-fx-background-color: #008152;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <ImageView fitHeight="800.0" fitWidth="523.0" layoutX="164.0" layoutY="216.95208740234375" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="171.58322143554688" AnchorPane.leftAnchor="0.0">
+      <AnchorPane opacity="0.6" prefHeight="490.0" prefWidth="246.0" style="-fx-background-color: #008152;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <ImageView fitHeight="296.0" fitWidth="226.0" layoutX="11.0" layoutY="94.24749755859375" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="89.05838012695312" AnchorPane.leftAnchor="11.0">
          <image>
             <Image url="@assets/logo.png" />
          </image>

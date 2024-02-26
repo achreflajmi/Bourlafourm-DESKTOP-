@@ -64,4 +64,6 @@ public class Exercice {
     public void setNbr_rep(int nbr_rep) {
         this.nbr_rep = nbr_rep;
     }
+
+
 }

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.AjoutRegimeController">
+<children>
+        <Text fill="WHITE" layoutX="332.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="diet Form" wrappingWidth="188.54638671875">
+            <font>
+                <Font name="Algerian" size="36.0" />
+            </font>
+        </Text>
+        <TextArea fx:id="petitdejTA" layoutX="280.0" layoutY="83.0" prefHeight="58.0" prefWidth="300.0" promptText="Breakfest" scaleX="0.75" scaleY="0.75" />
+        <TextArea fx:id="colpdejTA" layoutX="280.0" layoutY="133.0" prefHeight="58.0" prefWidth="300.0" promptText="Snack" scaleX="0.75" scaleY="0.75" />
+        <TextArea fx:id="coldejTA" layoutX="280.0" layoutY="233.0" prefHeight="58.0" prefWidth="300.0" promptText="Snack" scaleX="0.75" scaleY="0.75" />
+        <TextArea fx:id="dejTA" layoutX="280.0" layoutY="183.0" prefHeight="58.0" prefWidth="300.0" promptText="Lunch" scaleX="0.75" scaleY="0.75" />
+        <TextArea fx:id="dinerTA" layoutX="280.0" layoutY="283.0" prefHeight="58.0" prefWidth="300.0" promptText="Dinner" scaleX="0.75" scaleY="0.75" />
+        <Button fx:id="ajoutBT" layoutX="385.0" layoutY="342.0" mnemonicParsing="false" onAction="#ajoutRegime" scaleX="0.75" scaleY="0.75" style="-fx-background-color: #008152;" text="Ajouter" textFill="WHITE" />
+      <AnchorPane layoutX="-3.0" opacity="0.6" prefHeight="400.0" prefWidth="265.0" style="-fx-background-color: #008152;" />
+      <ImageView fitHeight="215.0" fitWidth="245.0" layoutX="18.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/logo.png" />
+         </image>
+      </ImageView>
+    </children>
+</AnchorPane>
