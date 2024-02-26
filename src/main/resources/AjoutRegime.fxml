@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="890.0" prefWidth="1315.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.AjoutRegimeController">
+   <children>
+      <AnchorPane layoutX="-1.0" opacity="0.6" prefHeight="890.0" prefWidth="527.0" style="-fx-background-color: #008152;" />
+      <Text fill="WHITE" layoutX="800.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="diet Form" wrappingWidth="255.54638671875">
+         <font>
+            <Font name="Algerian" size="48.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="494.0" fitWidth="572.0" layoutX="2.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/logo.png" />
+         </image>
+      </ImageView>
+      <TextArea fx:id="petitdejTA" layoutX="750.0" layoutY="215.0" prefHeight="90.0" prefWidth="355.0" promptText="Breakfest" />
+      <TextArea fx:id="colpdejTA" layoutX="750.0" layoutY="313.0" prefHeight="72.0" prefWidth="355.0" promptText="Snack" />
+      <TextArea fx:id="coldejTA" layoutX="750.0" layoutY="478.0" prefHeight="78.0" prefWidth="355.0" promptText="Snack" />
+      <TextArea fx:id="dejTA" layoutX="750.0" layoutY="393.0" prefHeight="78.0" prefWidth="355.0" promptText="Lunch" />
+      <TextArea fx:id="dinerTA" layoutX="750.0" layoutY="564.0" prefHeight="103.0" prefWidth="355.0" promptText="Dinner" />
+      <Button fx:id="ajoutBT" layoutX="886.0" layoutY="688.0" mnemonicParsing="false" onAction="#ajoutRegime" style="-fx-background-color: #008152;" text="Ajouter" textFill="WHITE" />
+   </children>
+</AnchorPane>

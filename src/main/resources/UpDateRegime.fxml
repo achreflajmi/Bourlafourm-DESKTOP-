@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.UpDateRegimeController">
+   <children>
+      <HBox layoutY="-7.0" prefHeight="411.0" prefWidth="600.0" style="-fx-background-color: #000000;">
+         <children>
+            <AnchorPane prefHeight="411.0" prefWidth="295.0" style="-fx-background-color: #000000;">
+               <children>
+                  <AnchorPane opacity="0.6" prefHeight="411.0" prefWidth="265.0" style="-fx-background-color: #008152;" />
+                  <ImageView fitHeight="215.0" fitWidth="245.0" layoutX="21.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@assets/logo.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <VBox alignment="CENTER" prefHeight="393.0" prefWidth="274.0" spacing="10">
+               <children>
+                  <Label layoutX="78.0" layoutY="143.0" text="Update DIET Form" textFill="WHITE">
+                     <font>
+                        <Font name="Algerian" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label text="UpDate Values" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="breakfx" promptText="Breakfest" />
+                  <TextField fx:id="snackbfx" promptText="Snack" />
+                  <TextField fx:id="lunchfx" promptText="Lunch" />
+                  <TextField fx:id="snackfx" promptText="Snack" />
+                  <TextField fx:id="dinnerfx" promptText="Dinner" />
+                  <Button onAction="#handleSubmit" style="-fx-background-color: #008152;" text="Submit" textFill="WHITE" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

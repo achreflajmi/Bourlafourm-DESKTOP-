@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="147.0" prefWidth="290.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox prefHeight="185.0" prefWidth="424.0" style="-fx-background-color: #000000;">
+         <children>
+            <Label prefHeight="34.0" prefWidth="158.0" text="   Coordonnées" textFill="WHITE">
+               <font>
+                  <Font name="Bodoni MT" size="18.0" />
+               </font>
+            </Label>
+            <HBox prefHeight="144.0" prefWidth="400.0">
+               <children>
+                  <VBox prefHeight="138.0" prefWidth="230.0">
+                     <children>
+                        <Label text="   Age" textFill="WHITE">
+                           <font>
+                              <Font name="Bodoni MT" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label text="   Sexe" textFill="WHITE">
+                           <font>
+                              <Font name="Bodoni MT" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label text="   Poids" textFill="WHITE">
+                           <font>
+                              <Font name="Bodoni MT" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label text="   Taille" textFill="WHITE">
+                           <font>
+                              <Font name="Bodoni MT" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label text="   IMC" textAlignment="RIGHT" textFill="WHITE">
+                           <font>
+                              <Font name="Bodoni MT" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="144.0" prefWidth="47.0">
+                     <children>
+                        <Label fx:id="ageL" alignment="CENTER_RIGHT" contentDisplay="RIGHT" text="Label" textFill="WHITE">
+                           <font>
+                              <Font name="Bodoni MT" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="sexeL" alignment="CENTER_RIGHT" text="Label" textFill="WHITE">
+                           <font>
+                              <Font name="Bodoni MT" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="poidsL" alignment="CENTER_RIGHT" text="Label" textFill="WHITE">
+                           <font>
+                              <Font name="Bodoni MT" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="tailleL" alignment="CENTER_RIGHT" text="Label" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="Bodoni MT" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="imcL" alignment="CENTER_RIGHT" text="Label" textFill="WHITE">
+                           <font>
+                              <Font name="Bodoni MT" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</HBox>

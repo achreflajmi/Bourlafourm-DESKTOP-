@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1315.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.AfficherController">
+   <top>
+      <HBox prefHeight="231.0" prefWidth="1382.0" style="-fx-background-color: #000000; -fx-border-color: #008152; -fx-border-style: none none solid none; -fx-border-width: 0 0 1 0;" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="229.0" prefWidth="281.0">
+               <children>
+                  <ImageView fitHeight="115.0" fitWidth="293.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@assets/log.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="112.0" prefWidth="291.0" text="      Patient Record" textFill="#fffffff4" textOverrun="CENTER_ELLIPSIS">
+                     <font>
+                        <Font name="Book Antiqua" size="33.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="229.0" prefWidth="232.0">
+               <children>
+                  <Label prefHeight="165.0" prefWidth="232.0" textAlignment="RIGHT" />
+                  <Label prefHeight="27.0" prefWidth="184.0" text="Ranim Gabsi" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <VBox prefHeight="659.0" prefWidth="1103.0" style="-fx-background-color: #000000;" BorderPane.alignment="CENTER">
+         <children>
+            <Label prefHeight="67.0" prefWidth="138.0" />
+            <HBox fx:id="CoordLayout" prefHeight="192.0" prefWidth="1054.0" style="-fx-border-color: #008152; -fx-border-radius: 29;" />
+         </children>
+      </VBox>
+   </center>
+   <right>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+   </right>
+   <left>
+      <VBox prefHeight="659.0" prefWidth="126.0" BorderPane.alignment="CENTER" />
+   </left>
+</BorderPane>
