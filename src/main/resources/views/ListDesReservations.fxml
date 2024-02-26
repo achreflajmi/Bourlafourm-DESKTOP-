@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="EventCarte" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="395.0" prefWidth="489.0" stylesheets="@../CSS/Style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controllers.ListDesReservationsController">
+    <children>
+        <AnchorPane prefHeight="395.0" prefWidth="490.0">
+            <children>
+                <Label fx:id="front_id" text="Label" visible="false" />
+                <ImageView fx:id="Event_image" fitHeight="395.0" fitWidth="489.0" pickOnBounds="true" smooth="false">
+                    <image>
+                        <Image url="@../../../../../../Downloads/cun3.png" />
+                    </image>
+                    <effect>
+                        <Lighting diffuseConstant="1.22" specularConstant="0.0" specularExponent="12.94" surfaceScale="4.89">
+                            <bumpInput>
+                                <Shadow />
+                            </bumpInput>
+                            <light>
+                                <Light.Distant elevation="41.7" />
+                            </light>
+                        </Lighting>
+                    </effect>
+                </ImageView>
+                <Pane prefHeight="395.0" prefWidth="490.0" styleClass="gradient" stylesheets="@../CSS/Style.css">
+                    <children>
+                        <Label fx:id="Event_capacite" alignment="CENTER_RIGHT" layoutX="418.0" layoutY="306.0" prefHeight="19.0" prefWidth="56.0" text="800" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                        </Label>
+                        <ImageView fx:id="btnReduce" fitHeight="25.0" fitWidth="25.0" layoutX="451.0" layoutY="14.0" onMouseClicked="#Informer" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../Icons/grandir.png" />
+                            </image>
+                        </ImageView>
+                        <Label alignment="CENTER" layoutX="451.0" layoutY="14.0" onMouseClicked="#Information" prefHeight="17.0" prefWidth="25.0" text="i" textAlignment="CENTER" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold Italic" size="16.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="390.0" layoutY="308.0" prefHeight="21.0" prefWidth="56.0" text="Places :" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="15.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="iD_reservation" layoutX="29.0" layoutY="27.0" text="Label" textFill="WHITE" visible="false">
+                            <font>
+                                <Font name="System Bold" size="23.0" />
+                            </font>
+                        </Label>
+                      <JFXButton fx:id="Event_annuler" layoutX="155.0" layoutY="343.0" onAction="#Event_annuler_btn" prefHeight="38.0" prefWidth="181.0" style="-fx-background-color: red;" styleClass="jfx-button" text="Annuler Réservation">
+                          <opaqueInsets>
+                              <Insets />
+                          </opaqueInsets>
+                          <font>
+                              <Font size="7.0" />
+                          </font>
+                      </JFXButton>
+                  <Label fx:id="id_ev_res" layoutX="155.0" layoutY="167.0" text="Label" />
+                    </children></Pane>
+                <Label fx:id="Event_nom" layoutX="13.0" layoutY="294.0" prefHeight="36.0" prefWidth="325.0" text="Tomorrowland" textFill="WHITE">
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <font>
+                        <Font name="System Bold" size="25.0" />
+                    </font>
+                    <effect>
+                        <Glow />
+                    </effect>
+                </Label>
+            </children>
+        </AnchorPane>
+    </children>
+    <styleClass>
+        <String fx:value="card" />
+        <String fx:value="shadow" />
+    </styleClass>
+</AnchorPane>

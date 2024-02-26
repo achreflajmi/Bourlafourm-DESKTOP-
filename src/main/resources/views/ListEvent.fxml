@@ -146,7 +146,7 @@
                     </image>
                 </ImageView>
             </children></Pane>
-        <TableView fx:id="tableEvenement" layoutX="278.0" layoutY="196.0" prefHeight="282.0" prefWidth="1036.0">
+        <TableView fx:id="tableEvenement" layoutX="278.0" layoutY="196.0" prefHeight="406.0" prefWidth="1036.0">
             <columns>
                 <TableColumn fx:id="cd_nom" editable="false" minWidth="0.0" prefWidth="103.0" text="Nom" />
                 <TableColumn fx:id="cd_Organisateur" editable="false" prefWidth="114.0" text="Organisateur" />

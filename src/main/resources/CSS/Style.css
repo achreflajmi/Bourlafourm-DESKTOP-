@@ -1,0 +1,190 @@
+
+
+.root {
+    -fx-background-color: white;
+}
+
+
+
+#button1{
+    -fx-border-radius: 5px;
+  
+    -fx-background-color: transparent;
+    -fx-text-fill: #3f7a57;
+    -fx-font-size: 14px;
+    -fx-font-weight: BOLD;
+}
+
+#button1:hover { 
+    -fx-border-radius: 5px;  
+    -fx-background-color: transparent;
+    -fx-text-fill: #1d5534;
+}
+
+
+#button3{
+    -fx-border-radius: 5px;
+  
+    -fx-background-color: transparent;
+    -fx-text-fill: #3f7a57;
+    -fx-font-size: 14px;
+    -fx-font-weight: BOLD;
+}
+
+#button3:hover { 
+    -fx-border-radius: 5px;  
+    -fx-background-color: transparent;
+    -fx-text-fill: #1d5534;
+    -fx-background-color: #91e291;
+}
+
+#button2{
+    -jfx-button-type: RAISED;
+    -fx-background-color: transparent;
+    -fx-font-size: 18px;
+    -fx-font-weight: BOLD;
+    -fx-text-fill: #3f7a57;
+}
+
+
+
+#buttonReset{
+    -jfx-button-type: RAISED;
+    -fx-background-color: #c85b52;
+    -fx-font-size: 16px;
+    -fx-font-weight: BOLD;
+    -fx-text-fill: WHITE;
+    -fx-pref-width: 150; 
+    -fx-pref-height: 40;
+}
+
+#buttonReset:hover {
+    -jfx-button-type: RAISED;
+    -fx-background-color: #a63d34;
+    -fx-text-fill: white;
+}
+
+
+.jfx-text-field
+{   -jfx-label-float: true;
+    -jfx-focus-color: #ff9242;
+    -jfx-unfocus-color: #3f7a57;
+   
+    -fx-pref-height: 40;
+}
+
+
+.jfx-text-area
+{   -jfx-label-float: true;
+    -jfx-focus-color: #ff9242;
+    -jfx-unfocus-color: #3f7a57;
+   
+}
+
+#lblerror{
+    -fx-text-fill: #b22121;
+    -fx-alignment: CENTER;
+    -fx-font-size: 14px;
+     -fx-pref-width: 390; 
+    -fx-pref-height: 25;
+    
+}
+
+.jfx-password-field
+{   -jfx-label-float: true;
+    -jfx-focus-color: #ff9242;
+    -jfx-unfocus-color: #3f7a57;
+    -fx-pref-height: 40;
+}
+
+#MenuVbox {
+    -fx-background-color:  linear-gradient(#91e291 , #3f7a57);
+}
+
+#PaneAdmin{
+    -fx-background-color:  linear-gradient(#91e291 , #093e26);
+}
+
+.button {
+   -fx-background-color: transparent;
+   -fx-border-radius: 5px;
+  -fx-text-fill: WHITE; 
+    -fx-font-weight: BOLD;
+    -fx-font-size: 20px;
+}
+
+.button:hover {
+   -fx-background-color: #3f7a57;
+}
+
+.button:pressed{
+   -fx-background-color: #ff9242;
+}
+
+.jfx-button{
+    -jfx-button-type: RAISED;
+    -fx-background-color: #3f7a57;
+    -fx-font-size: 16px;
+    -fx-font-weight: BOLD;
+    -fx-text-fill: WHITE;
+    
+}
+
+.jfx-button:hover {
+    -fx-border-radius: 5px;
+    -fx-background-color: #234f35;
+    -fx-text-fill: white;
+   
+}
+
+.table-view .column-header {
+    -fx-text-fill: white;
+    -fx-background-color:  #3f7a57;
+    
+}
+
+.table-view .column-header-background .label{
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+}
+
+
+.jfx-combo-box{
+    
+     -jfx-focus-color: #ff9242;
+    -jfx-unfocus-color: #3f7a57;
+}
+
+
+#btnRed:hover {
+    -fx-background-color: #A85646;
+}
+
+#btnBlue:hover {
+    -fx-background-color: #557E86;
+}
+
+#btnOrange:hover {
+    -fx-background-color: #AA612C;
+}
+
+.card {
+
+    -fx-background-radius: 5px;
+    /*-fx-border-color: #ddd;  Border color */
+    /*-fx-border-width: 1px; /* Border width */
+
+    /*-fx-spacing: 10px; /* Spacing between child nodes */
+}
+
+.shadow{
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2),10,0,0,10);
+}
+
+.mainFxmlClass {
+}
+
+.gradient{
+    -fx-background-color: linear-gradient(to top, #222222, transparent);
+
+}
