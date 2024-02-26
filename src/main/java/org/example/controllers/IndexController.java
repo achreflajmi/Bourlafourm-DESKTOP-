@@ -40,7 +40,7 @@ public class IndexController implements Initializable {
     @FXML
     void NaviguerBackEnd(ActionEvent event) {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/views/ListEvent.fxml"));
+        loader.setLocation(getClass().getResource("/views/ListEvent2.fxml"));
         try {
             Parent parent = loader.load();
 
