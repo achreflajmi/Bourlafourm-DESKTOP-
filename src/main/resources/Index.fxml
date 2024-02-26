@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import com.jfoenix.controls.JFXButton?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.IndexController">
+   <children>
+      <BorderPane layoutX="121.0" layoutY="41.0" prefHeight="500.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <AnchorPane prefHeight="130.0" prefWidth="200.0" style="-fx-background-color: BLACK;" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane prefHeight="69.0" prefWidth="800.0" style="-fx-background-color: BLACK;" AnchorPane.bottomAnchor="61.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <ImageView fitHeight="81.0" fitWidth="81.0" layoutX="360.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Assets/logo.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <HBox alignment="CENTER" layoutX="181.0" layoutY="80.0" prefHeight="61.0" prefWidth="620.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="181.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="69.0">
+                     <children>
+                        <JFXButton fx:id="ToShop" maxHeight="45.0" prefHeight="61.0" prefWidth="110.0" text="Shop" textFill="WHITE">
+                           <HBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="Arial Bold" size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="ToNewstand" maxHeight="45.0" prefHeight="130.0" prefWidth="110.0" text="NewStand" textFill="WHITE">
+                           <HBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="Arial Bold" size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="ToEvents" maxHeight="45.0" prefHeight="130.0" prefWidth="110.0" text="Events" textFill="WHITE">
+                           <HBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="Arial Bold" size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="ToPacks" maxHeight="45.0" prefHeight="130.0" prefWidth="110.0" text="Packs" textFill="WHITE">
+                           <HBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="Arial Bold" size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="LoginBtn" maxHeight="45.0" prefHeight="130.0" prefWidth="110.0" style="-fx-background-color: #00703A;" text="Login" textFill="WHITE">
+                           <HBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="Arial Bold" size="15.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+                  <ImageView fx:id="MenuBar" fitHeight="40.0" fitWidth="40.0" layoutX="21.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Assets/menu_bar_icon.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </top>
+         <left>
+            <AnchorPane fx:id="SideBar" prefHeight="355.0" prefWidth="180.0" style="-fx-background-color: #9FCDA8;" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox layoutX="50.0" layoutY="85.0" prefHeight="200.0" prefWidth="90.0" style="-fx-background-color: #9FCDA8;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+                     <children>
+                        <JFXButton fx:id="Home" alignment="TOP_LEFT" prefHeight="50.0" prefWidth="200.0" text="Home">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="20.0" right="20.0" />
+                           </VBox.margin></JFXButton>
+                        <JFXButton fx:id="Profile" alignment="TOP_LEFT" prefHeight="50.0" prefWidth="200.0" text="Profile">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="20.0" right="20.0" />
+                           </VBox.margin></JFXButton>
+                        <JFXButton fx:id="About" alignment="TOP_LEFT" prefHeight="50.0" prefWidth="200.0" text="About">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="20.0" right="20.0" />
+                           </VBox.margin></JFXButton>
+                        <JFXButton fx:id="Contact" alignment="TOP_LEFT" prefHeight="50.0" prefWidth="200.0" text="Contact">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="20.0" right="20.0" />
+                           </VBox.margin></JFXButton>
+                        <JFXButton fx:id="Dashboard" alignment="TOP_LEFT" prefHeight="50.0" prefWidth="200.0" text="Dashboard">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="20.0" right="20.0" />
+                           </VBox.margin>
+                        </JFXButton>
+                        <JFXButton fx:id="Logout" alignment="TOP_LEFT" prefHeight="50.0" prefWidth="200.0" text="Logout">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="20.0" right="20.0" />
+                           </VBox.margin>
+                        </JFXButton>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </left>
+         <center>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: BLACK;" BorderPane.alignment="CENTER">
+               <children>
+                  <Button layoutX="235.0" layoutY="204.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #00703A;" text="Browse our shop" textFill="WHITE" />
+                  <Text fill="WHITE" layoutX="109.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="We're farmers, purveyors, and eaters">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="165.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="of organically grown food.">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="535.0" prefWidth="802.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.SignupController">
+   <children>
+      <SplitPane dividerPositions="0.35" layoutX="149.0" layoutY="141.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <items>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #00703A;">
+               <children>
+                  <ImageView fx:id="logo" fitHeight="200.0" fitWidth="200.0" layoutX="35.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Assets/logo.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: black;">
+               <children>
+                  <Label layoutX="206.0" layoutY="74.0" text="Register" textFill="WHITE">
+                     <font>
+                        <Font name="Gill Sans MT" size="30.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="fxNom" layoutX="153.0" layoutY="127.0" promptText="Last name" style="-fx-border-color: #00703A; -fx-background-color: transparent; -fx-border-radius: 12;">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="fxPrenom" layoutX="152.0" layoutY="170.0" promptText="First name" style="-fx-background-color: transparent; -fx-border-color: #00703A; -fx-border-radius: 12;">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="fxEmail" layoutX="153.0" layoutY="212.0" promptText="Email" style="-fx-background-color: transparent; -fx-border-color: #00703A; -fx-border-radius: 12;">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+                  <PasswordField fx:id="fxPassword" layoutX="153.0" layoutY="254.0" prefHeight="40.0" prefWidth="202.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: #00703A; -fx-border-radius: 12;">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </PasswordField>
+                  <Button fx:id="registerBtn" layoutX="152.0" layoutY="425.0" mnemonicParsing="false" onAction="#Register" prefHeight="38.0" prefWidth="213.0" style="-fx-background-color: #00703A;" text="Register" textFill="WHITE">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="loginLabel" layoutX="297.0" layoutY="469.0" onMouseClicked="#handleLoginLabelClicked" prefHeight="27.0" prefWidth="50.0" text="Login" textFill="WHITE" underline="true">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="153.0" layoutY="473.0" text="Have an account ?" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="fxSize" layoutX="153.0" layoutY="338.0" promptText="Size" style="-fx-background-color: transparent; -fx-border-color: #00703A; -fx-border-radius: 12;">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="fxWeight" layoutX="152.0" layoutY="379.0" promptText="Weight" style="-fx-background-color: transparent; -fx-border-color: #00703A; -fx-border-radius: 12;">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+                  <ComboBox fx:id="role" layoutX="152.0" layoutY="296.0" prefHeight="39.0" prefWidth="202.0" promptText="Select Role" style="-fx-background-color: transparent; -fx-border-color: #00703A; -fx-border-radius: 12px;" />
+                  <FontAwesomeIcon fill="WHITE" glyphName="USER_PLUS" layoutX="224.0" layoutY="65.0" size="4em" />
+               </children>
+            </AnchorPane>
+         </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
