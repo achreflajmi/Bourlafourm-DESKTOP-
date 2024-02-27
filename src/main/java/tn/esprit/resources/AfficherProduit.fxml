@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<?import java.net.URL?>
+<AnchorPane fx:id="AfficherProduitScene" prefHeight="800.0" prefWidth="1300.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.AfficherProduitController">
+    <stylesheets>
+        <URL value="@stylesheet.css" />
+    </stylesheets>
+    <children>
+        <ImageView fitHeight="64.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
+            <!--         <image>-->
+            <!--            <Image url="logo.png" />-->
+            <!--         </image>-->
+        </ImageView>
+        <Label layoutX="347.0" layoutY="21.0" text="Shop" textFill="WHITE">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Label layoutX="463.0" layoutY="21.0" text="Newstand" textFill="WHITE">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Label layoutX="617.0" layoutY="21.0" text="Events" textFill="WHITE">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Label layoutX="742.0" layoutY="21.0" text="Packs" textFill="WHITE">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <JFXButton buttonType="RAISED" layoutX="1146.0" layoutY="14.0" prefHeight="43.0" prefWidth="102.0" style="-fx-background-color: #008152;" text="Basket" textFill="WHITE">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </JFXButton>
+        <Label layoutX="67.0" layoutY="105.0" text="Shop" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="32.0" />
+            </font>
+        </Label>
+        <Line endX="1066.0" layoutX="167.0" layoutY="163.0" startX="-100.0" stroke="#008152" />
+        <HBox layoutX="38.0" layoutY="178.0" prefHeight="607.0" prefWidth="1229.0" style="-fx-background-color: transparent;">
+            <children>
+                <ScrollPane fx:id="scroll" prefHeight="607.0" prefWidth="460.0" style="-fx-background-color: transparent; -fx-border-color: #008152; -fx-border-width: 1px;">
+                    <content>
+                        <GridPane fx:id="grid" prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: black;">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                        </GridPane>
+                    </content>
+                    <HBox.margin>
+                        <Insets left="10.0" />
+                    </HBox.margin>
+                </ScrollPane>
+            </children>
+        </HBox>
+        <JFXButton buttonType="RAISED" layoutX="172.0" layoutY="110.0" onAction="#ajouterProduitOnClick" prefHeight="22.0" prefWidth="68.0" style="-fx-background-color: #008152;" text="Add" textFill="WHITE">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </JFXButton>
+
+    </children>
+</AnchorPane>
