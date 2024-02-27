@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.AjoutAbController">
+   <children>
+      <JFXButton layoutX="438.0" layoutY="324.0" />
+      <JFXTextField fx:id="nomprenomTF" layoutX="151.0" layoutY="70.0" />
+      <JFXTextField fx:id="ageTF" layoutX="151.0" layoutY="231.0" />
+      <JFXTextField fx:id="idkineTF" layoutX="151.0" layoutY="273.0" />
+      <JFXListView fx:id="ListType" layoutX="152.0" layoutY="115.0" prefHeight="34.0" prefWidth="135.0" />
+      <JFXListView fx:id="ListSexe" layoutX="151.0" layoutY="183.0" prefHeight="34.0" prefWidth="135.0" />
+   </children>
+</AnchorPane>

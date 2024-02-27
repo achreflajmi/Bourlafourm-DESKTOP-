@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.SupprimerKineController">
+        <children>
+            <Separator layoutX="171.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="13.0" />
+
+            <TextField fx:id="idTF" layoutX="252.0" layoutY="50.0" />
+            <TextField layoutX="252.0" layoutY="115.0" />
+            <TextField layoutX="252.0" layoutY="180.0" />
+            <TextField layoutX="252.0" layoutY="245.0" />
+            <Button fx:id="btnasupprimer" layoutX="440.0" layoutY="300.0" mnemonicParsing="false" onAction="#supprimer" text="supprimer" />
+            <Label layoutX="252.0" layoutY="30.0" text="id :" />
+            <Label layoutX="252.0" layoutY="95.0" text=" nom de cabinet :" />
+            <Label layoutX="252.0" layoutY="160.0" text="nom de  kinésithérapeute :" />
+            <Label layoutX="252.0" layoutY="225.0" text="adresse :" />
+      <ImageView fitHeight="168.0" fitWidth="187.0" layoutX="14.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+             <Image url="/assets/bour la fourm.png" />
+
+         </image>
+      </ImageView>
+        </children>
+    </AnchorPane>

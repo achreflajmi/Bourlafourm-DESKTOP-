@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.ModifierKineController">
+   <children>
+      <Separator layoutX="171.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="13.0" />
+      <ImageView fitHeight="170.0" fitWidth="185.0" layoutX="-10.0" layoutY="105.0">
+         <image>
+            <Image url="@assets/bour%20la%20fourm.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="idTF" layoutX="252.0" layoutY="50.0" />
+      <TextField fx:id="nomcabTF" layoutX="252.0" layoutY="115.0" />
+      <TextField fx:id="nomkineTF" layoutX="252.0" layoutY="180.0" />
+      <TextField fx:id="adresseTF" layoutX="252.0" layoutY="245.0" />
+      <Button fx:id="btnmodifier" layoutX="440.0" layoutY="300.0" mnemonicParsing="false" onAction="#modifier" text="modifier" />
+      <Label layoutX="252.0" layoutY="30.0" text="id :" />
+      <Label layoutX="252.0" layoutY="95.0" text="nouveau nom de cabinet" />
+      <Label layoutX="252.0" layoutY="160.0" text="nouveau nom de cabinet :" />
+      <Label layoutX="252.0" layoutY="225.0" text="nouveau adresse :" />
+   </children>
+</AnchorPane>
