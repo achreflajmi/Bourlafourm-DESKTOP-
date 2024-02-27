@@ -88,10 +88,8 @@ public class ModifierProduitController implements Initializable {
             alert.showAndWait();
         }
         imgpathstring.setVisible(false);
-
-        ServiceProduit serviceProduit= new ServiceProduit();
-
         try {
+            ServiceProduit serviceProduit= new ServiceProduit();
             selectedProduit = serviceProduit.getProduitByProduitId(Produit.getFakeIdP());
             System.out.println(selectedProduit.getNom_prod());
             fillInputs(selectedProduit);
@@ -100,15 +98,13 @@ public class ModifierProduitController implements Initializable {
         }
 
 
-
-
     }
-
-    private void fillInputs(Produit produit) {
+    private void fillInputs(Produit produit){
         nom_prod.setText(produit.getNom_prod());
         description_prod.setText(produit.getDescription_prod());
-    }
 
+
+    }
     @FXML
     public void importImage() {
         FileChooser fileChooser = new FileChooser();

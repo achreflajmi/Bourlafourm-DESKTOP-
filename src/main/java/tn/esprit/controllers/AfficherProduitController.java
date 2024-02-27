@@ -1,6 +1,9 @@
 package tn.esprit.controllers;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.*;
+import javafx.util.Duration;
 import tn.esprit.service.ProduitListener;
 import tn.esprit.controllers.ItemController;
 import com.jfoenix.controls.JFXButton;
@@ -33,6 +36,7 @@ import java.util.ResourceBundle;
 import javafx.scene.control.ScrollPane;
 
 public class AfficherProduitController implements Initializable, ProduitListener {
+    private Timeline refreshTimeline;
 
     @FXML
     private AnchorPane AfficherProduitScene;
@@ -114,6 +118,30 @@ public class AfficherProduitController implements Initializable, ProduitListener
         System.out.println(produits);
         intitialisationProduitList();
 
+
+        refreshTimeline = new Timeline(new KeyFrame(Duration.seconds(5), event -> refreshPage()));
+        refreshTimeline.setCycleCount(Timeline.INDEFINITE);
+        refreshTimeline.play();
+
+    }
+    private void refreshPage() {
+        try {
+            // Retrieve the latest list of products from the database
+            produits = ps.recuperer();
+
+            // Clear the grid to remove existing products
+            grid.getChildren().clear();
+
+            // Initialize the list of products again
+            intitialisationProduitList();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Error occurred while retrieving products from the database.");
+            alert.showAndWait();
+        }
     }
 
     @Override
@@ -127,6 +155,8 @@ public class AfficherProduitController implements Initializable, ProduitListener
 
             FXMLLoader loader = new FXMLLoader(new File("C:/Users/User//IdeaProjects/GestionProduit/src/main/java/tn/esprit/resources/ModifierProduit.fxml").toURI().toURL());
             Parent root = loader.load();
+            ItemController itemCardController = loader.getController();
+            itemCardController.setData(produit);
             Stage stage = new Stage();
             stage.setTitle("Modifier la catégorie");
             //Image logo = new Image("logo.png");
