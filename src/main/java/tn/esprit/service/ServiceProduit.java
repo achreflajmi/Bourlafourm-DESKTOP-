@@ -60,7 +60,7 @@ public class ServiceProduit implements IService<Produit> {
     @Override
     public List<Produit> recuperer() throws SQLException {
         List<Produit> produits = new ArrayList<>();
-        String sql = "SELECT * FROM produit";
+        String sql ="Select * from produit";
         Statement statement = connection.createStatement();
         ResultSet rs = statement.executeQuery(sql);
         while (rs.next()) {
@@ -72,8 +72,8 @@ public class ServiceProduit implements IService<Produit> {
             p.setQuantite_prod(rs.getInt("quantite_prod"));
             p.setImage_prod(rs.getString("image_prod"));
             p.setId_categorie(rs.getInt("id_categorie"));
-            Categorie categorie =serviceCategorie.getById(p.getId_categorie());
-            p.setNomCategorie(categorie.getNom_categorie());
+          //  Categorie categorie =serviceCategorie.getById(p.getId_categorie());
+        //    p.setNomCategorie(categorie.getNom_categorie());
             produits.add(p);
         }
         return produits;
@@ -104,28 +104,28 @@ public class ServiceProduit implements IService<Produit> {
     public Categorie getCategorieByCategorieId(int CategorieId) throws SQLException {
         return null;
     }
-    @Override
-    public Produit getByIdP(int id) throws SQLException {
-        Produit produit = new Produit();
-        String sql ="Select * from produit where id_prod = ?";
-        PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setInt(1, id);
-
-        ResultSet resultSet = statement.executeQuery();
-        Produit prod = null;
-
-        if (resultSet.next()) {
-            int idProduit = resultSet.getInt("id_categorie");
-            String nom_prod = resultSet.getString("nom_prod");
-            Double prix_prod = (double)Integer.parseInt(resultSet.getString("prix_prod"));
-            String description_prod = resultSet.getString("description_prod");
-            int quantite_prod = Integer.parseInt(resultSet.getString("quantite_prod"));
-            String image_prod = resultSet.getString("image_prod");
-            int id_categorie = Integer.parseInt(resultSet.getString("id_categorie"));
-            prod = new Produit(id, nom_prod, prix_prod, description_prod, quantite_prod, image_prod, id_categorie);
-        }
-        return prod;
-    }
+//    @Override
+//    public Produit getByIdP(int id) throws SQLException {
+//        Produit produit = new Produit();
+//        String sql ="Select * from produit where id_prod = ?";
+//        PreparedStatement statement = connection.prepareStatement(sql);
+//        statement.setInt(1, id);
+//
+//        ResultSet resultSet = statement.executeQuery();
+//        Produit prod = null;
+//
+//        if (resultSet.next()) {
+//            int idProduit = resultSet.getInt("id_categorie");
+//            String nom_prod = resultSet.getString("nom_prod");
+//            Double prix_prod = (double)Integer.parseInt(resultSet.getString("prix_prod"));
+//            String description_prod = resultSet.getString("description_prod");
+//            int quantite_prod = Integer.parseInt(resultSet.getString("quantite_prod"));
+//            String image_prod = resultSet.getString("image_prod");
+//            int id_categorie = Integer.parseInt(resultSet.getString("id_categorie"));
+//            prod = new Produit(id, nom_prod, prix_prod, description_prod, quantite_prod, image_prod, id_categorie);
+//        }
+//        return prod;
+//    }
     public int fetchCategoryIdByName(String categoryName) throws SQLException {
 
         String query = "SELECT id_categorie FROM categorie WHERE nom_categorie = ?";
@@ -163,6 +163,10 @@ public class ServiceProduit implements IService<Produit> {
         return null;
     }
 
+    @Override
+    public Produit getByIdP(int id) throws SQLException {
+        return null;
+    }
 
 
 }

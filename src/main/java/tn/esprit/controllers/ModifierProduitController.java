@@ -91,12 +91,24 @@ public class ModifierProduitController implements Initializable {
 
         ServiceProduit serviceProduit= new ServiceProduit();
 
-//            selectedProduit = serviceProduit.getProduitByProduitId(Produit.getFakeIdP());
-//            //System.out.println(selectedProduit.getNom_prod());
-//            //fillInputs(selectedCategorie);
+        try {
+            selectedProduit = serviceProduit.getProduitByProduitId(Produit.getFakeIdP());
+            System.out.println(selectedProduit.getNom_prod());
+            fillInputs(selectedProduit);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+
 
 
     }
+
+    private void fillInputs(Produit produit) {
+        nom_prod.setText(produit.getNom_prod());
+        description_prod.setText(produit.getDescription_prod());
+    }
+
     @FXML
     public void importImage() {
         FileChooser fileChooser = new FileChooser();

@@ -116,7 +116,6 @@ public class AfficherProduitController implements Initializable, ProduitListener
 
     }
 
-
     @Override
     public void OnModifier(Produit produit) {
         produit.setFakeIdP(produit.getId_prod());
