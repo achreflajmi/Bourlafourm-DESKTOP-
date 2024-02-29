@@ -57,7 +57,7 @@ public class AfficherProduitController implements Initializable, ProduitListener
         int row = 0;
         try {
             for (Produit produit : produits) {
-                FXMLLoader loader = new FXMLLoader(new File("C:/Users/User//IdeaProjects/GestionProduit/src/main/java/tn/esprit/resources/item.fxml").toURI().toURL());
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/item.fxml"));
                 AnchorPane item = loader.load();
 
                 ItemController itemCardController = loader.getController();
@@ -88,7 +88,7 @@ public class AfficherProduitController implements Initializable, ProduitListener
     public void ajouterProduitOnClick(ActionEvent event) throws IOException {
         try {
 
-            FXMLLoader loader = new FXMLLoader(new File("C:/Users/User//IdeaProjects/GestionProduit/src/main/java/tn/esprit/resources/AjouterProduit.fxml").toURI().toURL());
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/AjouteProduit.fxml"));
             Parent root = loader.load();
             Stage stage = new Stage();
             stage.setTitle("Ajouter un produit");
@@ -153,7 +153,7 @@ public class AfficherProduitController implements Initializable, ProduitListener
 
         try {
 
-            FXMLLoader loader = new FXMLLoader(new File("C:/Users/User//IdeaProjects/GestionProduit/src/main/java/tn/esprit/resources/ModifierProduit.fxml").toURI().toURL());
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ModifierProduit.fxml"));
             Parent root = loader.load();
             ItemController itemCardController = loader.getController();
             itemCardController.setData(produit);
@@ -176,24 +176,7 @@ public class AfficherProduitController implements Initializable, ProduitListener
     }
 
 
-//    private void deleteProduitClicked(int productId) {
-//        try {
-//            ps.supprimer(productId);
-//            grid.getChildren().clear();
-//            initialize();
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//            Alert alert = new Alert(Alert.AlertType.ERROR);
-//            alert.setTitle("Delete Error");
-//            alert.setHeaderText(null);
-//            alert.setContentText("Error occurred while deleting the product.");
-//            alert.showAndWait();
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
-//
-//
+
 
 }
 

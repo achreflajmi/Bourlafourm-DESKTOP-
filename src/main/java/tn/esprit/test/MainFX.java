@@ -17,13 +17,13 @@ public static final String CURRENCY = "TND";
 
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(new File("C:/Users/User//IdeaProjects/GestionProduit/src/main/java/tn/esprit/resources/ModifierProduit.fxml").toURI().toURL());
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/AfficherPUser.fxml"));
 
         try {
             Parent root = loader.load();
             Scene scene = new Scene(root);
             stage.setTitle("Shop");
-            Image logo = new Image("C:/Users/User//IdeaProjects/GestionProduit/src/main/java/tn/esprit/resources/logo.png");
+            Image logo = new Image("file:///C:/Users/User/IdeaProjects/GestionProduit/src/main/java/tn/esprit/resources/logo.png");
             stage.getIcons().add(logo);
             stage.setWidth(1325);
             stage.setHeight(1080);
@@ -32,12 +32,11 @@ public static final String CURRENCY = "TND";
             stage.setFullScreenExitKeyCombination(KeyCombination.valueOf("f"));
             stage.setScene(scene);
             stage.show();
-
-        }catch (IOException e){
-            System.out.println(e.getMessage());
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-
     }
+
     public static void main(String[] args) {
         launch(args);
     }

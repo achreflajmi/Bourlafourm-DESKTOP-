@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -21,6 +22,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicBoolean;
 import tn.esprit.service.ProduitListener;
+import tn.esprit.service.ServiceProduit;
 
 public class ItemController implements Initializable {
 
@@ -61,7 +63,42 @@ public class ItemController implements Initializable {
         image_prod.setImage(image);
     }
 
+    @FXML
+    private void handleDeletion() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation Dialog");
+        alert.setHeaderText(null);
+        alert.setContentText("Are you sure you want to delete this product?");
 
+        // Show the confirmation dialog and wait for the user's response
+        alert.showAndWait().ifPresent(response -> {
+            if (response == ButtonType.OK) {
+                try {
+                    // Call the service method to delete the product from the database
+                    ServiceProduit serviceProduit = new ServiceProduit();
+                    serviceProduit.supprimer(produit.getId_prod());
+
+                    // Notify the user that the deletion was successful
+                    Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
+                    successAlert.setTitle("Deletion Successful");
+                    successAlert.setHeaderText(null);
+                    successAlert.setContentText("Product deleted successfully.");
+                    successAlert.showAndWait();
+
+                    // Close the current stage or window
+                    Stage stage = (Stage) Modifier.getScene().getWindow();
+                    stage.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                    Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+                    errorAlert.setTitle("Deletion Error");
+                    errorAlert.setHeaderText(null);
+                    errorAlert.setContentText("An error occurred while deleting the product.");
+                    errorAlert.showAndWait();
+                }
+            }
+        });
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -145,7 +182,7 @@ public class ItemController implements Initializable {
 private void handleModification() {
     try {
         // Load the FXML file for the modification window
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("C:/Users/User//IdeaProjects/GestionProduit/src/main/java/tn/esprit/resources/ModifierProduit.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/ModifierProduit.fxml"));
         Parent root = loader.load();
 
         // Access the controller of the modification window

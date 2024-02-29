@@ -26,21 +26,21 @@ public class ItemPanierController {
     public void setData(Panier panier) throws SQLException {
         this.panier = panier;
         System.out.println(panier);
-//        id_prod.setText(String.valueOf(panier.getId_prod()));
-//
-//        // Get the product associated with the panier item
-//        ServiceProduit serviceProduit = new ServiceProduit();
-//        Produit produit = serviceProduit.getProduitByProduitId(panier.getId_prod());
-//
-//        // Set the product name and price
-//        nom_prod.setText(produit.getNom_prod());
-//        prix_prod.setText(String.valueOf(produit.getPrix_prod()));
-//
-//        // Set the product image (if available)
-//        if (produit.getImage_prod() != null && !produit.getImage_prod().isEmpty()) {
-//            Image image = new Image(produit.getImage_prod());
-//            image_prod.setImage(image);
-//        }
+        id_prod.setText(String.valueOf(panier.getId_prod()));
+
+        // Get the product associated with the panier item
+        ServiceProduit serviceProduit = new ServiceProduit();
+        Produit produit = serviceProduit.getProduitByProduitId(panier.getId_prod());
+
+        // Set the product name and price
+        nom_prod.setText(produit.getNom_prod());
+        prix_prod.setText(String.valueOf(produit.getPrix_prod()));
+
+        // Set the product image (if available)
+        if (produit.getImage_prod() != null && !produit.getImage_prod().isEmpty()) {
+            Image image = new Image(produit.getImage_prod());
+            image_prod.setImage(image);
+        }
 
     }
 }

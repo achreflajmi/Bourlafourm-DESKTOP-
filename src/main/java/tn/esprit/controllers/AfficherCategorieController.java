@@ -130,7 +130,8 @@ public class AfficherCategorieController {
 
         try {
 
-            FXMLLoader loader = new FXMLLoader(new File("C:/Users/User//IdeaProjects/GestionProduit/src/main/java/tn/esprit/resources/ModifierCategorie.fxml").toURI().toURL());
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/AfficherCategorie.fxml"));
+
             Parent root = loader.load();
             Stage stage = new Stage();
             stage.setTitle("Modifier la catégorie");

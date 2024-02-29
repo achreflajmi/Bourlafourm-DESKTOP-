@@ -50,7 +50,7 @@ public class AfficherPUserController {
         int row = 0;
         try {
             for (Produit produit : produits) {
-                FXMLLoader loader = new FXMLLoader(new File("C:/Users/User//IdeaProjects/GestionProduit/src/main/java/tn/esprit/resources/itemPUser.fxml").toURI().toURL());
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/itemPUser.fxml"));
                 AnchorPane item = loader.load();
 
                 ItemPUserController itemCardController = loader.getController();
@@ -79,24 +79,6 @@ public class AfficherPUserController {
     }
 
 
-//    private void deleteProduitClicked(int productId) {
-//        try {
-//            ps.supprimer(productId);
-//            grid.getChildren().clear();
-//            initialize();
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//            Alert alert = new Alert(Alert.AlertType.ERROR);
-//            alert.setTitle("Delete Error");
-//            alert.setHeaderText(null);
-//            alert.setContentText("Error occurred while deleting the product.");
-//            alert.showAndWait();
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
-//
-//
 //    @FXML
 //    void modifierProduitClicked(ActionEvent event) {
 //        JFXButton modifierButton = (JFXButton) event.getSource();

@@ -40,7 +40,7 @@ public class AfficherPanierController implements Initializable {
         int row = 0;
         try {
             for (Panier panier : paniers) {
-                FXMLLoader loader = new FXMLLoader(new File("C:/Users/User/IdeaProjects/GestionProduit/src/main/java/tn/esprit/resources/itemPanier.fxml").toURI().toURL());
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/itemPanier.fxml"));
                 HBox item = loader.load();
 
                 // Declare and initialize the itemCard1Controller
