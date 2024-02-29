@@ -67,7 +67,10 @@ public class ItemPUserController implements Initializable {
     public void AddToBasket(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/AfficherPanier.fxml"));
-            Parent root = loader.load();
+            Parent root = loader.load(); // Load the FXML file
+            AfficherPanierController itemController = loader.getController(); // Get the controller instance
+            itemController.addItemToBasket(produit); // Call the method on the controller
+
             Stage stage = new Stage();
             stage.setTitle("Basket");
             stage.setScene(new Scene(root));
