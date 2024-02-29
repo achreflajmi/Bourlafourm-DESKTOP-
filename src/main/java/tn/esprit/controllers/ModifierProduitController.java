@@ -49,7 +49,7 @@ public class ModifierProduitController implements Initializable {
     private Produit selectedProduit;
 
     public void setProduit(Produit selectedProduit) {
-        System.out.println("initializeData called with category: " + selectedProduit);
+        System.out.println("initializeData called with product: " + selectedProduit);
         this.selectedProduit = selectedProduit;
         if (selectedProduit != null) {
             nom_prod.setText(selectedProduit.getNom_prod());
@@ -130,7 +130,7 @@ public class ModifierProduitController implements Initializable {
     }
 
 
-    @FXML
+   /* @FXML
     public void modifierProduit() {
         String path;
         imgpathstring.setText(imagePath.toString());
@@ -203,7 +203,7 @@ public class ModifierProduitController implements Initializable {
 //
 //
 //        }
-    }
+    }*/
 //    @FXML
 //    public void modifierCategorie(ActionEvent event) throws SQLException {
 //
@@ -228,4 +228,65 @@ public class ModifierProduitController implements Initializable {
         alert.setContentText(message);
         alert.showAndWait();
     }
+    @FXML
+    public void modifierProduit() {
+        String path;
+        imgpathstring.setText(imagePath.toString());
+
+        path = imgpathstring.getText();
+        try {
+            if (nom_prod.getText().isEmpty() || prix_prod.getText().isEmpty() || description_prod.getText().isEmpty()
+                    || quantite_prod.getText().isEmpty() || imagePath == null || categorieComboBox.getValue() == null) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Warning");
+                alert.setContentText("Please fill in all the fields.");
+                alert.showAndWait();
+                return;
+
+            }
+
+            double prix;
+            int quantite;
+
+            try {
+                prix = Double.parseDouble(prix_prod.getText());
+                quantite = Integer.parseInt(quantite_prod.getText());
+            } catch (NumberFormatException e) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Warning");
+                alert.setContentText("Please enter valid values for price and quantity.");
+                alert.showAndWait();
+                return;
+            }
+
+            if (prix <= 0 || quantite <= 0) {
+                // Le prix et la quantité doivent être supérieurs à zéro
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Warning");
+                alert.setContentText("Price and quantity must be greater than zero.");
+                alert.showAndWait();
+                return;
+            }
+
+            String selectedCategoryName = categorieComboBox.getValue();
+            int categoryId = ps.fetchCategoryIdByName(selectedCategoryName);
+            Produit produit = new Produit(
+                    selectedProduit.getId_prod(),
+                    nom_prod.getText(),
+                    prix,
+                    description_prod.getText(),
+                    quantite,
+                    path,
+                    categoryId
+            );
+            ServiceProduit ps = new ServiceProduit();
+            ps.modifier(produit);
+        } catch (SQLException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
+        }
+    }
+
 }

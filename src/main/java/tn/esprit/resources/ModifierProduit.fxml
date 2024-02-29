@@ -14,7 +14,7 @@
     <children>
         <AnchorPane layoutX="500.0" prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: #262626;">
             <children>
-                <JFXTextField fx:id="nom_prod" focusColor="WHITE" labelFloat="true" layoutX="53.0" layoutY="150.0" onAction="#importImage" prefHeight="35.0" prefWidth="395.0" promptText="Nom du produit" unFocusColor="#008152">
+                <JFXTextField fx:id="nom_prod" focusColor="WHITE" labelFloat="true" layoutX="53.0" layoutY="150.0" prefHeight="35.0" prefWidth="395.0" promptText="Nom du produit" unFocusColor="#008152">
                     <opaqueInsets>
                         <Insets top="100.0" />
                     </opaqueInsets>

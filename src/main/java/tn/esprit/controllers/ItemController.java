@@ -141,5 +141,34 @@ public class ItemController implements Initializable {
 //            alert.showAndWait();
 //        }
 //    }
+@FXML
+private void handleModification() {
+    try {
+        // Load the FXML file for the modification window
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("C:/Users/User//IdeaProjects/GestionProduit/src/main/java/tn/esprit/resources/ModifierProduit.fxml"));
+        Parent root = loader.load();
+
+        // Access the controller of the modification window
+        ModifierProduitController modifierController = loader.getController();
+        modifierController.setProduit(produit);
+
+        // Set up a new stage to display the modification window
+        Stage stage = new Stage();
+        stage.setTitle("Modifier le produit");
+        stage.setScene(new Scene(root));
+
+        // Show the modification window
+        stage.show();
+    } catch (IOException e) {
+        e.printStackTrace();
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText(null);
+        alert.setContentText("Error occurred while loading the product modification window.");
+        alert.showAndWait();
+    }
+}
+
+
 
 }

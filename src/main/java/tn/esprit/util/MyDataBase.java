@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class MyDataBase {
-    private final String URL = "jdbc:mysql://localhost:3306/gestion_produit";
+    private final String URL = "jdbc:mysql://localhost:3306/gestionProduit";
     private final String USER = "root";
     private final String PSW = "";
     private Connection connection;

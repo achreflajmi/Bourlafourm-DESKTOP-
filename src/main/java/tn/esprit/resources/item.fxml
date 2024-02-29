@@ -73,7 +73,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="62.0" prefWidth="422.0">
                <children>
-                  <JFXButton fx:id="Modifier" buttonType="RAISED" onAction="#handlemodif" prefHeight="9.0" prefWidth="86.0" style="-fx-background-color: #008152;" text="Edit" textFill="WHITE">
+                  <JFXButton fx:id="Modifier" buttonType="RAISED" onAction="#handleModification" prefHeight="9.0" prefWidth="86.0" style="-fx-background-color: #008152;" text="Edit" textFill="WHITE">
                      <font>
                         <Font size="17.0" />
                      </font>
