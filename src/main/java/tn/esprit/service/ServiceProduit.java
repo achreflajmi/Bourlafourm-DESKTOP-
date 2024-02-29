@@ -12,9 +12,16 @@ import java.util.List;
 public class ServiceProduit implements IService<Produit> {
     private Connection connection;
     private final ServiceCategorie serviceCategorie = new ServiceCategorie();
+    private static ServiceProduit instance;
 
     public ServiceProduit() {
         connection = MyDataBase.getInstance().getConnection();
+    }
+
+    public static ServiceProduit getInstance() throws SQLException{
+        if(instance==null)
+            instance=new ServiceProduit();
+        return instance;
     }
 
     @Override
