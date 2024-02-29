@@ -12,31 +12,51 @@ public class User {
     private boolean disponibilte_conseiller;
     private Role_user role_user ;
 
-    public User() {
-    }
-
-
-    public User( String nom_user, String prenom_user, String email_user, String password_user, boolean disponibilite_conseiller, Role_user rolee , double poids_sportif, double taille_sportif) {
-        this.id_user = id_user;
+    public User(String nom_user, String prenom_user, String email_user, String password_user, Double poids_sportif, Double taille_sportif, boolean disponibilte_conseiller, Role_user role_user) {
         this.nom_user = nom_user;
         this.prenom_user = prenom_user;
         this.email_user = email_user;
         this.password_user = password_user;
-        this.role_user = rolee;
-        this.disponibilte_conseiller=disponibilite_conseiller;
         this.poids_sportif = poids_sportif;
         this.taille_sportif = taille_sportif;
+        this.disponibilte_conseiller = disponibilte_conseiller;
+        this.role_user = role_user;
     }
-    public User( String nom_user, String prenom_user, String email_user, String password_user, boolean disponibilite_conseiller, Role_user rolee ) {
+
+    public User(int id_user, String nom_user, String prenom_user, String email_user, String password_user, Double poids_sportif, Double taille_sportif, boolean disponibilte_conseiller, Role_user role_user) {
         this.id_user = id_user;
         this.nom_user = nom_user;
         this.prenom_user = prenom_user;
         this.email_user = email_user;
         this.password_user = password_user;
-        this.role_user = rolee;
-        this.disponibilte_conseiller=disponibilite_conseiller;
+        this.poids_sportif = poids_sportif;
+        this.taille_sportif = taille_sportif;
+        this.disponibilte_conseiller = disponibilte_conseiller;
+        this.role_user = role_user;
+    }
+    public User( String nom_user, String prenom_user, String email_user, String password_user, boolean disponibilte_conseiller, Role_user role_user) {
+        this.nom_user = nom_user;
+        this.prenom_user = prenom_user;
+        this.email_user = email_user;
+        this.password_user = password_user;
+        this.disponibilte_conseiller = disponibilte_conseiller;
+        this.role_user = role_user;
+    }
+    public User(int id_user, String nom_user, String prenom_user, String email_user, String password_user, boolean disponibilte_conseiller, Role_user role_user) {
+        this.id_user = id_user;
+        this.nom_user = nom_user;
+        this.prenom_user = prenom_user;
+        this.email_user = email_user;
+        this.password_user = password_user;
+        this.disponibilte_conseiller = disponibilte_conseiller;
+        this.role_user = role_user;
+    }
+
+    public User() {
 
     }
+
+
 /*
     public User(String nom_user, String prenom_user, String email_user, String password_user, boolean disponibilite_conseiller, Role_user rolee, double poids_sportif, double taille_sportif) {
         this.nom_user = nom_user;
@@ -145,5 +165,8 @@ public class User {
                 ", disponibilte_conseiller=" + disponibilte_conseiller +
                 ", role_user=" + role_user +
                 '}';
+    }
+
+    public void setPoids_user(double poidsUser) {
     }
 }

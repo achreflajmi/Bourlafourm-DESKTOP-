@@ -8,7 +8,6 @@ import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Objects;
 
 public class MainFx extends Application {
 
@@ -19,20 +18,20 @@ public class MainFx extends Application {
 
     @Override
 
-    public void start(Stage primaryStage) {
-        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("/Signup.fxml"));
+    public void start(Stage primaryStage) throws IOException {
+        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("/LoginForm.fxml"));
         try{
             Parent root = fxmlloader.load();
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
-            primaryStage.setTitle("Add User");
+            primaryStage.setTitle("Ajouter Sportif");
             primaryStage.show();
         }
         catch (IOException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setContentText(e.getMessage());
-            //alert.showAndWait();
+            alert.showAndWait();
             System.out.println(e.getMessage());
         }
 
