@@ -1,5 +1,8 @@
 package org.example.controllers;
+import animatefx.animation.FadeIn;
 import com.jfoenix.controls.JFXButton;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,6 +17,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -24,6 +28,8 @@ import java.io.*;
 import java.net.URL;
 import java.sql.*;
 import java.time.LocalDate;
+import java.time.chrono.ChronoLocalDate;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import static java.sql.Date.valueOf;
@@ -31,6 +37,9 @@ import static java.sql.Date.valueOf;
 public class AjoutEventController implements Initializable {
     @FXML
     private Pane AjoutEvenement;
+
+    @FXML
+    private AnchorPane Ajouter_Pane;
 
     @FXML
     private JFXButton Ajouter;
@@ -100,6 +109,7 @@ public class AjoutEventController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        Image.setImage(new Image("file:///C:/Users/melek/IdeaProjects/BourLaFourme/src/main/resources/Icons/noImage.png"));
     }
     private final ServiceEvent se = new ServiceEvent();
 
@@ -113,25 +123,71 @@ public class AjoutEventController implements Initializable {
 
     int EventId;
 
-    String s;
+    String s = "file:///C:/Users/melek/IdeaProjects/BourLaFourme/src/main/resources/Icons/noImage.png"  ;
     String p;
+
+    //String K = pa
 
     @FXML
     void ajout_evenement(ActionEvent event) throws SQLException, ClassNotFoundException {
+        ChronoLocalDate today = LocalDate.now();
+        System.out.println(today);
+
         try {
-            if ( NomEvent.getText().isEmpty() || Organisateur.getText().isEmpty() || Type.getText().isEmpty()) {
+            if (NomEvent.getText().isEmpty()) {
                 Alert alerte = new Alert(Alert.AlertType.WARNING);
                 alerte.setTitle("Warning");
-                alerte.setContentText("Chmps vide");
+                alerte.setContentText("Veuillez saisir un nom d'événement.");
                 alerte.show();
+
+            } else if (Organisateur.getText().isEmpty()) {
+                Alert alerte = new Alert(Alert.AlertType.WARNING);
+                alerte.setTitle("Warning");
+                alerte.setContentText("Veuillez saisir le nom de l'organisateur.");
+                alerte.show();
+
+            } else if (!isValidPositiveInteger(Capacite.getText()) || Capacite.getText().isEmpty()) {
+                Alert alerte = new Alert(Alert.AlertType.WARNING);
+                alerte.setTitle("Warning");
+                alerte.setContentText("Veuillez saisir une capacité valide ");
+                alerte.show();
+
                 //JOptionPane.showMessageDialog(null, "champ vide ");
+            } else if (Type.getText().isEmpty()) {
+                Alert alerte = new Alert(Alert.AlertType.WARNING);
+                alerte.setTitle("Warning");
+                alerte.setContentText("Veuillez saisir le type de l'événement.");
+                alerte.show();
+
+            }
+            else if (Date_deb.getValue() == null || Date_fin.getValue() == null ) {
+                Alert alerte = new Alert(Alert.AlertType.WARNING);
+                alerte.setTitle("Warning");
+                alerte.setContentText("Veuillez Saisir les dates");
+                alerte.show();
+
+            }
+            else if (Date_deb.getValue().isBefore(today) || Date_fin.getValue().isBefore(today) ) {
+                Alert alerte = new Alert(Alert.AlertType.WARNING);
+                alerte.setTitle("Warning");
+                alerte.setContentText("Veuillez Saisir des dates dès la date d'aujourd'hui");
+                alerte.show();
+
+            }
+            else if (Date_deb.getValue().isAfter(Date_fin.getValue())) {
+                Alert alerte = new Alert(Alert.AlertType.WARNING);
+                alerte.setTitle("Warning");
+                alerte.setContentText("La date de début ne peut pas être après la date de fin.");
+                alerte.show();
+
             } else {
 
                 if (update == true) {
 
+
                     se.modifier(new Event(Idev, (NomEvent.getText()), Type.getText(), Organisateur.getText(), valueOf(Date_deb.getValue()), valueOf(Date_fin.getValue()), Integer.valueOf(Capacite.getText()), null, s));
                     FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("/views/ListEvent.fxml"));
+                    loader.setLocation(getClass().getResource("/views/ListEvent2.fxml"));
                     try {
                         Parent parent = loader.load();
                         Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -141,10 +197,10 @@ public class AjoutEventController implements Initializable {
                     }
                 }else {
 
-                    InputStream ig = new FileInputStream(new File(p));
+                   // InputStream ig = new FileInputStream(new File(p));
                     se.ajouter(new Event((NomEvent.getText()), Type.getText(), Organisateur.getText(), valueOf(Date_deb.getValue()), valueOf(Date_fin.getValue()), Integer.parseInt(Capacite.getText()), null, s));
                     FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("/views/ListEvent.fxml"));
+                    loader.setLocation(getClass().getResource("/views/ListEvent2.fxml"));
                     Parent parent = loader.load();
                     Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     currentStage.setScene(new Scene(parent));
@@ -152,7 +208,7 @@ public class AjoutEventController implements Initializable {
                     Organisateur.setText("");
                     Type.setText("");
                     Capacite.setText("");
-                    Image.setImage(new Image("file:///C:/Users/melek/IdeaProjects/BourLaFourme/src/main/resources/Icons/Unimage.png"));
+                    Image.setImage(new Image("file:///C:/Users/melek/IdeaProjects/BourLaFourme/src/main/resources/Icons/noImage.png"));
                 }
 
             }
@@ -165,20 +221,27 @@ public class AjoutEventController implements Initializable {
         }
     }
 
+    private boolean isValidPositiveInteger(String input) {
+        try {
+            int value = Integer.parseInt(input);
+            return value > 0; // Ensure it's a positive integer
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
     @FXML
     void reset(ActionEvent event) {
-
-
         NomEvent.setText("");
         Organisateur.setText("");
         Type.setText("");
         Capacite.setText("");
-        Image.setImage(new Image("file:///C:/Users/melek/IdeaProjects/BourLaFourme/src/main/resources/Icons/Unimage.png"));
+        Image.setImage(new Image("file:///C:/Users/melek/IdeaProjects/BourLaFourme/src/main/resources/Icons/noImage.png"));
 
     }
 
     @FXML
-    void RecupererImage(ActionEvent event) {
+    void RecupererImage(ActionEvent event) throws SQLException {
         FileChooser fileChooser = new FileChooser();
         File f = fileChooser.showOpenDialog(null);
 
@@ -189,12 +252,32 @@ public class AjoutEventController implements Initializable {
             Image.setImage(new Image("file:///"+path));
             s = "file:///"+path;
             p = f.getAbsolutePath();
+        }else {
+            List<Event> Events = se.afficher();
+            ObservableList<Event> observableList = FXCollections.observableList(Events);
+
+            int i = 0;
+            boolean conditionMet = false;
+            Event evinfo = new Event();
+
+
+            while (i < observableList.size() && !conditionMet) {
+                if (observableList.get(i).getIdEvent()==Idev) {
+                    conditionMet = true;
+                    evinfo = observableList.get(i);
+                }
+                i++;
+            }
+            System.out.println("Voici "+evinfo);
+
+            s = evinfo.getPath();
+
         }
 
     }
 
     int Idev;
-    void setTextField(String nomEvent, String type,String organisateur,  int capacite,  java.util.Date date_deb, java.util.Date date_fin, int idEvent) {
+    void setTextField(String nomEvent, String type,String organisateur,  int capacite,  java.util.Date date_deb, java.util.Date date_fin, int idEvent , String pathrecupere) {
 
         Idev = idEvent;
         NomEvent.setText(nomEvent);
@@ -203,8 +286,14 @@ public class AjoutEventController implements Initializable {
         Type.setText(type);
         Date_deb.setValue(valueOf(String.valueOf(date_deb)).toLocalDate());
         Date_fin.setValue(valueOf(String.valueOf(date_fin)).toLocalDate());
-
+        Image.setImage(new Image(pathrecupere));
+        System.out.println("voici image"+"file:///"+pathrecupere);
     }
+
+
+
+
+
 
     void setUpdate(boolean b) {
         this.update = b;
@@ -215,7 +304,7 @@ public class AjoutEventController implements Initializable {
     @FXML
     void RetournerAJout(MouseEvent event) {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/views/ListEvent.fxml"));
+        loader.setLocation(getClass().getResource("/views/ListEvent2.fxml"));
         try {
             Parent parent = loader.load();
 

@@ -1,6 +1,7 @@
 package org.example.controllers;
 
 
+import animatefx.animation.FadeIn;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,7 +21,9 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import org.example.entities.Event;
+import org.example.entities.Reservation;
 import org.example.services.ServiceEvent;
+import org.example.services.ServiceReservation;
 import org.example.util.MyDataBase;
 
 import java.io.IOException;
@@ -90,6 +93,18 @@ public class AfficherEventFront implements Initializable {
     @FXML
     private Pane pnlStatus;
 
+    @FXML
+    private AnchorPane Event_Front;
+
+    @FXML
+    private GridPane MesEvenements_GridPane;
+
+    @FXML
+    private ScrollPane MesEvenements_ScrollPane;
+
+    @FXML
+    private AnchorPane Mes_Event_Front;
+
     private Connection connection;
 
     public void ServiceEvent(){
@@ -106,42 +121,42 @@ public class AfficherEventFront implements Initializable {
 
     }
 
-        public void MenuDisplayCarte() throws SQLException, IOException {
-            List<Event> Events = se.afficher();
-            ObservableList<Event> observableList = FXCollections.observableList(Events);
+    public void MenuDisplayCarte() throws SQLException, IOException {
+        List<Event> Events = se.afficher();
+        ObservableList<Event> observableList = FXCollections.observableList(Events);
 
 
-            System.out.println(observableList);
-            //carteList.clear();
-            //carteList.addAll(observableList);
+        System.out.println(observableList);
+        //carteList.clear();
+        //carteList.addAll(observableList);
 
 
-            int row=0;
-            int column=0;
+        int row=0;
+        int column=0;
 
-            event_grip.getRowConstraints().clear();
-            event_grip.getColumnConstraints().clear();
-
-
-
-            for (int q=0; q<observableList.size();q++)
-            {
-                FXMLLoader load = new FXMLLoader();
-                load.setLocation(getClass().getResource("/views/CarteEvent.fxml"));
-                AnchorPane pane = load.load();
-                //Event event = load.getController();
-                CarteEventController cardE=load.getController();
-                cardE.setEvent(observableList.get(q));
-                if (column==4){
-                    column=0;
-                    row+=1;
-                }
-                event_grip.add(pane,column++,row);
-                GridPane.setMargin(pane,new Insets(16));
+        event_grip.getRowConstraints().clear();
+        event_grip.getColumnConstraints().clear();
 
 
+
+        for (int q=0; q<observableList.size();q++)
+        {
+            FXMLLoader load = new FXMLLoader();
+            load.setLocation(getClass().getResource("/views/CarteEvent.fxml"));
+            AnchorPane pane = load.load();
+            //Event event = load.getController();
+            CarteEventController cardE=load.getController();
+            cardE.setEvent(observableList.get(q));
+            if (column==2){
+                column=0;
+                row+=1;
             }
+            event_grip.add(pane,column++,row);
+            GridPane.setMargin(pane,new Insets(16));
+
+
         }
+    }
 
 
 
@@ -163,10 +178,61 @@ public class AfficherEventFront implements Initializable {
 
     }
 
+    @FXML
+    void toEventFront(ActionEvent event) {
+        Event_Front.toFront();
+        new FadeIn(Event_Front).play();
+
+    }
+
+    @FXML
+    void toMesEvenementsFront(ActionEvent event) {
+        Mes_Event_Front.toFront();
+        new FadeIn(Mes_Event_Front).play();
+
+    }
+
+    ServiceReservation sr = new ServiceReservation();
+    public void MesafficherReservation() throws IOException, SQLException {
+        List<Reservation> Reservations = sr.afficher();
+        ObservableList<Reservation> observableList = FXCollections.observableList(Reservations);
+
+        //carteList.clear();
+        //carteList.addAll(observableList);
+
+
+        int row = 0;
+        int column = 0;
+
+        MesEvenements_GridPane.getRowConstraints().clear();
+        MesEvenements_GridPane.getColumnConstraints().clear();
+
+
+        for (int q = 0; q < observableList.size(); q++) {
+            FXMLLoader load = new FXMLLoader();
+            load.setLocation(getClass().getResource("/views/ListDesReservations.fxml"));
+            AnchorPane pane = load.load();
+            //Event event = load.getController();
+            ListDesReservationsController cardE = load.getController();
+            cardE.setReservation(observableList.get(q));
+            if (column == 2) {
+                column = 0;
+                row += 1;
+            }
+            MesEvenements_GridPane.add(pane, column++, row);
+            MesEvenements_GridPane.setMargin(pane, new Insets(16));
+
+
+        }
+    }
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             MenuDisplayCarte();
+            MesafficherReservation();
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
