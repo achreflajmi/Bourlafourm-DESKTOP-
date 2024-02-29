@@ -65,5 +65,14 @@ public class Exercice {
         this.nbr_rep = nbr_rep;
     }
 
-
+    @Override
+    public String toString() {
+        return "Exercice{" +
+                "id=" + id +
+                ", nom='" + nom + '\'' +
+                ", description='" + description + '\'' +
+                ", image='" + image + '\'' +
+                ", nbr_rep=" + nbr_rep +
+                '}';
+    }
 }

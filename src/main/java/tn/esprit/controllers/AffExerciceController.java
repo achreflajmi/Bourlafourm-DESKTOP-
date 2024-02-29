@@ -36,6 +36,7 @@ public class AffExerciceController {
 
             //FXMLLoader loader = new FXMLLoader(getClass().getResource("/AffExercice.fxml"));
             //Parent root = loader.load();
+           /*
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Exercice.fxml"));
             Parent exerciceBox= fxmlLoader.load();
             ExerciceController ec = fxmlLoader.getController();
@@ -48,6 +49,7 @@ public class AffExerciceController {
 
             exerciceContainer.add(exerciceBox, column++,row);
             GridPane.setMargin(exerciceBox,new Insets(10));
+            */
         }
     }
 

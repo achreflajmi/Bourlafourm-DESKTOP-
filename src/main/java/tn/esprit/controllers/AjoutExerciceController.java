@@ -80,7 +80,7 @@ public class AjoutExerciceController {
                 throw new IllegalArgumentException("Invalid input. Special characters are not allowed.");
             }
 
-            // Other input validations can be added as needed
+
 
             String path1;
             path.setText(imgpath.toString());

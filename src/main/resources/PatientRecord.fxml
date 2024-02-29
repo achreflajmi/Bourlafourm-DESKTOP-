@@ -78,30 +78,30 @@
                <children>
                    <VBox fx:id="gridPane" prefHeight="161.0" prefWidth="401.0" style="-fx-border-color: #C7DDC5; -fx-border-radius: 29;">
                        <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                        <Text fill="DARKSEAGREEN" strokeType="OUTSIDE" strokeWidth="0.0" text="EXPLICATION OF EXXERCICES">
                            <VBox.margin>
                               <Insets left="30.0" top="30.0" />
                            </VBox.margin>
                         </Text>
-                        <Label fx:id="nameLabel" text="Label">
+                        <Label fx:id="nameLabel" text="Label" textFill="WHITE">
                            <padding>
                               <Insets left="30.0" top="51.0" />
                            </padding>
                         </Label>
-                        <Label fx:id="descLabel" text="Label">
+                        <Label fx:id="descLabel" text="Label" textFill="WHITE">
                            <padding>
                               <Insets left="30.0" />
                            </padding>
                         </Label>
-                        <Label fx:id="nbrLabel" text="Label">
+                        <Label fx:id="nbrLabel" text="Label" textFill="WHITE">
                            <padding>
                               <Insets left="30.0" />
                            </padding>
                         </Label>
-                        <ImageView fx:id="imageView" fitHeight="270.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-                        <Button fx:id="upeBT" mnemonicParsing="false" onAction="#UpdateExercice" text="Update">
+                        <ImageView fx:id="imageViewl" fitHeight="128.0" fitWidth="173.0" pickOnBounds="true" preserveRatio="true" />
+                        <Button fx:id="upeBT" mnemonicParsing="false" onAction="#UpdateExercice" style="-fx-background-color: #008152;" text="Update" textFill="WHITE">
                            <VBox.margin>
-                              <Insets left="350.0" />
+                              <Insets left="350.0" top="100.0" />
                            </VBox.margin>
                         </Button>
                      </children>
@@ -228,9 +228,9 @@
                 </VBox>
                </children>
             </GridPane>
-            <Button fx:id="dietBT" layoutX="59.0" layoutY="807.0" mnemonicParsing="false" onAction="#AjoutRegime" text="Diet" />
-            <Button fx:id="detailsBT" layoutX="353.0" layoutY="807.0" mnemonicParsing="false" onAction="#AjoutCoord" text="Details" />
-            <Button fx:id="sportBT" layoutX="645.0" layoutY="807.0" mnemonicParsing="false" onAction="#AjoutExercice" text="Sport" />
+            <Button fx:id="dietBT" layoutX="59.0" layoutY="807.0" mnemonicParsing="false" onAction="#AjoutRegime" style="-fx-background-color: #008152;" text="Diet" textFill="WHITE" />
+            <Button fx:id="detailsBT" layoutX="353.0" layoutY="807.0" mnemonicParsing="false" onAction="#AjoutCoord" style="-fx-background-color: #008152;" text="Details" textFill="WHITE" />
+            <Button fx:id="sportBT" layoutX="645.0" layoutY="807.0" mnemonicParsing="false" onAction="#AjoutExercice" style="-fx-background-color: #008152;" text="Sport" textFill="WHITE" />
     </children>
 
 </AnchorPane>

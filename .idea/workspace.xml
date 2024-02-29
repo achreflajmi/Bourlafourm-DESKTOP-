@@ -12,13 +12,16 @@
       <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/controllers/AddExerciceController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/controllers/AffController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/controllers/AffExerciceController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/controllers/AfficherController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/controllers/AjoutCoordController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/controllers/AjoutExerciceController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/controllers/AjoutRegimeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/controllers/ControllerExercice.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/controllers/ExerciceController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/controllers/ExerciceItemController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/controllers/UpDateRegimeController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/controllers/UpdateExerciceController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/controllers/UpdateFormController.java" afterDir="false" />
@@ -33,6 +36,7 @@
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/test/Main.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/test/MainFx.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/util/MyDataBase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/AddExercice.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/AffExercice.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/Afficher.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/AjoutCoord.fxml" afterDir="false" />
@@ -40,11 +44,12 @@
       <change afterPath="$PROJECT_DIR$/src/main/resources/AjoutR.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/AjoutRegime.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/CoordLayout.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Exercice.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/PatientRecord.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/UpDateRegime.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/UpdateExercice.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/UpdateForm.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/exercice.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/exercise_item.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/test.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,8 +63,8 @@
         <option value="module-info" />
         <option value="Interface" />
         <option value="Enum" />
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -80,16 +85,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/ADMIN/Downloads/GestionProduit (2)/GestionProduit"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ADMIN/Downloads/GestionProduit (2)/GestionProduit&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="tn.esprit.controllers" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\ADMIN\Desktop\Try\src\main\resources" />
     </key>
@@ -143,6 +151,10 @@
       <workItem from="1708760009815" duration="15640000" />
       <workItem from="1708782466671" duration="17461000" />
       <workItem from="1708859542472" duration="57353000" />
+      <workItem from="1709018823168" duration="9187000" />
+      <workItem from="1709131638365" duration="4613000" />
+      <workItem from="1709138042326" duration="1496000" />
+      <workItem from="1709139578819" duration="29000" />
     </task>
     <servers />
   </component>

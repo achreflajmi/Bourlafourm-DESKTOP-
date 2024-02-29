@@ -1,5 +1,7 @@
 package tn.esprit.controllers;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,6 +14,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import tn.esprit.entities.Coord;
 import tn.esprit.entities.Exercice;
 import tn.esprit.entities.Regime;
@@ -24,6 +27,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class AffController {
+
     @FXML
     private Button upeBT;
     @FXML
@@ -76,50 +80,51 @@ public class AffController {
     @FXML
     private Label nbrLabel;
     @FXML
-    private ImageView imageView;
-    GridPane gridPane = new GridPane();
-    private ServiceCoord serviceCoord;
-    private ServiceRegime serviceRegime;
-    private ServiceExercice serviceExercice;
+    private ImageView imageViewl;
+    private final int refreshIntervalInSeconds = 5; // Refresh every 5 seconds
+    private Timeline refreshTimeline;
 
-
-    public void initialize() {
+    public void initialize() throws SQLException {
         serviceCoord = new ServiceCoord();
         serviceRegime = new ServiceRegime();
         serviceExercice = new ServiceExercice();
 
         afficherCoordonneesParId(1);
         afficherRegimeParId(1);
-        afficherExercice();
+        afficherParIdExercice(1);
+
+        // Set up the refresh timeline
+        setupRefreshTimeline();
     }
+    private ServiceCoord serviceCoord;
+    private ServiceRegime serviceRegime;
+    private ServiceExercice serviceExercice;
+
+
+
 
     //----------------------  Affichage  --------------------------------
-    private void afficherExercice() {
-        try {
-            List<Exercice> exercices = serviceExercice.afficher();
+
+    private void afficherParIdExercice(int id) throws SQLException {
+
+            Exercice exercices = serviceExercice.getExerciceById(id);
+        if (exercices != null) {
 
 
-            gridPane.getChildren().clear();
+            nameLabel.setText("Nom: " + exercices.getNom());
+            descLabel.setText("Description: " + exercices.getDescription());
+            nbrLabel.setText("nbr repitition: " + exercices.getNbr_rep());
+            Image image = new Image(exercices.getImage());
 
+           imageViewl.setImage(image);
 
-            int row = 0;
-            for (Exercice exercice : exercices) {
-                Label nameLabel = new Label(exercice.getNom());
-                Label descLabel = new Label(exercice.getDescription());
-                Label nbrLabel = new Label(String.valueOf(exercice.getNbr_rep()));
-                ImageView imageView = new ImageView(new Image(exercice.getImage()));
-                gridPane.add(nameLabel, 0, row);
-                gridPane.add(imageView, 1, row);
-                gridPane.add(descLabel, 2, row);
-                gridPane.add(nbrLabel, 3, row);
-
-                row++;
-            }
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
         }
+
+
+
+
     }
+
 
 
     private void afficherRegimeParId(int id) {
@@ -191,6 +196,10 @@ public class AffController {
         }
 
     }
+
+
+    //----------------------  Ajout  --------------------------------
+
     @FXML
     void AjoutExercice(ActionEvent event) {
         try {
@@ -243,8 +252,28 @@ public class AffController {
             e.printStackTrace();
         }
     }
+    private void setupRefreshTimeline() {
+        refreshTimeline = new Timeline(new KeyFrame(Duration.seconds(refreshIntervalInSeconds), this::refreshData));
+        refreshTimeline.setCycleCount(Timeline.INDEFINITE);
+        refreshTimeline.play();
+    }
 
+    private void refreshData(ActionEvent event) {
+        try {
+            // Refresh your data here
+            afficherCoordonneesParId(1);
+            afficherRegimeParId(1);
+            afficherParIdExercice(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
+    // ... (existing code)
 
+    // Don't forget to stop the timeline when the controller is no longer needed (e.g., on window close)
+    public void stopRefreshTimeline() {
+        refreshTimeline.stop();
+    }
 
 }

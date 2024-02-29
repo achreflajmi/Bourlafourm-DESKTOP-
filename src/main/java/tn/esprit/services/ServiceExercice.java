@@ -106,42 +106,38 @@ public class ServiceExercice implements IService<Exercice> {
         }
     }
 
-    private Exercice getExerciceById(int id) {
+    public Exercice getExerciceById(int id) throws SQLException {
         String sql = "SELECT * FROM exercices WHERE id=?";
-        PreparedStatement preparedStatement = null;
-        try {
-            preparedStatement = connection.prepareStatement(sql);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        try {
-            preparedStatement.setInt(1, id);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1, id);
+        ResultSet rs = preparedStatement.executeQuery();
 
-        ResultSet rs = null;
-        try {
-            rs = preparedStatement.executeQuery();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+
+        if (rs.next()) {
+            Exercice c = new Exercice();
+            c.setId(rs.getInt("id"));
+            c.setNom(rs.getString("nom"));
+            c.setDescription(rs.getString("description"));
+            c.setImage(rs.getString("image"));
+            c.setNbr_rep(rs.getInt("nbr_rep"));
+
+            return c;
+        } else {
+            return null;
         }
+    }
+        public void afficherExercicesParId(int id) throws SQLException {
+            Exercice exercices = getExerciceById(id);
 
-        try {
-            if (rs.next()) {
-                Exercice c = new Exercice();
-                c.setId(rs.getInt("id"));
-                c.setNom(rs.getString("nom"));
-                c.setDescription(rs.getString("description"));
-                c.setImage(rs.getString("image"));
-                c.setNbr_rep(rs.getInt("nbr_rep"));
-
-                return c;
+            if (exercices != null) {
+                System.out.println("Exercices pour l'ID " + id + ":");
+                System.out.println("Nom: " + exercices.getNom());
+                System.out.println("Description: " + exercices.getDescription());
+                System.out.println("Nbr repetition: " + exercices.getNbr_rep());
+                System.out.println("Image: " + exercices.getImage());
             } else {
-                return null;
+                System.out.println("Aucune exercice trouvée pour l'ID " + id);
             }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+
     }
 }

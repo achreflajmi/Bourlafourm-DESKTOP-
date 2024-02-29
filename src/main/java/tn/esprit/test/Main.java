@@ -4,6 +4,7 @@ import tn.esprit.entities.Coord;
 import tn.esprit.entities.Regime;
 import tn.esprit.entities.Sexe;
 import tn.esprit.services.ServiceCoord;
+import tn.esprit.services.ServiceExercice;
 import tn.esprit.services.ServiceRegime;
 
 import java.sql.SQLException;
@@ -11,6 +12,7 @@ import java.sql.SQLException;
 public class Main {
     public static void main(String[] args) {
         ServiceRegime sr = new ServiceRegime();
+        ServiceExercice se = new ServiceExercice();
 
         //---------------------- Ajout Regime --------------------------------
 
@@ -45,6 +47,12 @@ public class Main {
            System.out.println(e.getMessage());;
         }
          */
+        try {
+
+            System.out.println(se.afficher());
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());;
+        }
 
 
         //---------------------- Supp Regime --------------------------------
