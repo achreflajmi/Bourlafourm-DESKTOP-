@@ -77,7 +77,10 @@ public class ServiceExercice implements IService<Exercice> {
         return exercices;
     }
 
-    public void modifierExercicesById(int id, String newname, String newdesc, String path1, int newnbr) throws SQLException {
+
+
+
+        public void modifierExercicesById(int id, String newname, String newdesc, String path1, int newnbr) throws SQLException {
         Exercice exercice = getExerciceById(id);
 
         if (exercice != null) {
