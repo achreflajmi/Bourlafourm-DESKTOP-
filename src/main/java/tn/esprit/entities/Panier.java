@@ -7,18 +7,17 @@ public class Panier {
     private int id_prod;
     private int quantite_panier;
     private String nom_prod;
-    private int prix_prod;
+    private double prix_prod;
     private String image_prod;
 
 
     public Panier() {
     }
 
-    public Panier(int id_user, double total_panier, int id_prod, int quantite_panier, String nom_prod, int prix_prod, String image_prod) {
-        this.id_user = id_user;
+    public Panier(double total_panier, int id_prod,String nom_prod, double prix_prod, String image_prod) {
+
         this.total_panier = total_panier;
         this.id_prod = id_prod;
-        this.quantite_panier = quantite_panier;
         this.nom_prod = nom_prod;
         this.prix_prod = prix_prod;
         this.image_prod = image_prod;
@@ -87,11 +86,11 @@ public class Panier {
         this.nom_prod = nom_prod;
     }
 
-    public int getPrix_prod() {
+    public double getPrix_prod() {
         return prix_prod;
     }
 
-    public void setPrix_prod(int prix_prod) {
+    public void setPrix_prod(double prix_prod) {
         this.prix_prod = prix_prod;
     }
 
@@ -111,6 +110,9 @@ public class Panier {
                 ", total_panier=" + total_panier +
                 ", id_prod=" + id_prod +
                 ", quantite_panier=" + quantite_panier +
+                ", nom_prod='" + nom_prod + '\'' +
+                ", prix_prod=" + prix_prod +
+                ", image_prod='" + image_prod + '\'' +
                 '}';
     }
 }

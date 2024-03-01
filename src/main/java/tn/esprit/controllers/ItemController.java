@@ -49,9 +49,6 @@ public class ItemController implements Initializable {
     private Produit produit;
     public void setData(Produit produit){
 
-
-
-
         this.produit=produit;
         System.out.println(produit);
         nom_prod.setText(produit.getNom_prod());

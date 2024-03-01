@@ -4,7 +4,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.image.Image;
 import javafx.scene.layout.*;
+import javafx.stage.Stage;
 import tn.esprit.entities.Panier;
 import tn.esprit.entities.Produit;
 import tn.esprit.service.ServicePanier;
@@ -28,34 +33,45 @@ public class AfficherPanierController implements Initializable {
     private final VBox vbox = new VBox(); // Create a VBox to hold the items
 
     private List<Produit> produits;
+    private Panier panier;
+    private List<Produit> selectedProducts;
+    private List<Panier> PanierList;
+
 
     public AfficherPanierController() throws SQLException {
-        ServiceProduit serviceProduit = ServiceProduit.getInstance();
+        ServicePanier servicePanier=ServicePanier.getInstance();
         try {
-            produits = serviceProduit.recuperer();
+            PanierList = servicePanier.fetchProduitDetails();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        PanierContainer = new GridPane();
     }
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        vbox.setSpacing(10); // Set spacing between items
-        PanierContainer.add(vbox, 0, 0);
-    }
-
-    public void addItemToBasket(Produit produit) {
+        int col = 0;
+        int rows = 0;
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("/ItemPanier.fxml"));
-            AnchorPane anchorPane = fxmlLoader.load();
-            ItemPanierController itemController = fxmlLoader.getController();
-            itemController.setData(produit);
-
-            // Add the anchorPane to the VBox
-            vbox.getChildren().add(anchorPane);
+            PanierList = pa.fetchProduitDetails();
+            int row = 0;
+            for (Panier panier : PanierList) {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/itemPanier.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+                ItemPanierController itemController = fxmlLoader.getController();
+                itemController.setData1(panier);
+                PanierContainer.add(anchorPane, 0, row++);
+            }
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
     }
-}
+    }
+
+
+
+
+
+

@@ -14,7 +14,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import tn.esprit.entities.Categorie;
+import tn.esprit.entities.Panier;
 import tn.esprit.entities.Produit;
+import tn.esprit.service.ServicePanier;
 import tn.esprit.test.Main;
 import tn.esprit.test.MainFX;
 
@@ -43,8 +45,7 @@ public class ItemPUserController implements Initializable {
 
     @FXML
     private Label quantite_prod;
-    @FXML
-    private JFXButton add;
+
     private Produit produit;
     public void setData1(Produit produit){
         this.produit=produit;
@@ -64,12 +65,18 @@ public class ItemPUserController implements Initializable {
 
     }
 
-    public void AddToBasket(ActionEvent event) {
+    public void AddToBasket(ActionEvent event) throws SQLException {
+        ServicePanier servicePanier= ServicePanier.getInstance();
+        int id_prod = produit.getId_prod();
+        String nom_prod = produit.getNom_prod();
+        double prix_prod = produit.getPrix_prod();
+        String image_prod = produit.getImage_prod();
+        double total_panier=produit.getPrix_prod();
+        Panier panier = new Panier(total_panier,id_prod,nom_prod,prix_prod,image_prod);
         try {
+            servicePanier.ajouter(panier);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/AfficherPanier.fxml"));
             Parent root = loader.load(); // Load the FXML file
-            AfficherPanierController itemController = loader.getController(); // Get the controller instance
-            itemController.addItemToBasket(produit); // Call the method on the controller
 
             Stage stage = new Stage();
             stage.setTitle("Basket");

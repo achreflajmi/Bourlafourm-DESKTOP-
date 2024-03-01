@@ -23,13 +23,18 @@ public class ItemPanierController {
     @FXML
     private Label itemprice;
 
-    public void setData(Produit produit)  {
-        System.out.println(produit);
-        itemname.setText(produit.getNom_prod());
-        itemprice.setText(produit.getPrix_prod()+" TND");
-        Image image = new Image(produit.getImage_prod());
-        itemimg.setImage(image);
-
+    public void setData1(Panier panier) {
+        itemname.setText(panier.getNom_prod());
+        itemprice.setText(panier.getPrix_prod() + " TND");
+        // Load image only if the URL is not empty
+        if (panier.getImage_prod() != null && !panier.getImage_prod().isEmpty()) {
+            try {
+                Image image = new Image(panier.getImage_prod());
+                itemimg.setImage(image);
+            } catch (Exception e) {
+                System.out.println("Error loading image: " + e.getMessage());
+            }
+        }
     }
 
 }

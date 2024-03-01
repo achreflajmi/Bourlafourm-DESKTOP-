@@ -87,6 +87,11 @@ public class ServiceProduit implements IService<Produit> {
     }
 
     @Override
+    public List<Panier> fetchProduitDetails() throws SQLException {
+        return null;
+    }
+
+    @Override
     public Categorie getById(int id) throws SQLException {
         return null;
     }

@@ -60,6 +60,11 @@ public class ServiceCategorie implements IService<Categorie>{
     }
 
     @Override
+    public List<Panier> fetchProduitDetails() throws SQLException {
+        return null;
+    }
+
+    @Override
     public Categorie getById(int id) throws SQLException {
         Categorie categorie = new Categorie();
         String sql ="Select * from categorie where id_categorie = ?";

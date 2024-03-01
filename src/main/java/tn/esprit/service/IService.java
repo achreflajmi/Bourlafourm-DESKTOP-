@@ -12,6 +12,9 @@ public interface IService <T>{
     void modifier (T t) throws SQLException;
     List<Panier> supprimer(int id_prod) throws SQLException;
     List<T> recuperer() throws SQLException;
+
+    List<Panier> fetchProduitDetails() throws SQLException;
+
     Categorie getById(int id) throws SQLException ;
     public Categorie getCategorieByCategorieId(int CategorieId) throws SQLException;
     public Produit getProduitByProduitId(int ProduitId) throws SQLException;
