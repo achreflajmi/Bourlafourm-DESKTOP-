@@ -29,7 +29,7 @@
                <children>
                   <VBox layoutX="10.0" layoutY="72.0" prefHeight="548.0" prefWidth="200.0" style="-fx-background-color: #000000;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="72.0">
                      <children>
-                        <Button fx:id="HomeBtn" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#navigateToHome" prefHeight="54.0" prefWidth="250.0" style="-fx-background-color: transparent;" text="Home" textFill="WHITE">
+                        <Button fx:id="HomeBtn" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="54.0" prefWidth="250.0" style="-fx-background-color: transparent;" text="Home" textFill="WHITE">
                            <padding>
                               <Insets left="30.0" top="20.0" />
                            </padding>
@@ -51,7 +51,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button fx:id="GrowthBtn" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#navigateToGrowth" prefHeight="54.0" prefWidth="250.0" style="-fx-background-color: transparent;" text="Growth" textFill="WHITE">
+                        <Button fx:id="GrowthBtn" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="54.0" prefWidth="250.0" style="-fx-background-color: transparent;" text="Growth" textFill="WHITE">
                            <padding>
                               <Insets left="30.0" top="20.0" />
                            </padding>
@@ -62,7 +62,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button fx:id="ReportsBtn" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#navigateToReports" prefHeight="54.0" prefWidth="200.0" style="-fx-background-color: transparent;" text="Reports" textFill="WHITE">
+                        <Button fx:id="ReportsBtn" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="54.0" prefWidth="200.0" style="-fx-background-color: transparent;" text="Reports" textFill="WHITE">
                            <padding>
                               <Insets left="30.0" top="20.0" />
                            </padding>
@@ -73,7 +73,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button fx:id="ProductManagBtn" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#navigateToProductsManag" prefHeight="54.0" prefWidth="250.0" style="-fx-background-color: transparent;" text="Products management" textFill="WHITE">
+                        <Button fx:id="ProductManagBtn" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="54.0" prefWidth="250.0" style="-fx-background-color: transparent;" text="Products management" textFill="WHITE">
                            <padding>
                               <Insets left="30.0" top="20.0" />
                            </padding>

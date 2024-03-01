@@ -1,6 +1,5 @@
 package tn.esprit.services;
 
-
 import tn.esprit.entities.Role_user;
 import tn.esprit.entities.User;
 import tn.esprit.util.MyDataBase;
@@ -11,10 +10,10 @@ import java.util.List;
 
 public class ServiceUser implements IService<User> {
     private Connection connection;
-    public ServiceUser(){
+
+    public ServiceUser() {
         connection = MyDataBase.getInstance().getConnection();
     }
-
 
     @Override
     public void ajouter(User user) throws SQLException {
@@ -70,7 +69,6 @@ public class ServiceUser implements IService<User> {
         }
     }
 
-
     @Override
     public void supprimer(int id) throws SQLException {
         String sql = "DELETE FROM `user` WHERE `id_user` = ?";
@@ -87,21 +85,21 @@ public class ServiceUser implements IService<User> {
         try (Statement statement = connection.createStatement()) {
             ResultSet rs = statement.executeQuery(sql);
             while (rs.next()) {
-                User u = new User();
-                u.setId_user(rs.getInt("id_user"));
-                u.setNom_user(rs.getString("nom_user"));
-                u.setPrenom_user(rs.getString("prenom_user"));
-                u.setEmail_user(rs.getString("email_user"));
-                u.setPassword_user(rs.getString("password_user"));
-                u.setRole_user(Role_user.valueOf(rs.getString("role_user")));
-                // Vérifier si les colonnes poids_sportif et taille_sportif sont null dans la base de données
+                User user = new User();
+                user.setId_user(rs.getInt("id_user"));
+                user.setNom_user(rs.getString("nom_user"));
+                user.setPrenom_user(rs.getString("prenom_user"));
+                user.setEmail_user(rs.getString("email_user"));
+                user.setPassword_user(rs.getString("password_user"));
+                user.setRole_user(Role_user.valueOf(rs.getString("role_user")));
+                // Vérifiez si les colonnes poids_sportif et taille_sportif sont null dans la base de données
                 if (rs.getObject("poids_sportif") != null) {
-                    u.setPoids_sportif(rs.getDouble("poids_sportif"));
+                    user.setPoids_sportif(rs.getDouble("poids_sportif"));
                 }
                 if (rs.getObject("taille_sportif") != null) {
-                    u.setTaille_sportif(rs.getDouble("taille_sportif"));
+                    user.setTaille_sportif(rs.getDouble("taille_sportif"));
                 }
-                users.add(u);
+                users.add(user);
             }
         }
         return users;
@@ -121,7 +119,7 @@ public class ServiceUser implements IService<User> {
                 user.setEmail_user(rs.getString("email_user"));
                 user.setPassword_user(rs.getString("password_user"));
                 user.setRole_user(Role_user.valueOf(rs.getString("role_user")));
-                // Vérifier si les colonnes poids_sportif et taille_sportif sont null dans la base de données
+                // Vérifiez si les colonnes poids_sportif et taille_sportif sont null dans la base de données
                 if (rs.getObject("poids_sportif") != null) {
                     user.setPoids_sportif(rs.getDouble("poids_sportif"));
                 }
@@ -135,7 +133,29 @@ public class ServiceUser implements IService<User> {
         return user;
     }
 
-
-
+    public List<User> getAllUsers() throws SQLException {
+        List<User> users = new ArrayList<>();
+        String sql = "SELECT * FROM user";
+        try (Statement statement = connection.createStatement()) {
+            ResultSet rs = statement.executeQuery(sql);
+            while (rs.next()) {
+                User user = new User();
+                user.setId_user(rs.getInt("id_user"));
+                user.setNom_user(rs.getString("nom_user"));
+                user.setPrenom_user(rs.getString("prenom_user"));
+                user.setEmail_user(rs.getString("email_user"));
+                user.setPassword_user(rs.getString("password_user"));
+                user.setRole_user(Role_user.valueOf(rs.getString("role_user")));
+                // Vérifiez si les colonnes poids_sportif et taille_sportif sont null dans la base de données
+                if (rs.getObject("poids_sportif") != null) {
+                    user.setPoids_sportif(rs.getDouble("poids_sportif"));
+                }
+                if (rs.getObject("taille_sportif") != null) {
+                    user.setTaille_sportif(rs.getDouble("taille_sportif"));
+                }
+                users.add(user);
+            }
+        }
+        return users;
+    }
 }
-

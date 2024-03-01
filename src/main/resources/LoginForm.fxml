@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.*?>
@@ -17,7 +18,7 @@
                         <Cursor fx:constant="TEXT" />
                      </cursor>
                   </TextField>
-                  <Button fx:id="LoginBtn" layoutX="225.0" layoutY="235.0" mnemonicParsing="false" onAction="#handleLogin" prefWidth="250.0" style="-fx-background-color: #00703A;" text="Login" textFill="WHITE" />
+                  <Button fx:id="LoginBtn" layoutX="225.0" layoutY="235.0" mnemonicParsing="false" onMouseClicked="#handleLogin" prefWidth="250.0" style="-fx-background-color: #00703A;" text="Login" textFill="WHITE" />
                   <PasswordField fx:id="loginPassword" layoutX="225.0" layoutY="139.0" prefHeight="35.0" prefWidth="250.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: #00703A; -fx-border-radius: 10;">
                      <cursor>
                         <Cursor fx:constant="TEXT" />
@@ -30,7 +31,7 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <ImageView fx:id="logo" fitHeight="80.0" fitWidth="80.0" layoutX="314.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="fxLogo" fitHeight="80.0" fitWidth="80.0" layoutX="314.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Assets/logo.png" />
          </image>

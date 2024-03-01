@@ -4,7 +4,6 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import tn.esprit.entities.Role_user;
 import tn.esprit.entities.User;
@@ -23,36 +22,32 @@ public class MainFx extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         // Charger le formulaire d'inscription (RegisterForm.fxml)
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/RegisterForm.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/UsersTable.fxml"));
         try {
             Parent root = fxmlLoader.load();
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
-            primaryStage.setTitle("Ajouter Sportif");
+            primaryStage.setTitle("Admin Dashboard");
             primaryStage.show();
 
             // Créer l'utilisateur Admin et l'ajouter à la base de données
             createAndAddAdminUserToDatabase();
         } catch (IOException e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setContentText(e.getMessage());
-            alert.showAndWait();
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 
     private void createAndAddAdminUserToDatabase() {
         // Définir les informations de l'utilisateur Admin
-        String adminEmail = "oumasaadi1@gmail.com";
-        String adminPassword = "Admin123__123"; // Assurez-vous de stocker le mot de passe de manière sécurisée
+        String adminEmail = "admin@example.com";
+        String adminPassword = "admin"; // Mot de passe en texte brut pour cet exemple
         Role_user adminRole = Role_user.Admin;
 
         // Hashage du mot de passe
         String hashedAdminPassword = hashPassword(adminPassword);
 
         // Créer l'utilisateur Admin
-        User adminUser = new User("Saadi", "Ouma", adminEmail, hashedAdminPassword, false, adminRole);
+        User adminUser = new User("Admin", "Admin", adminEmail, hashedAdminPassword, false, adminRole);
 
         // Ajouter l'utilisateur Admin à la base de données
         try {
@@ -60,7 +55,6 @@ public class MainFx extends Application {
             userService.ajouter(adminUser);
         } catch (Exception e) {
             e.printStackTrace();
-            // Gérer l'erreur d'ajout de l'utilisateur Admin à la base de données
         }
     }
 
