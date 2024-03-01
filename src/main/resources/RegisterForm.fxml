@@ -27,7 +27,7 @@
                      </cursor>
                   </PasswordField>
                   <Label layoutX="238.0" layoutY="382.0" text="Don't have an account ?" textFill="white" />
-                  <Label fx:id="RegisterToLogin" layoutX="398.0" layoutY="382.0" onMouseClicked="#handleRegister" text="Login" textFill="white" underline="true" />
+                  <Label fx:id="RegisterToLogin" layoutX="398.0" layoutY="382.0" onMouseClicked="#registerToLogin" text="Login" textFill="white" underline="true" />
                   <TextField fx:id="registerLastName" layoutX="224.0" layoutY="75.0" prefHeight="35.0" prefWidth="250.0" promptText="Last name" style="-fx-background-color: transparent; -fx-border-color: #00703A; -fx-border-radius: 10;">
                      <cursor>
                         <Cursor fx:constant="TEXT" />

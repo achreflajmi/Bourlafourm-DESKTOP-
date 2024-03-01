@@ -1,6 +1,5 @@
 package tn.esprit.controllers;
 
-import java.awt.event.ActionEvent;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -75,6 +74,12 @@ public class RegisterController implements Initializable {
 
     @FXML
     public void handleRegister(MouseEvent event) {
+        // Vérifier les champs vides uniquement lorsque le bouton RegisterBtn est cliqué
+        if (event.getSource() == RegisterBtn && checkEmptyFields()) {
+            showAlert("Veuillez remplir tous les champs.");
+            return;
+        }
+
         // Validation des champs
         String nom_user = registerLastName.getText();
         String prenom_user = registerFirstName.getText();
@@ -83,13 +88,6 @@ public class RegisterController implements Initializable {
         String taille_sportif = registerSize.getText();
         String poids_sportif = registerWeight.getText();
         Role_user Role = registerRole.getValue();
-
-        // Vérification des champs vides
-        if (nom_user.isEmpty() || prenom_user.isEmpty() || email_user.isEmpty() || password_user.isEmpty() ||
-                (Role == Role_user.Sportif && (taille_sportif.isEmpty() || poids_sportif.isEmpty()))) {
-            showAlert("Veuillez remplir tous les champs.");
-            return;
-        }
 
         // Validation de l'email, du mot de passe, etc. (restez conforme à votre logique)
 
@@ -104,11 +102,26 @@ public class RegisterController implements Initializable {
             try {
                 ServiceUser sr = new ServiceUser();
                 sr.ajouter(user);
-                navigateToLogin(event);
+
+                registerToLogin(event);
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
         }
+    }
+
+    private boolean checkEmptyFields() {
+        // Vérifie si les champs sont vides
+        String nom_user = registerLastName.getText();
+        String prenom_user = registerFirstName.getText();
+        String email_user = registerEmail.getText();
+        String password_user = registerPassword.getText();
+        String taille_sportif = registerSize.getText();
+        String poids_sportif = registerWeight.getText();
+        Role_user Role = registerRole.getValue();
+
+        return nom_user.isEmpty() || prenom_user.isEmpty() || email_user.isEmpty() || password_user.isEmpty() ||
+                (Role == Role_user.Sportif && (taille_sportif.isEmpty() || poids_sportif.isEmpty()));
     }
 
     private String hashPassword(String password) {
@@ -155,10 +168,9 @@ public class RegisterController implements Initializable {
     }
 
     @FXML
-    void navigateToLogin(MouseEvent event) {
+    void registerToLogin(MouseEvent event) {
         try {
-            System.out.println("Done");
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Index.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/LoginForm.fxml"));
             Parent root = loader.load();
 
             // Obtenez la scène actuelle à partir du bouton de registre
@@ -175,4 +187,5 @@ public class RegisterController implements Initializable {
             e.printStackTrace();
         }
     }
+
 }
