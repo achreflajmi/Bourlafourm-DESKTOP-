@@ -5,12 +5,9 @@ import tn.esprit.entities.Role_user;
 import tn.esprit.entities.User;
 import tn.esprit.util.MyDataBase;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import tn.esprit.controllers.LoginController;
 
 public class ServiceUser implements IService<User> {
     private Connection connection;
@@ -26,8 +23,7 @@ public class ServiceUser implements IService<User> {
             preparedStatement.setString(1, user.getNom_user());
             preparedStatement.setString(2, user.getPrenom_user());
             preparedStatement.setString(3, user.getEmail_user());
-            String hashedPassword = hashPassword(user.getPassword_user());
-            preparedStatement.setString(4, hashedPassword);
+            preparedStatement.setString(4, user.getPassword_user());
             preparedStatement.setString(5, user.getRole_user().toString());
 
             // Vérifier si le rôle de l'utilisateur est un sportif
@@ -42,21 +38,6 @@ public class ServiceUser implements IService<User> {
             }
 
             preparedStatement.executeUpdate();
-        }
-    }
-
-    private String hashPassword(String password) {
-        try {
-            MessageDigest md = MessageDigest.getInstance("SHA-256");
-            byte[] hashedBytes = md.digest(password.getBytes());
-            StringBuilder sb = new StringBuilder();
-            for (byte b : hashedBytes) {
-                sb.append(String.format("%02x", b));
-            }
-            return sb.toString();
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-            return null;
         }
     }
 
@@ -157,3 +138,4 @@ public class ServiceUser implements IService<User> {
 
 
 }
+

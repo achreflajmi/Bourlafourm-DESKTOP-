@@ -19,7 +19,7 @@ public class MainFx extends Application {
     @Override
 
     public void start(Stage primaryStage) throws IOException {
-        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("/LoginForm.fxml"));
+        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("/RegisterForm.fxml"));
         try{
             Parent root = fxmlloader.load();
             Scene scene = new Scene(root);

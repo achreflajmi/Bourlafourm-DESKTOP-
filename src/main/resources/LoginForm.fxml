@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.LoginController">
+   <children>
+      <AnchorPane layoutX="164.0" layoutY="183.0" prefHeight="395.0" prefWidth="700.0">
+         <children>
+            <AnchorPane fx:id="loginForm" layoutX="-3.0" layoutY="-26.0" prefHeight="395.0" prefWidth="718.0" style="-fx-border-color: #00703A; -fx-border-radius: 10;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <TextField fx:id="loginEmail" layoutX="225.0" layoutY="85.0" prefHeight="35.0" prefWidth="250.0" promptText="Email" style="-fx-background-color: transparent; -fx-border-color: #00703A; -fx-border-radius: 10;">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </TextField>
+                  <Button fx:id="LoginBtn" layoutX="225.0" layoutY="235.0" mnemonicParsing="false" onAction="#handleLogin" prefWidth="250.0" style="-fx-background-color: #00703A;" text="Login" textFill="WHITE" />
+                  <PasswordField fx:id="loginPassword" layoutX="225.0" layoutY="139.0" prefHeight="35.0" prefWidth="250.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: #00703A; -fx-border-radius: 10;">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </PasswordField>
+                  <Label fx:id="loginForgotPassword" layoutX="225.0" layoutY="189.0" text="Forgot password ? " textFill="WHITE" />
+                  <Label layoutX="239.0" layoutY="286.0" text="Don't have an account ?" textFill="WHITE" />
+                  <Label fx:id="LoginToRegister" layoutX="404.0" layoutY="286.0" onMouseClicked="#navigateToRegister" text="Register" textFill="WHITE" underline="true" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <ImageView fx:id="logo" fitHeight="80.0" fitWidth="80.0" layoutX="314.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Assets/logo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="426.0" layoutY="48.0" prefHeight="58.0" prefWidth="268.0" text="BoUr la foUrm" textFill="WHITE">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Label>
+      <AnchorPane fx:id="registerForm" prefHeight="395.0" prefWidth="700.0" style="-fx-border-color: #00703A; -fx-border-radius: 10;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <TextField fx:id="registerEmail" layoutX="225.0" layoutY="130.0" prefHeight="35.0" prefWidth="250.0" promptText="Enter your email" style="-fx-background-color: transparent; -fx-border-color: #00703A; -fx-border-radius: 10;">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+            </TextField>
+            <Button fx:id="registerBtn" layoutX="226.0" layoutY="284.0" mnemonicParsing="false" onAction="#handleLogin" prefWidth="250.0" style="-fx-background-color: #00703A; -fx-border-radius: 20;" text="Login" textFill="transparent">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <PasswordField fx:id="registerPassword" layoutX="225.0" layoutY="171.0" prefHeight="35.0" prefWidth="250.0" promptText="Enter your password" style="-fx-background-color: transparent; -fx-border-color: #00703A; -fx-border-radius: 10;">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+            </PasswordField>
+            <Label layoutX="234.0" layoutY="330.0" text="Already have an account ?" textFill="WHITE" />
+            <Label fx:id="RegisterToLogin" layoutX="411.0" layoutY="330.0" onMouseClicked="#navigateToRegister" text="Register" textFill="WHITE" underline="true" />
+            <TextField fx:id="registerLastName" layoutX="226.0" layoutY="46.0" prefHeight="35.0" prefWidth="250.0" promptText="Enter your last name" style="-fx-background-color: transparent; -fx-border-color: #00703A; -fx-border-radius: 10;">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+            </TextField>
+            <TextField fx:id="registerFirstName" layoutX="225.0" layoutY="88.0" prefHeight="35.0" prefWidth="250.0" promptText="Enter your first name" style="-fx-background-color: transparent; -fx-border-color: #00703A; -fx-border-radius: 10;">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+            </TextField>
+            <ComboBox fx:id="registerRoleBox" layoutX="226.0" layoutY="215.0" prefHeight="31.0" prefWidth="250.0" promptText="Select your role" style="-fx-background-color: transparent; -fx-border-color: #00703A; -fx-border-radius: 10;" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -56,6 +56,9 @@ public class User {
 
     }
 
+    public User(Integer id, String firstName, String lastName, String email, Role_user role) {
+    }
+
 
 /*
     public User(String nom_user, String prenom_user, String email_user, String password_user, boolean disponibilite_conseiller, Role_user rolee, double poids_sportif, double taille_sportif) {

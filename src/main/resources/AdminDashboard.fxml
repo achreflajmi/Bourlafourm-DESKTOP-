@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.AdminDashboardController">
+   <children>
+      <BorderPane layoutX="267.0" layoutY="74.0" prefHeight="700.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <AnchorPane prefHeight="80.0" prefWidth="200.0" style="-fx-background-color: #000000;" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="logoutBtn" layoutX="880.0" layoutY="25.0" mnemonicParsing="false" onAction="#handleLogout" text="Logout" />
+                  <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="66.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Assets/logo.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </top>
+         <left>
+            <AnchorPane prefHeight="620.0" prefWidth="200.0" style="-fx-background-color: #00703A;" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox layoutX="10.0" layoutY="72.0" prefHeight="548.0" prefWidth="200.0" style="-fx-background-color: #000000;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="72.0">
+                     <children>
+                        <Button fx:id="HomeBtn" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#navigateToHome" prefHeight="54.0" prefWidth="250.0" style="-fx-background-color: transparent;" text="Home" textFill="WHITE">
+                           <padding>
+                              <Insets left="30.0" top="20.0" />
+                           </padding>
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button fx:id="UsersBtn" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#navigateToUsers" prefHeight="54.0" prefWidth="250.0" style="-fx-background-color: #C7DDC5;" text="Users" textFill="#280000">
+                           <padding>
+                              <Insets left="30.0" top="15.0" />
+                           </padding>
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button fx:id="GrowthBtn" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#navigateToGrowth" prefHeight="54.0" prefWidth="250.0" style="-fx-background-color: transparent;" text="Growth" textFill="WHITE">
+                           <padding>
+                              <Insets left="30.0" top="20.0" />
+                           </padding>
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button fx:id="ReportsBtn" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#navigateToReports" prefHeight="54.0" prefWidth="200.0" style="-fx-background-color: transparent;" text="Reports" textFill="WHITE">
+                           <padding>
+                              <Insets left="30.0" top="20.0" />
+                           </padding>
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button fx:id="ProductManagBtn" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#navigateToProductsManag" prefHeight="54.0" prefWidth="250.0" style="-fx-background-color: transparent;" text="Products management" textFill="WHITE">
+                           <padding>
+                              <Insets left="30.0" top="20.0" />
+                           </padding>
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <Label layoutX="14.0" layoutY="23.0" text="Admin Dashboard" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </left>
+         <center>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <BorderPane layoutX="98.0" layoutY="49.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <center>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000; -fx-border-color: #00703A;" BorderPane.alignment="CENTER">
+                           <children>
+                              <TableView fx:id="UsersTableView" layoutX="4.0" layoutY="77.0" prefHeight="541.0" prefWidth="798.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="76.0">
+                                <columns>
+                                  <TableColumn fx:id="tvId" prefWidth="55.0" text="Id" />
+                                  <TableColumn fx:id="tvFirstName" prefWidth="120.0" text="First name" />
+                                    <TableColumn fx:id="tvLastName" prefWidth="120.0" text="Last name" />
+                                    <TableColumn fx:id="tvEmail" minWidth="3.0" prefWidth="200.0" text="Email" />
+                                    <TableColumn fx:id="tvRole" prefWidth="130.0" text="Role" />
+                                    <TableColumn prefWidth="170.0" text="Action">
+                                       <columns>
+                                          <TableColumn fx:id="tvReport" text="Report" />
+                                          <TableColumn fx:id="tvSendMail" prefWidth="90.0" text="Send Mail" />
+                                       </columns></TableColumn>
+                                </columns>
+                              </TableView>
+                              <Label layoutX="33.0" layoutY="26.0" text="Users List" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font></Label>
+                           </children>
+                        </AnchorPane>
+                     </center>
+                  </BorderPane>
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

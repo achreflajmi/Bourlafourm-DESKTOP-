@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.RegisterController">
+   <children>
+      <AnchorPane layoutX="150.0" layoutY="185.0" prefHeight="434.0" prefWidth="700.0">
+         <children>
+            <AnchorPane fx:id="loginForm" layoutX="-3.0" prefHeight="414.0" prefWidth="700.0" style="-fx-border-color: #00703A; -fx-border-radius: 10;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <TextField fx:id="registerFirstName" layoutX="224.0" layoutY="75.0" prefHeight="35.0" prefWidth="250.0" promptText="First name" style="-fx-background-color: transparent; -fx-border-color: #00703A; -fx-border-radius: 10;">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </TextField>
+                  <Button fx:id="RegisterBtn" layoutX="224.0" layoutY="331.0" mnemonicParsing="false" onAction="#handleRegister" prefWidth="250.0" style="-fx-background-color: #00703A;" text="Register" textFill="WHITE" />
+                  <PasswordField fx:id="registerPassword" layoutX="224.0" layoutY="160.0" prefHeight="35.0" prefWidth="250.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: #00703A; -fx-border-radius: 10;">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </PasswordField>
+                  <Label layoutX="238.0" layoutY="382.0" text="Don't have an account ?" textFill="WHITE" />
+                  <Label fx:id="RegisterToLogin" layoutX="398.0" layoutY="382.0" onMouseClicked="#navigateToLogin" text="Login" textFill="WHITE" underline="true" />
+                  <TextField fx:id="registerLastName" layoutX="224.0" layoutY="34.0" prefHeight="35.0" prefWidth="250.0" promptText="Last name" style="-fx-background-color: transparent; -fx-border-color: #00703A; -fx-border-radius: 10;">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </TextField>
+                  <TextField fx:id="registerEmail" layoutX="224.0" layoutY="117.0" prefHeight="35.0" prefWidth="250.0" promptText="Email" style="-fx-background-color: transparent; -fx-border-color: #00703A; -fx-border-radius: 10;">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </TextField>
+                  <ComboBox fx:id="registerRole" layoutX="226.0" layoutY="203.0" prefHeight="31.0" prefWidth="250.0" promptText="Select Your Role" />
+                  <TextField fx:id="registerWeight" layoutX="224.0" layoutY="287.0" prefHeight="35.0" prefWidth="250.0" promptText="Weight" style="-fx-background-color: transparent; -fx-border-color: #00703A; -fx-border-radius: 10;" visible="false">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </TextField>
+                  <TextField fx:id="registerSize" layoutX="224.0" layoutY="245.0" prefHeight="35.0" prefWidth="250.0" promptText="Size" style="-fx-background-color: transparent; -fx-border-color: #00703A; -fx-border-radius: 10;" visible="false">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </TextField>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <ImageView fx:id="logo" fitHeight="80.0" fitWidth="80.0" layoutX="314.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Assets/logo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="426.0" layoutY="48.0" prefHeight="58.0" prefWidth="268.0" text="BoUr la foUrm" textFill="WHITE">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
