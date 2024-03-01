@@ -39,15 +39,15 @@ public class MainFx extends Application {
 
     private void createAndAddAdminUserToDatabase() {
         // Définir les informations de l'utilisateur Admin
-        String adminEmail = "admin@example.com";
-        String adminPassword = "admin"; // Mot de passe en texte brut pour cet exemple
+        String adminEmail = "oumasaadi1@example.com";
+        String adminPassword = "Ouma_123123"; // Mot de passe en texte brut pour cet exemple
         Role_user adminRole = Role_user.Admin;
 
         // Hashage du mot de passe
         String hashedAdminPassword = hashPassword(adminPassword);
 
         // Créer l'utilisateur Admin
-        User adminUser = new User("Admin", "Admin", adminEmail, hashedAdminPassword, false, adminRole);
+        User adminUser = new User("Saadi", "Oumaima", adminEmail, hashedAdminPassword, false, adminRole);
 
         // Ajouter l'utilisateur Admin à la base de données
         try {

@@ -93,8 +93,19 @@ public class AdminDashboardController {
 
     @FXML
     void handleLogout(ActionEvent event) {
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.close();
+        try {
+            // Charger le fichier FXML de l'interface LoginForm
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/LoginForm.fxml"));
+            Parent root = loader.load();
+
+            // Créer une nouvelle scène
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     @FXML
     void navigateToUsers(ActionEvent event) {
