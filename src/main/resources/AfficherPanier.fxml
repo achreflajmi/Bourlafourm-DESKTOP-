@@ -12,7 +12,7 @@
 
 <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="800.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.AfficherPanierController">
     <content>
-        <AnchorPane prefHeight="841.0" prefWidth="800.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+        <AnchorPane prefHeight="841.0" prefWidth="1000.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
             <children>
                 <GridPane layoutX="961.0" layoutY="235.0" prefHeight="259.0" prefWidth="250.0">
                     <columnConstraints>
@@ -55,7 +55,7 @@
                <children>
                   <ScrollPane prefHeight="546.0" prefWidth="793.0">
                      <content>
-                        <GridPane fx:id="PanierContainer" prefHeight="140.0" prefWidth="792.0">
+                        <GridPane fx:id="PanierContainer" prefHeight="140.0" prefWidth="793.0">
                            <columnConstraints>
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                            </columnConstraints>

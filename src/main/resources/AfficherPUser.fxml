@@ -54,11 +54,11 @@
             </font>
         </Label>
         <Line endX="1066.0" layoutX="167.0" layoutY="163.0" startX="-100.0" stroke="#008152" />
-        <HBox layoutX="38.0" layoutY="178.0" prefHeight="607.0" prefWidth="1229.0" style="-fx-background-color: transparent;">
+        <HBox layoutX="38.0" layoutY="178.0" prefHeight="607.0" prefWidth="1229.0" style="-fx-background-color: black;">
             <children>
-                <ScrollPane fx:id="scroll" prefHeight="607.0" prefWidth="460.0" style="-fx-background-color: transparent; -fx-border-color: #008152; -fx-border-width: 1px;">
+                <ScrollPane fx:id="scroll" prefHeight="607.0" prefWidth="478.0" style="-fx-background-color: black; -fx-border-color: #008152; -fx-border-width: 1px;">
                     <content>
-                        <GridPane fx:id="grid" prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: black;">
+                        <GridPane fx:id="grid" prefHeight="292.0" prefWidth="459.0" style="-fx-background-color: black;">
                             <columnConstraints>
                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                             </columnConstraints>
@@ -70,11 +70,6 @@
                 </ScrollPane>
             </children>
         </HBox>
-        <JFXButton buttonType="RAISED" layoutX="172.0" layoutY="110.0" prefHeight="22.0" prefWidth="68.0" style="-fx-background-color: #008152;" text="Add" textFill="WHITE">
-            <font>
-                <Font size="20.0" />
-            </font>
-        </JFXButton>
 
     </children>
 </AnchorPane>

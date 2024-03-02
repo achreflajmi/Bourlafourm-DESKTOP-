@@ -12,11 +12,11 @@
 
 <AnchorPane prefHeight="370.0" prefWidth="422.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.ItemPUserController">
     <children>
-        <VBox prefHeight="370.0" prefWidth="422.0">
+        <VBox prefHeight="370.0" prefWidth="422.0" style="-fx-background-color: black; -fx-border-color: #008152;">
             <children>
                 <HBox alignment="TOP_CENTER" prefHeight="35.0" prefWidth="271.0">
                     <children>
-                        <Label fx:id="nom_prod" text="nom_prod">
+                        <Label fx:id="nom_prod" text="nom_prod" textFill="WHITE">
                             <font>
                                 <Font name="Cambria" size="24.0" />
                             </font>
@@ -25,7 +25,7 @@
                 </HBox>
                 <HBox prefHeight="35.0" prefWidth="271.0">
                     <children>
-                        <Label fx:id="prix_prod" text="prix_prod">
+                        <Label fx:id="prix_prod" text="prix_prod" textFill="WHITE">
                             <font>
                                 <Font name="Cambria" size="24.0" />
                             </font>
@@ -37,7 +37,7 @@
                 </HBox>
                 <HBox prefHeight="32.0" prefWidth="184.0">
                     <children>
-                        <Label fx:id="description_prod" text="description_prod">
+                        <Label fx:id="description_prod" text="description_prod" textFill="WHITE">
                             <font>
                                 <Font name="Cambria" size="24.0" />
                             </font>
@@ -49,7 +49,7 @@
                 </HBox>
                 <HBox prefHeight="35.0" prefWidth="271.0">
                     <children>
-                        <Label fx:id="quantite_prod" text="quantite_prod">
+                        <Label fx:id="quantite_prod" text="quantite_prod" textFill="WHITE">
                             <font>
                                 <Font name="Cambria" size="24.0" />
                             </font>
@@ -61,7 +61,7 @@
                 </HBox>
                 <HBox prefHeight="35.0" prefWidth="271.0">
                     <children>
-                        <Label fx:id="id_categorie" text="id_categorie">
+                        <Label fx:id="id_categorie" text="id_categorie" textFill="WHITE">
                             <font>
                                 <Font name="Cambria" size="24.0" />
                             </font>
