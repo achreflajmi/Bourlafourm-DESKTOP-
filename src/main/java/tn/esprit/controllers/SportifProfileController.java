@@ -117,10 +117,6 @@ public class SportifProfileController implements Initializable {
         navigateToView("Index.fxml", event);
     }
 
-    @FXML
-    void navigateToProfile(ActionEvent event) {
-        navigateToView("SportifProfile.fxml", event);
-    }
 
     @FXML
     void navigateToComplaints(ActionEvent event) {
