@@ -4,6 +4,7 @@ import javafx.animation.Timeline;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.*;
 import javafx.util.Duration;
+import tn.esprit.entities.ExcelGenerator;
 import tn.esprit.service.ProduitListener;
 import tn.esprit.controllers.ItemController;
 import com.jfoenix.controls.JFXButton;
@@ -88,7 +89,7 @@ public class AfficherProduitController implements Initializable, ProduitListener
     public void ajouterProduitOnClick(ActionEvent event) throws IOException {
         try {
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/AjouteProduit.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/AjouterProduit.fxml"));
             Parent root = loader.load();
             Stage stage = new Stage();
             stage.setTitle("Ajouter un produit");
@@ -177,7 +178,18 @@ public class AfficherProduitController implements Initializable, ProduitListener
 
 
 
+    @FXML
 
+    private void exportToExcel(ActionEvent event) throws SQLException {
+        ExcelGenerator excelGenerator = new ExcelGenerator();
+        ServiceProduit produitService = new ServiceProduit();
+
+        List<Produit> produits = produitService.recuperer();
+
+        excelGenerator.generateExcel(produits);
+
+        System.out.println("Export vers Excel terminé !");
+    }
 }
 
 //System.out.println(event);

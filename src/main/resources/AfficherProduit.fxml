@@ -75,6 +75,11 @@
                 <Font size="20.0" />
             </font>
         </JFXButton>
+      <JFXButton fx:id="buttonexcel" buttonType="RAISED" layoutX="285.0" layoutY="110.0" onAction="#exportToExcel" prefHeight="44.0" prefWidth="170.0" style="-fx-background-color: #008152;" text="Import to Excel" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXButton>
 
     </children>
 </AnchorPane>

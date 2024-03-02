@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 import tn.esprit.entities.Categorie;
 import tn.esprit.entities.Panier;
 import tn.esprit.entities.Produit;
+import tn.esprit.entities.Sms;
 import tn.esprit.service.ServicePanier;
 import tn.esprit.test.Main;
 import tn.esprit.test.MainFX;
@@ -77,6 +78,10 @@ public class ItemPUserController implements Initializable {
         Panier panier = new Panier(total_panier, id_prod, nom_prod, prix_prod, image_prod);
         try {
             servicePanier.ajouter(panier);
+            //Twilo API              //Twilo API
+            /**/      String recipientPhoneNumber = "+21658911780"; // Replace with the recipient's phone number
+            /**/  String messageText = "Votre produit est ajoutée au panier avec succès !"; // Provide your message
+            /**/ Sms.sendTwilioSMS(recipientPhoneNumber, messageText);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/AfficherPanier.fxml"));
             Parent root = loader.load(); // Load the FXML file
             Scene scene = add.getScene();
