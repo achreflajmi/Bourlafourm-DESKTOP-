@@ -9,13 +9,13 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.AdminDashboardController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.AdminDashboardController">
    <children>
       <BorderPane layoutX="267.0" layoutY="74.0" prefHeight="700.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
             <AnchorPane prefHeight="80.0" prefWidth="200.0" style="-fx-background-color: #000000;" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="logoutBtn" layoutX="880.0" layoutY="25.0" mnemonicParsing="false" onAction="#handleLogout" text="Logout" />
+                  <Button fx:id="logoutBtn" layoutX="1218.0" layoutY="25.0" mnemonicParsing="false" onAction="#handleLogout" text="Logout" />
                   <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="66.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@Assets/logo.png" />
@@ -27,7 +27,7 @@
          <left>
             <AnchorPane prefHeight="620.0" prefWidth="200.0" style="-fx-background-color: #00703A;" BorderPane.alignment="CENTER">
                <children>
-                  <VBox layoutX="10.0" layoutY="72.0" prefHeight="548.0" prefWidth="200.0" style="-fx-background-color: #000000;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="72.0">
+                  <VBox layoutX="10.0" layoutY="72.0" prefHeight="649.0" prefWidth="200.0" style="-fx-background-color: #000000;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="72.0">
                      <children>
                         <Button fx:id="HomeBtn" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="54.0" prefWidth="250.0" style="-fx-background-color: transparent;" text="Home" textFill="WHITE">
                            <padding>
@@ -84,6 +84,17 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
+                        <Button fx:id="ProductManagBtn1" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="54.0" prefWidth="250.0" style="-fx-background-color: transparent;" text="Profile" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <padding>
+                              <Insets left="30.0" top="20.0" />
+                           </padding>
+                        </Button>
                      </children>
                   </VBox>
                   <Label layoutX="14.0" layoutY="23.0" text="Admin Dashboard" textFill="WHITE">
@@ -103,15 +114,15 @@
                            <children>
                               <TableView fx:id="UsersTableView" layoutX="4.0" layoutY="77.0" prefHeight="541.0" prefWidth="798.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="76.0">
                                 <columns>
-                                  <TableColumn fx:id="tvId" prefWidth="55.0" text="Id" />
-                                  <TableColumn fx:id="tvFirstName" prefWidth="120.0" text="First name" />
-                                    <TableColumn fx:id="tvLastName" prefWidth="120.0" text="Last name" />
-                                    <TableColumn fx:id="tvEmail" minWidth="3.0" prefWidth="200.0" text="Email" />
-                                    <TableColumn fx:id="tvRole" prefWidth="130.0" text="Role" />
-                                    <TableColumn prefWidth="170.0" text="Action">
+                                  <TableColumn fx:id="tvId" prefWidth="90.0" text="User Id" />
+                                  <TableColumn fx:id="tvFirstName" prefWidth="150.0" text="First name" />
+                                    <TableColumn fx:id="tvLastName" prefWidth="150.0" text="Last name" />
+                                    <TableColumn fx:id="tvEmail" minWidth="3.0" prefWidth="300.0" text="Email" />
+                                    <TableColumn fx:id="tvRole" prefWidth="150.0" text="Role" />
+                                    <TableColumn prefWidth="250.0" text="Action">
                                        <columns>
-                                          <TableColumn fx:id="tvReport" text="Report" />
-                                          <TableColumn fx:id="tvSendMail" prefWidth="90.0" text="Send Mail" />
+                                          <TableColumn fx:id="tvReport" prefWidth="125.0" text="Report" />
+                                          <TableColumn fx:id="tvSendMail" prefWidth="125.0" text="Send Mail" />
                                        </columns></TableColumn>
                                 </columns>
                               </TableView>
