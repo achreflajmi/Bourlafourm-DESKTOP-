@@ -1,5 +1,6 @@
 package tn.esprit.controllers;
 import com.jfoenix.controls.JFXComboBox;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
@@ -22,6 +23,7 @@ import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
+import org.controlsfx.control.Notifications;
 
 
 public class AjouterProduitController implements Initializable {
@@ -72,12 +74,11 @@ public class AjouterProduitController implements Initializable {
     }
 
     @FXML
-    public void ajouterProduit(javafx.event.ActionEvent actionEvent) throws IOException {
-
+    public void ajouterProduit(ActionEvent actionEvent) {
         String path;
         imgpathstring.setText(imagePath1.toString());
 
-        path=imgpathstring .getText();
+        path = imgpathstring.getText();
         try {
             if (nom_prod.getText().isEmpty() || prix_prod.getText().isEmpty() || description_prod.getText().isEmpty()
                     || quantite_prod.getText().isEmpty() || imagePath1 == null || categorieComboBox.getValue() == null) {
@@ -86,7 +87,6 @@ public class AjouterProduitController implements Initializable {
                 alert.setContentText("Please fill in all the fields.");
                 alert.showAndWait();
                 return;
-
             }
 
             double prix;
@@ -104,7 +104,6 @@ public class AjouterProduitController implements Initializable {
             }
 
             if (prix <= 0 || quantite <= 0) {
-                // Le prix et la quantité doivent être supérieurs à zéro
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Warning");
                 alert.setContentText("Price and quantity must be greater than zero.");
@@ -119,9 +118,18 @@ public class AjouterProduitController implements Initializable {
                     prix,
                     description_prod.getText(),
                     quantite,
-                   path,
+                    path,
                     categoryId
             );
+
+            if (quantite < 20) {
+                System.out.println("La quantité de produit est faible.");
+                Notifications.create()
+                        .title("Quantité faible")
+                        .text("Le produit risque d'être épuisé.")
+                        .showWarning();
+            }
+
             ps.ajouter(produit);
         } catch (SQLException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -129,22 +137,7 @@ public class AjouterProduitController implements Initializable {
             alert.setContentText(e.getMessage());
             alert.showAndWait();
         }
-//        try {
-//            FXMLLoader loader = new FXMLLoader(getClass().getResource("C:\\Users\\User\\IdeaProjects\\GestionProduit\\src\\main\\java\\tn\\esprit\\resources\\AfficherCategorie.fxml"));
-//            Parent root = loader.load();
-//            Stage afficherStage = new Stage();
-//            afficherStage.setTitle("Afficher produit");
-//            Image logo = new Image("logo.png");
-//            afficherStage.getIcons().add(logo);
-//            afficherStage.setScene(new Scene(root));
-//            afficherStage.show();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//
-//
-//        }
     }
-
     @FXML
     public void importImage() {
         FileChooser fileChooser = new FileChooser();

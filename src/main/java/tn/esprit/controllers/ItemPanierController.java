@@ -60,16 +60,19 @@ public class ItemPanierController {
                 System.out.println("Error loading image: " + e.getMessage());
             }
         }
-        updateQuantityDisplay(panier.getId_panier()); // Update display with the correct ID
+        updateQuantityDisplay(panier.getId_panier());
     }
+
     public void updateQuantity(int newQuantity) {
         updateQuantityDisplay(newQuantity);
     }
 
+
     private void updateQuantityDisplay(int productId) {
-        int quantity = productQuantities.getOrDefault(productId, 1);
+        int quantity = productQuantities.getOrDefault(productId, 0); // Get the current quantity from the map
         quantite.setText("" + quantity);
     }
+
     private void notifyQuantityUpdate(int productId, int newQuantity) {
         if (quantityUpdateListener != null) {
             quantityUpdateListener.onQuantityUpdate(productId, newQuantity);

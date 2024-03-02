@@ -17,7 +17,7 @@ public static final String CURRENCY = "TND";
 
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/AfficherPUser.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/AjouterProduit.fxml"));
 
         try {
             Parent root = loader.load();
