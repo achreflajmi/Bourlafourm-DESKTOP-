@@ -3,11 +3,16 @@ package tn.esprit.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import tn.esprit.entities.User;
 import tn.esprit.services.ServiceUser;
 import tn.esprit.util.MyDataBase;
@@ -15,7 +20,7 @@ import tn.esprit.services.SessionManager;
 import javafx.scene.control.ButtonType;
 
 
-
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -109,37 +114,51 @@ public class SportifProfileController implements Initializable {
 
     @FXML
     void navigateToHome(ActionEvent event) {
-
+        navigateToView("Index.fxml", event);
     }
 
     @FXML
     void navigateToProfile(ActionEvent event) {
-
+        navigateToView("SportifProfile.fxml", event);
     }
 
     @FXML
     void navigateToComplaints(ActionEvent event) {
-
+        navigateToView("ComplaintsForm.fxml", event);
     }
 
     @FXML
     void navigateToShop(ActionEvent event) {
-
+        navigateToView("Index.fxml", event);
     }
 
     @FXML
     void navigateToEvents(ActionEvent event) {
-
+        navigateToView("Index.fxml", event);
     }
 
     @FXML
     void navigateToPacks(ActionEvent event) {
-
+        navigateToView("Index.fxml", event);
     }
 
     @FXML
     void navigateToNewstand(ActionEvent event) {
+        navigateToView("Index.fxml", event);
 
+    }
+    private void navigateToView(String viewName, ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(viewName));
+            Parent root = fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        // Fermer la fenêtre actuelle si nécessaire
+        ((Stage) ((Node) event.getSource()).getScene().getWindow()).close();
     }
 
     @FXML
