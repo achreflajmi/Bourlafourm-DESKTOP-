@@ -30,6 +30,8 @@ public class ItemPUserController implements Initializable {
 
     @FXML
     private Label nom_prod;
+    @FXML
+    private JFXButton add;
 
     @FXML
     private Label description_prod;
@@ -66,30 +68,29 @@ public class ItemPUserController implements Initializable {
     }
 
     public void AddToBasket(ActionEvent event) throws SQLException {
-        ServicePanier servicePanier= ServicePanier.getInstance();
+        ServicePanier servicePanier = ServicePanier.getInstance();
         int id_prod = produit.getId_prod();
         String nom_prod = produit.getNom_prod();
         double prix_prod = produit.getPrix_prod();
         String image_prod = produit.getImage_prod();
-        double total_panier=produit.getPrix_prod();
-        Panier panier = new Panier(total_panier,id_prod,nom_prod,prix_prod,image_prod);
+        double total_panier = produit.getPrix_prod();
+        Panier panier = new Panier(total_panier, id_prod, nom_prod, prix_prod, image_prod);
         try {
             servicePanier.ajouter(panier);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/AfficherPanier.fxml"));
             Parent root = loader.load(); // Load the FXML file
+            Scene scene = add.getScene();
+            Stage stage = (Stage) scene.getWindow();
 
-            Stage stage = new Stage();
-            stage.setTitle("Basket");
             stage.setScene(new Scene(root));
-            stage.showAndWait();
+            stage.show();
         } catch (IOException e) {
             e.printStackTrace();
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText(null);
-            alert.setContentText("Error occurred while loading the basket window.");
+            alert.setContentText("Error occurred while loading the basket.");
             alert.showAndWait();
         }
     }
-
 }

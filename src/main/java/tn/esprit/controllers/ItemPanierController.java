@@ -62,7 +62,9 @@ public class ItemPanierController {
         }
         updateQuantityDisplay(panier.getId_panier()); // Update display with the correct ID
     }
-
+    public void updateQuantity(int newQuantity) {
+        updateQuantityDisplay(newQuantity);
+    }
 
     private void updateQuantityDisplay(int productId) {
         int quantity = productQuantities.getOrDefault(productId, 1);
@@ -88,8 +90,6 @@ public class ItemPanierController {
             }
         }
     }
-
-
 
     @FXML
     private void onPlusClicked(MouseEvent event) {

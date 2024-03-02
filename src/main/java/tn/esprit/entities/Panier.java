@@ -38,6 +38,9 @@ public class Panier {
         this.quantite_panier = quantite_panier;
     }
 
+    public Panier(int idPanier, int idUser, double totalPanier, int productId, int quantitePanier, String nomProd, double prixProd, String imageProd) {
+    }
+
     public int getId_panier() {
         return id_panier;
     }

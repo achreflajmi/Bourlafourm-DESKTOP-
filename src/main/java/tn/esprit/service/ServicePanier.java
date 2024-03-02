@@ -82,6 +82,42 @@ public class ServicePanier implements IService<Panier> {
         }
         return paniers;
     }
+    public Panier getPanierByProductId(int productId) throws SQLException {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        Panier panier = null;
+
+        try {
+            connection = MyDataBase.getInstance().getConnection(); // Obtain your database connection here
+            String query = "SELECT * FROM panier WHERE id_prod = ?";
+            statement = connection.prepareStatement(query);
+            statement.setInt(1, productId);
+            resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                // Create a new Panier object and populate its fields
+                int id_panier = resultSet.getInt("id_panier");
+                int id_user = resultSet.getInt("id_user");
+                double total_panier = resultSet.getDouble("total_panier");
+                String nom_prod = resultSet.getString("nom_prod");
+                double prix_prod = resultSet.getDouble("prix_prod");
+                String image_prod = resultSet.getString("image_prod");
+                int quantite_panier = resultSet.getInt("quantite_panier");
+
+                panier = new Panier(id_panier, id_user, total_panier, productId, quantite_panier, nom_prod, prix_prod, image_prod);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (resultSet != null) resultSet.close();
+            if (statement != null) statement.close();
+            if (connection != null) connection.close();
+        }
+
+        return panier;
+    }
+
     @Override
     public List<Panier> fetchProduitDetails() throws SQLException {
         List<Panier> paniers = new ArrayList<>();
