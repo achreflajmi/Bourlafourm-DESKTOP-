@@ -41,7 +41,7 @@ public class ServiceUser implements IService<User> {
     }
 
     @Override
-    public void modifier(User user) throws SQLException {
+    public boolean modifier(User user) throws SQLException {
         String sql = "UPDATE `user` SET `nom_user` = ?, `prenom_user` = ?, `email_user` = ?, `password_user` = ?, `role_user` = ?, `poids_sportif` = ?, `taille_sportif` = ? WHERE `id_user` = ?";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             preparedStatement.setString(1, user.getNom_user());
@@ -65,7 +65,8 @@ public class ServiceUser implements IService<User> {
             }
 
             preparedStatement.setInt(8, user.getId_user());
-            preparedStatement.executeUpdate();
+            int rowsUpdated = preparedStatement.executeUpdate();
+            return rowsUpdated > 0; // Retourne true si des lignes ont été mises à jour avec succès, sinon false
         }
     }
 
@@ -157,5 +158,17 @@ public class ServiceUser implements IService<User> {
             }
         }
         return users;
+    }
+
+    public User getCurrentUser() {
+            String loggedInUserEmail = SessionManager.getCurrentLoggedInUserEmail();
+
+        // Si aucun utilisateur n'est connecté, retourner null
+        if (loggedInUserEmail == null) {
+            return null;
+        }
+
+        // Récupérer l'utilisateur correspondant à l'e-mail
+        return getUserByEmail(loggedInUserEmail);
     }
 }

@@ -62,7 +62,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button fx:id="ReportsBtn" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="54.0" prefWidth="200.0" style="-fx-background-color: transparent;" text="Reports" textFill="WHITE">
+                        <Button fx:id="ReportsBtn" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="54.0" prefWidth="200.0" style="-fx-background-color: transparent;" text="Complaints" textFill="WHITE">
                            <padding>
                               <Insets left="30.0" top="20.0" />
                            </padding>

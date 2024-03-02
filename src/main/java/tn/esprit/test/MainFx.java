@@ -22,7 +22,7 @@ public class MainFx extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         // Charger le formulaire d'inscription (RegisterForm.fxml)
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/UsersTable.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/SportifProfile.fxml"));
         try {
             Parent root = fxmlLoader.load();
             Scene scene = new Scene(root);
