@@ -17,9 +17,23 @@ public class ServicePanier implements IService<Panier> {
 
     @Override
     public void ajouter(Panier panier) throws SQLException {
-        String sql = "INSERT INTO panier (id_user, total_panier, id_prod, quantite_panier, nom_prod, prix_prod, image_prod) VALUES ('"+panier.getId_user()+"', '"+panier.getTotal_panier()+"', '"+panier.getId_prod()+"', '"+panier.getQuantite_panier()+"', '"+panier.getNom_prod()+"', '"+panier.getPrix_prod()+"', '"+panier.getImage_prod()+"')";
-        Statement statement = connection.createStatement();
-        statement.executeUpdate(sql);
+        String sql = "INSERT INTO panier (id_user, total_panier, id_prod, quantite_panier, nom_prod, prix_prod, image_prod) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setInt(1, panier.getId_user());
+        statement.setDouble(2, panier.getTotal_panier());
+        statement.setInt(3, panier.getId_prod());
+        statement.setInt(4, panier.getQuantite_panier());
+        statement.setString(5, panier.getNom_prod());
+        statement.setDouble(6, panier.getPrix_prod());
+        statement.setString(7, panier.getImage_prod());
+        statement.executeUpdate();
+    }
+    public void updateQuantitePanier(int productId, int newQuantity) throws SQLException {
+        String sql = "UPDATE panier SET quantite_panier = ? WHERE id_prod = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1, newQuantity);
+        preparedStatement.setInt(2, productId);
+        preparedStatement.executeUpdate();
     }
     public static ServicePanier getInstance() throws SQLException{
         if(instance==null)
@@ -45,6 +59,7 @@ public class ServicePanier implements IService<Panier> {
         preparedStatement.executeUpdate();
         return null;
     }
+
 
     @Override
     public List<Panier> recuperer() throws SQLException {

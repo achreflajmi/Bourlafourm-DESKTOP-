@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -12,7 +13,6 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<?import java.net.URL?>
 <AnchorPane fx:id="AfficherProduitScene" prefHeight="800.0" prefWidth="1300.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.AfficherPUserController">
     <stylesheets>
         <URL value="@stylesheet.css" />
@@ -43,7 +43,7 @@
                 <Font size="20.0" />
             </font>
         </Label>
-        <JFXButton buttonType="RAISED" layoutX="1146.0" layoutY="14.0" prefHeight="43.0" prefWidth="102.0" style="-fx-background-color: #008152;" text="Basket" textFill="WHITE">
+        <JFXButton fx:id="BasketButton" buttonType="RAISED" layoutX="1146.0" layoutY="14.0" onAction="#openBasket" prefHeight="43.0" prefWidth="102.0" style="-fx-background-color: #008152;" text="Basket" textFill="WHITE">
             <font>
                 <Font size="20.0" />
             </font>
@@ -70,7 +70,7 @@
                 </ScrollPane>
             </children>
         </HBox>
-        <JFXButton buttonType="RAISED" layoutX="172.0" layoutY="110.0"  prefHeight="22.0" prefWidth="68.0" style="-fx-background-color: #008152;" text="Add" textFill="WHITE">
+        <JFXButton buttonType="RAISED" layoutX="172.0" layoutY="110.0" prefHeight="22.0" prefWidth="68.0" style="-fx-background-color: #008152;" text="Add" textFill="WHITE">
             <font>
                 <Font size="20.0" />
             </font>

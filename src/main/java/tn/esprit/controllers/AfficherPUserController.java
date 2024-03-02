@@ -36,9 +36,11 @@ public class AfficherPUserController {
     GridPane grid;
 
     @FXML
+    private JFXButton BasketButton;
+    @FXML
     private ScrollPane scroll;
     private final ServiceProduit ps = new ServiceProduit();
-    private List <Produit> produits = new ArrayList<>();
+    private List<Produit> produits = new ArrayList<>();
 
     @FXML
     void initialize() throws SQLException, IOException {
@@ -46,6 +48,7 @@ public class AfficherPUserController {
         System.out.println(produits);
         intitialisationProduitList();
     }
+
     void intitialisationProduitList() {
         int row = 0;
         try {
@@ -77,70 +80,27 @@ public class AfficherPUserController {
             e.printStackTrace();
         }
     }
+    @FXML
+    void openBasket(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/AfficherPanier.fxml"));
+            Parent root = loader.load(); // Load the FXML file
 
+            // Get the scene and stage from the event source
+            Scene scene = BasketButton.getScene();
+            Stage stage = (Stage) scene.getWindow();
 
-//    @FXML
-//    void modifierProduitClicked(ActionEvent event) {
-//        JFXButton modifierButton = (JFXButton) event.getSource();
-//        GridPane productPane = (GridPane) modifierButton.getParent();
-//        Produit produit = (Produit) productPane.getUserData();
-//
-//        try {
-//            FXMLLoader loader = new FXMLLoader();
-//            InputStream fxmlStream = getClass().getResourceAsStream("/ModifierProduit.fxml");
-//            Parent root = loader.load(fxmlStream);
-//            ModifierProduitController modifierController = loader.getController();
-//            modifierController.setProduit(produit);
-//
-//            Stage stage = new Stage();
-//            stage.setTitle("Modifier le produit");
-//            Image logo = new Image("logo.png");
-//            stage.getIcons().add(logo);
-//            stage.setScene(new Scene(root));
-//            stage.showAndWait();
-//
-//            grid.getChildren().clear();
-//            initialize();
-//        } catch (IOException | SQLException e) {
-//            e.printStackTrace();
-//            Alert alert = new Alert(Alert.AlertType.ERROR);
-//            alert.setTitle("Error");
-//            alert.setHeaderText(null);
-//            alert.setContentText("Error occurred while loading the product modification window.");
-//            alert.showAndWait();
-//        }
-//    }
+            // Set the scene to the AfficherPanier.fxml
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Error occurred while loading the basket.");
+            alert.showAndWait();
+        }
+    }
+
 }
-
-//System.out.println(event);
-//        id_Event.setText(String.valueOf(event.getIdEvent()));
-//        Event_nom.setText(event.getNomEvent());
-//        Event_capacite.setText(String.valueOf(event.getCapacite()));
-//        if(event.getPath()==null){
-//
-//        String path="file:///C:/Users/melek/IdeaProjects/BourLaFourme/src/main/resources/Icons/Unimage.png";
-//        Image image=new Image(path,190,94,false,true);
-//        Event_image.setImage(image);
-//    }
-//        else{
-//        Image image=new Image(event.getPath(),190,94,false,true);
-//        Event_image.setImage(image);
-//
-//    }
-//        Event_date.setText(String.valueOf(event.getdate_Date_deb()));
-//}
-
-//    void RecupererImage(ActionEvent event) {
-//        FileChooser fileChooser = new FileChooser();
-//        File f = fileChooser.showOpenDialog(null);
-//
-//        if(f != null)
-//        {
-//            System.out.println("Selected file est "+f.getAbsolutePath());
-//            String path = f.getAbsolutePath();
-//            Image.setImage(new Image("file:///"+path));
-//            s = "file:///"+path;
-//            p = f.getAbsolutePath();
-//        }
-//
-//    }
