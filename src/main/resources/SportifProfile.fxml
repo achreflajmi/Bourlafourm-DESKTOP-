@@ -126,7 +126,7 @@
                                     <Insets left="30.0" top="20.0" />
                                  </padding>
                               </Button>
-                              <Button fx:id="profileBtn" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#navigateToProfile" prefHeight="54.0" prefWidth="250.0" style="-fx-background-color: transparent;" text="Profile" textFill="WHITE">
+                              <Button fx:id="profileBtn" alignment="TOP_LEFT" mnemonicParsing="false"  prefHeight="54.0" prefWidth="250.0" style="-fx-background-color: transparent;" text="Profile" textFill="WHITE">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>

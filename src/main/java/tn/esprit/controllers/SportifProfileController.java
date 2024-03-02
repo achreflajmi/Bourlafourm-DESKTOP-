@@ -8,21 +8,19 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
+import javafx.scene.control.*;
 
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import tn.esprit.entities.User;
 import tn.esprit.services.ServiceUser;
 import tn.esprit.util.MyDataBase;
 import tn.esprit.services.SessionManager;
-import javafx.scene.control.ButtonType;
 
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 
@@ -219,7 +217,14 @@ public class SportifProfileController implements Initializable {
         alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(message);
-        return alert.showAndWait().orElse(Alert.ButtonType.CANCEL) == Alert.ButtonType.OK;
+
+        // Ajoutez un bouton d'annulation avec le libellé "Cancel"
+        ButtonType cancelButton = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
+        alert.getButtonTypes().add(cancelButton);
+
+        // Afficher l'alerte et récupérer la réponse
+        Optional<ButtonType> result = alert.showAndWait();
+        return result.orElse(ButtonType.CANCEL) == ButtonType.OK;
     }
 
 }
