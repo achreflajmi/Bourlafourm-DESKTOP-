@@ -5,12 +5,14 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.RowConstraints;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -18,9 +20,11 @@ import javafx.util.Duration;
 import tn.esprit.entities.Coord;
 import tn.esprit.entities.Exercice;
 import tn.esprit.entities.Regime;
+import tn.esprit.entities.Video;
 import tn.esprit.services.ServiceCoord;
 import tn.esprit.services.ServiceExercice;
 import tn.esprit.services.ServiceRegime;
+import tn.esprit.services.ServiceVideo;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -91,7 +95,8 @@ public class AffController {
 
         afficherCoordonneesParId(1);
         afficherRegimeParId(1);
-        afficherParIdExercice(1);
+
+        //afficherParIdExercice(1);
 
         // Set up the refresh timeline
         setupRefreshTimeline();
@@ -99,12 +104,14 @@ public class AffController {
     private ServiceCoord serviceCoord;
     private ServiceRegime serviceRegime;
     private ServiceExercice serviceExercice;
+    private ServiceVideo serviceVideo;
 
 
 
 
     //----------------------  Affichage  --------------------------------
 
+   /*
     private void afficherParIdExercice(int id) throws SQLException {
 
             Exercice exercices = serviceExercice.getExerciceById(id);
@@ -119,12 +126,51 @@ public class AffController {
            imageViewl.setImage(image);
 
         }
-
-
-
-
     }
+    */
 
+    @FXML
+    private GridPane gridPa;
+
+
+    private  void AfficherVideos(){
+
+
+           List<Video> videos = serviceVideo.Afficher();
+
+       if (gridPa != null) {
+               int rowIndex = 0;
+               for (Video video : videos) {
+                   try {
+
+                       FXMLLoader loader = new FXMLLoader(getClass().getResource("/video_item.fxml"));
+                       Parent videoItem = loader.load();
+                       System.out.println("FXML Loaded Successfully"); // Add this line
+
+                       // Get the controller
+                       VideoItemController videoItemController = loader.getController();
+                       System.out.println("Controller: " + videoItemController); // Add this line
+
+                       // Set the exercise data in the controller
+                       videoItemController.setVideoData(video);
+
+                       // Add the exerciceItem to the GridPane
+                       gridPa.add(videoItem, 0, rowIndex);
+
+                       // Adjust the row constraints
+                       RowConstraints rowConstraints = new RowConstraints();
+                       gridPa.getRowConstraints().add(rowConstraints);
+
+                       rowIndex++;
+                   } catch (IOException e) {
+                       System.err.println("Error loading ExerciceItem.fxml: " + e.getMessage());
+                       e.printStackTrace();
+                   }
+               }
+           } else {
+               System.err.println("GridPane is not initialized.");
+           }
+       }
 
 
     private void afficherRegimeParId(int id) {
@@ -196,6 +242,19 @@ public class AffController {
         }
 
     }
+    @FXML
+    private void handleUpdateButtonClick() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/UpdateForm.fxml"));
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setTitle("Update Form");
+            stage.setScene(new Scene(loader.load()));
+            stage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 
     //----------------------  Ajout  --------------------------------
@@ -239,19 +298,7 @@ public class AffController {
 
 
 
-    @FXML
-    private void handleUpdateButtonClick() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/UpdateForm.fxml"));
-            Stage stage = new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setTitle("Update Form");
-            stage.setScene(new Scene(loader.load()));
-            stage.showAndWait();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+
     private void setupRefreshTimeline() {
         refreshTimeline = new Timeline(new KeyFrame(Duration.seconds(refreshIntervalInSeconds), this::refreshData));
         refreshTimeline.setCycleCount(Timeline.INDEFINITE);
@@ -259,21 +306,27 @@ public class AffController {
     }
 
     private void refreshData(ActionEvent event) {
+
+        afficherCoordonneesParId(1);
+        afficherRegimeParId(1);
+        //afficherParIdExercice(1);
+    }
+
+//--------------------------------------- Video ----------------------------------------------
+    public void AddVid(ActionEvent actionEvent) {
         try {
-            // Refresh your data here
-            afficherCoordonneesParId(1);
-            afficherRegimeParId(1);
-            afficherParIdExercice(1);
-        } catch (SQLException e) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/AddVideo.fxml"));
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setTitle("Add Video");
+            stage.setScene(new Scene(loader.load()));
+            stage.showAndWait();
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    // ... (existing code)
-
-    // Don't forget to stop the timeline when the controller is no longer needed (e.g., on window close)
     public void stopRefreshTimeline() {
         refreshTimeline.stop();
     }
-
 }

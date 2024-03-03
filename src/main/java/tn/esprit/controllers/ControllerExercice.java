@@ -1,7 +1,9 @@
 package tn.esprit.controllers;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -18,6 +20,7 @@ import java.util.List;
 public class ControllerExercice {
     @FXML
     private GridPane gridPane;
+
 
     private ServiceExercice serviceExercice;
 
@@ -39,67 +42,6 @@ public class ControllerExercice {
 
     }
 
-    /*
-    private void afficherExercices() throws SQLException {
-        List<Exercice> exercices = serviceExercice.afficher();
-        if (gridPane != null) {
-        int rowIndex = 0;
-        for (Exercice exercice : exercices) {
-            // Créez des éléments d'interface utilisateur pour afficher les détails de l'exercice (par exemple, Label)
-            Label label = new Label(exercice.getNom() + " - " + exercice.getDescription());
-
-            // Ajoutez les éléments d'interface utilisateur au GridPane
-            gridPane.add(label, 0, rowIndex);
-
-            // Vous pouvez ajuster la disposition selon vos besoins
-            RowConstraints rowConstraints = new RowConstraints();
-            gridPane.getRowConstraints().add(rowConstraints);
-
-            rowIndex++;
-        }
-        } else {
-            System.err.println("GridPane is not initialized.");
-        }
-    }
-     */
-/*
-    private void afficherExercices() throws SQLException {
-        List<Exercice> exercices = serviceExercice.afficher();
-        if (gridPane != null) {
-            int rowIndex = 0;
-            for (Exercice exercice : exercices) {
-                // Create a VBox for each exercise
-                VBox exerciseBox = new VBox();
-                exerciseBox.setSpacing(10); // Adjust the spacing as needed
-
-                // Add the exercise details to the VBox
-                Label nameLabel = new Label("Name: " + exercice.getNom());
-                Label descriptionLabel = new Label("Description: " + exercice.getDescription());
-                Label repetitionLabel = new Label("Repetition: " + exercice.getNbr_rep());
-
-                // Load the image
-                ImageView imageView = new ImageView(new Image(exercice.getImage()));
-                imageView.setFitWidth(100); // Adjust the width as needed
-                imageView.setFitHeight(100); // Adjust the height as needed
-
-                // Add the labels and image to the VBox
-                exerciseBox.getChildren().addAll(nameLabel, descriptionLabel, repetitionLabel, imageView);
-
-                // Add the VBox to the GridPane
-                gridPane.add(exerciseBox, 0, rowIndex);
-
-                // Adjust the row constraints
-                RowConstraints rowConstraints = new RowConstraints();
-                gridPane.getRowConstraints().add(rowConstraints);
-
-                rowIndex++;
-            }
-        } else {
-            System.err.println("GridPane is not initialized.");
-        }
-    }
-
- */
 
     private void afficherExercices() throws SQLException {
         List<Exercice> exercices = serviceExercice.afficher();
@@ -133,5 +75,8 @@ public class ControllerExercice {
         } else {
             System.err.println("GridPane is not initialized.");
         }
+    }
+
+    public void handleAddExButton(ActionEvent actionEvent) {
     }
 }

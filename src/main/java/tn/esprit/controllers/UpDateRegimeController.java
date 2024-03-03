@@ -2,8 +2,10 @@ package tn.esprit.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import tn.esprit.services.ServiceRegime;
 
 import java.sql.SQLException;
@@ -52,6 +54,8 @@ public class UpDateRegimeController {
         String newSnackb = snackbfx.getText();
         String newDinner = dinnerfx.getText();
         ps.modifierRegimeById(regimeIdToUpdate, newBreakfest, newSnack, newLunch, newSnackb, newDinner);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.close();
     }catch (IllegalArgumentException | SQLException e) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");

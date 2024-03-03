@@ -1,6 +1,18 @@
 package tn.esprit.entities;
 
+import java.util.List;
+
 public class Exercice {
+    public List<ExercicesRecommandees> getExercicesRecommandees() {
+        return exercicesRecommandees;
+    }
+
+    public void setExercicesRecommandees(List<ExercicesRecommandees> exercicesRecommandees) {
+        this.exercicesRecommandees = exercicesRecommandees;
+    }
+
+    // Relation One-to-Many avec ExercicesRecommandees
+    private List<ExercicesRecommandees> exercicesRecommandees;
     private int id ;
     private String nom;
     private  String description;

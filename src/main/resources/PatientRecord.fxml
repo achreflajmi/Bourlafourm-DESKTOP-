@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="1172.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.AffController">
+<ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="2000.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.AffController">
     <content>
         <AnchorPane prefHeight="1175.0" prefWidth="785.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
             <children>
@@ -68,7 +68,7 @@
                         <Insets top="10.0" />
                     </padding>
                 </GridPane>
-                <GridPane layoutX="59.0" layoutY="552.0" prefHeight="440.0" prefWidth="720.0">
+                <GridPane layoutX="59.0" layoutY="545.0" prefHeight="274.0" prefWidth="711.0">
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
@@ -85,7 +85,7 @@
                                 </Text>
                                 <Label fx:id="nameLabel" text="Label" textFill="WHITE">
                                     <padding>
-                                        <Insets left="30.0" top="51.0" />
+                                        <Insets left="30.0" />
                                     </padding>
                                 </Label>
                                 <Label fx:id="descLabel" text="Label" textFill="WHITE" wrapText="true">
@@ -98,10 +98,10 @@
                                         <Insets left="30.0" />
                                     </padding>
                                 </Label>
-                                <ImageView fx:id="imageViewl" fitHeight="128.0" fitWidth="173.0" pickOnBounds="true" preserveRatio="true" />
+                                <ImageView fx:id="imageViewl" fitHeight="78.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true" />
                                 <Button fx:id="upeBT" mnemonicParsing="false" onAction="#UpdateExercice" style="-fx-background-color: #008152;" text="Update" textFill="WHITE">
                                     <VBox.margin>
-                                        <Insets left="350.0" top="100.0" />
+                                        <Insets left="350.0" />
                                     </VBox.margin>
                                 </Button>
                             </children>
@@ -228,9 +228,41 @@
                         </VBox>
                     </children>
                 </GridPane>
-                <Button fx:id="dietBT" layoutX="74.0" layoutY="1075.0" mnemonicParsing="false" onAction="#AjoutRegime" style="-fx-background-color: #008152;" text="Diet" textFill="WHITE" />
-                <Button fx:id="detailsBT" layoutX="368.0" layoutY="1075.0" mnemonicParsing="false" onAction="#AjoutCoord" style="-fx-background-color: #008152;" text="Details" textFill="WHITE" />
-                <Button fx:id="sportBT" layoutX="660.0" layoutY="1075.0" mnemonicParsing="false" onAction="#AjoutExercice" style="-fx-background-color: #008152;" text="Sport" textFill="WHITE" />
+                <Button fx:id="dietBT" layoutX="74.0" layoutY="1646.0" mnemonicParsing="false" onAction="#AjoutRegime" style="-fx-background-color: #008152;" text="Diet" textFill="WHITE" />
+                <Button fx:id="detailsBT" layoutX="368.0" layoutY="1646.0" mnemonicParsing="false" onAction="#AjoutCoord" style="-fx-background-color: #008152;" text="Details" textFill="WHITE" />
+                <Button fx:id="sportBT" layoutX="660.0" layoutY="1646.0" mnemonicParsing="false" onAction="#AjoutExercice" style="-fx-background-color: #008152;" text="Sport" textFill="WHITE" />
+            <GridPane fx:id="GridPane" layoutX="58.0" layoutY="847.0" prefHeight="595.0" prefWidth="711.0" style="-fx-border-color: #C7DDC5; -fx-border-radius: 29;">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <VBox prefHeight="194.0" prefWidth="724.0">
+                     <children>
+                        <Label text="Explicative Videos">
+                           <VBox.margin>
+                              <Insets left="30.0" top="30.0" />
+                           </VBox.margin>
+                        </Label>
+                        <ScrollPane prefHeight="452.0" prefWidth="722.0" style="-fx-background-color: #008152;">
+                           <content>
+                              <GridPane fx:id="gridPa" prefHeight="141.0" prefWidth="137.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                              </GridPane>
+                           </content>
+                        </ScrollPane>
+                        <Button mnemonicParsing="false" onAction="#AddVid" text="Video" />
+                     </children>
+                  </VBox>
+               </children>
+            </GridPane>
             </children>
 
         </AnchorPane>

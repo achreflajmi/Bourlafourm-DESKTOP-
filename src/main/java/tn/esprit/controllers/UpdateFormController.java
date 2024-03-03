@@ -1,7 +1,9 @@
 package tn.esprit.controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import tn.esprit.services.ServiceCoord;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -52,6 +54,8 @@ public class UpdateFormController {
 
 
             showSuccessAlert("Success", "Information updated successfully!");
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.close();
         } catch (NumberFormatException e) {
             showAlert("Invalid Input", "Please enter valid numeric values.");
         } catch (SQLException e) {

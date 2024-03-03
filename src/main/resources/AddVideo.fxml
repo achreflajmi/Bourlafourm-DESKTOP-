@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.AddVideoController">
+   <children>
+      <HBox layoutX="-3.0" prefHeight="400.0" prefWidth="608.0">
+         <children>
+            <AnchorPane opacity="0.6" prefHeight="385.0" prefWidth="254.0" style="-fx-background-color: #008152;" />
+            <VBox prefHeight="417.0" prefWidth="353.0">
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Explacattive Exercices" textAlignment="CENTER" wrappingWidth="234.0">
+                     <font>
+                        <Font name="Algerian" size="28.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="35.0" top="50.0" />
+                     </VBox.margin>
+                  </Text>
+                  <AnchorPane prefHeight="73.0" prefWidth="305.0" />
+                  <TextField fx:id="titleVid" prefHeight="39.0" prefWidth="249.0" promptText="Title">
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <HBox prefHeight="46.0" prefWidth="290.0">
+                     <children>
+                        <ImageView fx:id="imgTF" fitHeight="70.0" fitWidth="127.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@assets/img.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <VBox>
+                           <children>
+                              <Label text="Upload Explicative video" />
+                              <HBox spacing="10" />
+                           </children>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
+                  <Button onAction="#handleUpload" text="Upload" />
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+               <HBox.margin>
+                  <Insets bottom="20.0" />
+               </HBox.margin>
+            </VBox>
+         </children>
+      </HBox>
+      <ImageView fitHeight="296.0" fitWidth="226.0" layoutX="14.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/logo.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

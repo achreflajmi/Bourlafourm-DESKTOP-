@@ -1,5 +1,6 @@
 package tn.esprit.controllers;
 import javafx.fxml.FXML;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -25,8 +26,21 @@ public class ExerciceItemController {
 
     @FXML
     private Label nom;
+    @FXML
+    private CheckBox checkBox;
 
 
+    @FXML
+    private void handleAddExButton() {
+        // Implement the logic to handle the button click
+        if (checkBox.isSelected()) {
+            // Perform the action to save the selected exercise to another database table
+            saveSelectedExerciceToDatabase();
+        }
+    }
+
+    private void saveSelectedExerciceToDatabase() {
+    }
 
     public void setExerciceData(Exercice exercice) {
         if (exercice != null) {
