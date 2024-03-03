@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
@@ -13,7 +14,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="AfficherProduitScene" prefHeight="800.0" prefWidth="1300.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.AfficherPUserController">
+<AnchorPane fx:id="AfficherProduitScene" prefHeight="800.0" prefWidth="1300.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.AfficherPUserController">
     <stylesheets>
         <URL value="@stylesheet.css" />
     </stylesheets>
@@ -56,9 +57,9 @@
         <Line endX="1066.0" layoutX="167.0" layoutY="163.0" startX="-100.0" stroke="#008152" />
         <HBox layoutX="38.0" layoutY="178.0" prefHeight="607.0" prefWidth="1229.0" style="-fx-background-color: black;">
             <children>
-                <ScrollPane fx:id="scroll" prefHeight="607.0" prefWidth="478.0" style="-fx-background-color: black; -fx-border-color: #008152; -fx-border-width: 1px;">
+                <ScrollPane fx:id="scroll" prefHeight="607.0" prefWidth="1189.0" style="-fx-background-color: black; -fx-border-color: #008152; -fx-border-width: 1px;">
                     <content>
-                        <GridPane fx:id="grid" prefHeight="292.0" prefWidth="459.0" style="-fx-background-color: black;">
+                        <GridPane fx:id="grid" prefHeight="292.0" prefWidth="1175.0" style="-fx-background-color: black;">
                             <columnConstraints>
                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                             </columnConstraints>
@@ -70,6 +71,16 @@
                 </ScrollPane>
             </children>
         </HBox>
+      <JFXTextField fx:id="searchField" layoutX="198.0" layoutY="110.0" onAction="#searchProduct" promptText="Search Product" unFocusColor="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton fx:id="search" buttonType="RAISED" layoutX="407.0" layoutY="107.0" prefHeight="19.0" prefWidth="135.0" style="-fx-background-color: #008152;" text="Search" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXButton>
 
     </children>
 </AnchorPane>

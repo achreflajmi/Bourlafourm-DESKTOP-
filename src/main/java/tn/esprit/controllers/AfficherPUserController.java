@@ -1,4 +1,5 @@
 package tn.esprit.controllers;
+import com.jfoenix.controls.JFXTextField;
 import javafx.scene.layout.*;
 import tn.esprit.controllers.ItemPUserController;
 import com.jfoenix.controls.JFXButton;
@@ -34,17 +35,23 @@ public class AfficherPUserController {
 
     @FXML
     GridPane grid;
+    @FXML
+    private JFXButton search;
 
+    @FXML
+    private JFXTextField searchField;
     @FXML
     private JFXButton BasketButton;
     @FXML
     private ScrollPane scroll;
     private final ServiceProduit ps = new ServiceProduit();
     private List<Produit> produits = new ArrayList<>();
+    private List<Produit> originalProduits = new ArrayList<>(); // Added originalProduits list
 
     @FXML
     void initialize() throws SQLException, IOException {
         produits = ps.recuperer();
+        originalProduits.addAll(produits);
         System.out.println(produits);
         intitialisationProduitList();
     }
@@ -64,7 +71,6 @@ public class AfficherPUserController {
                 grid.add(item, 0, row);
                 GridPane.setMargin(item, new Insets(20));
 
-                // Set equal column width (100%)
                 ColumnConstraints columnConstraints = new ColumnConstraints();
                 columnConstraints.setPercentWidth(100);
                 grid.getColumnConstraints().add(columnConstraints);
@@ -102,5 +108,29 @@ public class AfficherPUserController {
             alert.showAndWait();
         }
     }
-
+    @FXML
+    private void searchProduct(ActionEvent event) {
+        String query = searchField.getText().trim();
+        if (!query.isEmpty()) {
+            List<Produit> searchResults = new ArrayList<>();
+            for (Produit produit : originalProduits) {
+                if (produit.getNom_prod().toLowerCase().contains(query.toLowerCase())) {
+                    searchResults.add(produit);
+                }
+            }
+            // Clear the grid to remove existing products
+            grid.getChildren().clear();
+            // Initialize the list of products with search results
+            produits = searchResults;
+            intitialisationProduitList();
+        } else {
+            // If the search query is empty, reset the products list to original
+            produits.clear();
+            produits.addAll(originalProduits);
+            // Clear the grid to remove existing products
+            grid.getChildren().clear();
+            // Initialize the list of products again
+            intitialisationProduitList();
+        }
+    }
 }
