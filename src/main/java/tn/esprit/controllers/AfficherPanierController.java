@@ -17,6 +17,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import tn.esprit.entities.PDFGenerator;
 import tn.esprit.entities.Panier;
 import tn.esprit.entities.Produit;
 import tn.esprit.service.ServicePanier;
@@ -132,11 +133,19 @@ public class AfficherPanierController implements Initializable, ItemPanierContro
                 itemController.updateQuantity(1); // Update the quantity display
             }
         }
+
     }
 
-
-
-
+    @FXML
+    void printBasket(ActionEvent event) {
+        PDFGenerator pdfGenerator = new PDFGenerator();
+        pdfGenerator.generatePDF(panierMap);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Success");
+        alert.setHeaderText(null);
+        alert.setContentText("Basket contents printed successfully!");
+        alert.showAndWait();
+    }
 
     @Override
     public void onQuantityUpdate(int productId, int newQuantity) {
