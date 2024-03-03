@@ -13,16 +13,29 @@ public class Event {
     int Capacite;
     Blob Image;
     String Path;
+    int nb_place_res;
 
+    public Event(int idEvent, String nomEvent, String type, String organisateur, Date date_deb, Date date_fin, int capacite, Blob image, String path, int nb_place_res) {
+        this.idEvent = idEvent;
+        NomEvent = nomEvent;
+        Type = type;
+        Organisateur = organisateur;
+        Date_deb = date_deb;
+        Date_fin = date_fin;
+        Capacite = capacite;
+        Image = image;
+        Path = path;
+        this.nb_place_res = nb_place_res;
+    }
 
-    public Event(int idEvent, String nomEvent, String type, String organisateur, Date date_deb, Date date_fin, int capacite, Blob image, String path) {
+    public Event(int idEvent, String nomEvent, String type, String organisateur, Date date_deb, Date date_fin, int Capacite, Blob image, String path) {
         this.idEvent = idEvent;
         this.NomEvent = nomEvent;
         this.Type = type;
         this.Organisateur = organisateur;
         this.Date_deb = date_deb;
         this.Date_fin = date_fin;
-        this.Capacite = capacite;
+        this.Capacite = Capacite;
         this.Image = image;
         this.Path = path;
     }
@@ -35,13 +48,13 @@ public class Event {
   //      this.Path=path;
    // }
 
-    public Event(String nomEvent, String type, String organisateur, Date date_deb, Date date_fin, int capacite, Blob image, String path) {
+    public Event(String nomEvent, String type, String organisateur, Date date_deb, Date date_fin, int Capacite, Blob image, String path) {
         NomEvent = nomEvent;
         Type = type;
         Organisateur = organisateur;
         Date_deb = date_deb;
         Date_fin = date_fin;
-        this.Capacite = capacite;
+        this.Capacite = Capacite;
         Image = image;
         Path = path;
     }
@@ -51,7 +64,13 @@ public class Event {
     }
 
 
+    public int getNb_place_res() {
+        return nb_place_res;
+    }
 
+    public void setNb_place_res(int nb_place_res) {
+        this.nb_place_res = nb_place_res;
+    }
 
     public int getIdEvent() {
         return idEvent;
@@ -112,18 +131,13 @@ public class Event {
         Date_fin = date_fin;
     }
 
-    public Integer getCapacites() {
-        return Capacite;
-    }
+
 
 
     public int getCapacite() {
         return Capacite;
     }
 
-    public String getCapaciteString() {
-        return String.valueOf(Capacite);
-    }
 
     public void setCapacite(int capacite) {
         Capacite = capacite;
@@ -145,6 +159,7 @@ public class Event {
         Path = path;
     }
 
+
     @Override
     public String toString() {
         return "Event{" +
@@ -157,6 +172,8 @@ public class Event {
                 ", Capacite=" + Capacite +
                 ", Image=" + Image +
                 ", Path='" + Path + '\'' +
+                ", nb_place_res=" + nb_place_res +
                 '}';
     }
+
 }

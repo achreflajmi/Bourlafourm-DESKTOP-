@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="668.0" prefWidth="808.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controllers.StatestiqueController">
+    <children>
+        <BarChart fx:id="StatLoading" layoutX="152.0" layoutY="84.0" prefHeight="256.0" prefWidth="416.0">
+            <xAxis>
+                <CategoryAxis fx:id="Xaxis" side="BOTTOM" />
+            </xAxis>
+            <yAxis>
+                <NumberAxis fx:id="Yaxis" side="LEFT" />
+            </yAxis>
+        </BarChart>
+        <Label layoutX="95.0" layoutY="22.0" prefHeight="32.0" prefWidth="587.0" text="Statistique des evenements en fonction de leurs capacite">
+            <font>
+                <Font name="System Bold Italic" size="22.0" />
+            </font>
+        </Label>
+        <PieChart fx:id="PieChartStat" layoutX="127.0" layoutY="348.0" prefHeight="305.0" prefWidth="554.0" />
+    </children>
+</AnchorPane>

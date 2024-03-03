@@ -20,10 +20,16 @@ import javafx.stage.Stage;
 import org.example.entities.Event;
 import org.example.entities.Reservation;
 import org.example.services.ServiceReservation;
+import javax.mail.Message;
 
+
+
+import javax.mail.*;
+import javax.mail.internet.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Properties;
 import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -149,10 +155,11 @@ public class AjoutReservationController implements Initializable {
                 alerte.show();
 
         }else {
-
+            System.out.println(Nom_Event_reserver.getText());
             sr.ajouter(new Reservation((Nom_Event_reserver.getText()), Integer.parseInt(nbr_place.getText()), Email.getText(), Integer.parseInt(id_evenement.getText())));
         sr.MiseAJour(Integer.parseInt(nbr_place.getText()), Integer.parseInt(id_evenement.getText()));
         sr.MiseAJourNbPlace(Integer.parseInt(nbr_place.getText()), Integer.parseInt(id_evenement.getText()));
+        Send();
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/views/ListEventFront.fxml"));
         Parent parent = loader.load();
@@ -184,6 +191,63 @@ public class AjoutReservationController implements Initializable {
             return value > 0; // Ensure it's a positive integer
         } catch (NumberFormatException e) {
             return false;
+        }
+    }
+
+
+    public void Send() throws IOException{
+        String to =Email.getText();
+        String from ="hamadimelek0@gmail.com";
+        String host = "smtp.gmail.com";
+        final String Username = "hamadimelek0@gmail.com";
+        final String Password = "lratlnewgzgzydsz";
+
+
+        Properties props = new Properties();
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+
+        props.put("mail.smtp.starttls.trust", "smtp.gmail.com");
+
+
+
+        props.put("mail.smtp.host", host);
+        props.put("mail.smtp.port", "25");
+
+        Session session = Session.getInstance(props,
+
+
+                new javax.mail.Authenticator() {
+                    protected PasswordAuthentication getPasswordAuthentication() {
+                        return new PasswordAuthentication(Username, Password);
+                    }
+                });
+        session.setDebug(true);
+
+        try {
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(from));
+            message.setRecipients(Message.RecipientType.TO,InternetAddress.parse(to));
+            message.setSubject("Reservation");
+            Multipart emailContent = new MimeMultipart();
+            MimeBodyPart textBodyPart = new MimeBodyPart();
+            textBodyPart.setText("Cher Client,\n\n" +
+                    "Nous vous remercions de votre réservation pour l'événement " + Nom_Event_reserver.getText() + ".\n" +
+                    "Voici un récapitulatif de votre réservation :\n\n" +
+                    "- Nom de l'événement : " + Nom_Event_reserver.getText() + "\n" +
+                    "- Nombre de places réservées : " + nbr_place.getText() + "\n\n" +
+                    "Nous avons hâte de vous accueillir à l'événement.\n\n" +
+                    "Cordialement,\n" +
+                    "[BourLaFourme]");
+            MimeBodyPart pdfAttatchement = new MimeBodyPart();
+            pdfAttatchement.attachFile("C:/Users/melek/Downloads/Reservation.png");
+            emailContent.addBodyPart(textBodyPart);
+            emailContent.addBodyPart(pdfAttatchement);
+            message.setContent(emailContent);
+            Transport.send(message);
+            System.out.println("Sent message successfully....");
+        } catch (MessagingException e) {
+            throw new RuntimeException(e);
         }
     }
 

@@ -21,7 +21,7 @@ public class ServiceEvent implements Iservice <Event>{
     @Override
     public void ajouter(Event event) throws SQLException {
         try {
-            String sql = "insert into event set NomEvent = ?, Type= ? , organisateur= ?, Date_deb= ? , Date_fin= ?, Capacite= ? , Image= ? , Path= ? ";
+            String sql = "insert into event set NomEvent = ?, Type= ? , organisateur= ?, Date_deb= ? , Date_fin= ?, Capacite= ? , Image= ? , Path= ? ,nb_place_res=?";
             PreparedStatement preparedStatement= connection.prepareStatement(sql);
             preparedStatement.setString(1, event.getNomEvent());
             preparedStatement.setString(2, event.getType());
@@ -31,6 +31,7 @@ public class ServiceEvent implements Iservice <Event>{
             preparedStatement.setInt(6, event.getCapacite());
             preparedStatement.setBlob(7, event.getImage());
             preparedStatement.setString(8, event.getPath());
+            preparedStatement.setInt(9, 0);
             //preparedStatement.setInt(9, event.getIdEvent());
 
             preparedStatement.executeUpdate();
@@ -96,11 +97,94 @@ public class ServiceEvent implements Iservice <Event>{
             e.setDate_fin(rs.getDate("Date_fin"));
             e.setType(rs.getString("Type"));
             e.setIdEvent(rs.getInt("idEvent"));
-            //e.setCapacite(rs.getInt("Capacite"));
+            e.setCapacite(rs.getInt("Capacite"));
             e.setImage(rs.getBlob("Image"));
             e.setPath(rs.getString("Path"));
             events.add(e);
         }
         return events;
     }
+
+
+    public List<Event> afficherEvnbPlace() throws SQLException {
+        List<Event> events= new ArrayList<>();
+        String sql = "select * from event";
+        Statement statement = connection.createStatement();
+        ResultSet rs = statement.executeQuery(sql);
+        while (rs.next()){
+            Event e = new Event();
+
+            e.setNomEvent(rs.getString("NomEvent"));
+            e.setOrganisateur(rs.getString("Organisateur"));
+            e.setDate_deb(rs.getDate("Date_deb"));
+            e.setDate_fin(rs.getDate("Date_fin"));
+            e.setType(rs.getString("Type"));
+            e.setIdEvent(rs.getInt("idEvent"));
+            e.setCapacite(rs.getInt("Capacite"));
+            e.setImage(rs.getBlob("Image"));
+            e.setPath(rs.getString("Path"));
+            e.setNb_place_res(rs.getInt("nb_place_res"));
+            events.add(e);
+        }
+        return events;
+    }
+    public List<Event> afficherMesReservations() throws SQLException {
+        List<Event> events= new ArrayList<>();
+        String sql = "SELECT * from event JOIN reservation ON event.idEvent = reservation.id_reser_event JOIN user ON reservation.id_user_reser = user.id_user where user.id_user=10";
+        Statement statement = connection.createStatement();
+        ResultSet rs = statement.executeQuery(sql);
+        while (rs.next()){
+            Event e = new Event();
+
+            e.setNomEvent(rs.getString("NomEvent"));
+            e.setOrganisateur(rs.getString("Organisateur"));
+            e.setDate_deb(rs.getDate("Date_deb"));
+            e.setDate_fin(rs.getDate("Date_fin"));
+            e.setType(rs.getString("Type"));
+            e.setIdEvent(rs.getInt("idEvent"));
+            e.setCapacite(rs.getInt("Capacite"));
+            e.setImage(rs.getBlob("Image"));
+            e.setPath(rs.getString("Path"));
+            e.setNb_place_res(rs.getInt("nb_place_res"));
+            events.add(e);
+        }
+        return events;
+    }
+
+
+
+
+
+
+    public List<Event> getByPartialName(String partialName) throws SQLException {
+        List<Event> events = new ArrayList<>();
+        String query = "SELECT * FROM event WHERE Nom_Etablissement LIKE ?";
+
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setString(1, partialName + "%"); // Ajoutez le % pour correspondre à tous les noms commençant par la partie spécifiée
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                while (rs.next()) {
+                    Event e = new Event();
+
+                    e.setNomEvent(rs.getString("NomEvent"));
+                    e.setOrganisateur(rs.getString("Organisateur"));
+                    e.setDate_deb(rs.getDate("Date_deb"));
+                    e.setDate_fin(rs.getDate("Date_fin"));
+                    e.setType(rs.getString("Type"));
+                    e.setIdEvent(rs.getInt("idEvent"));
+                    e.setCapacite(rs.getInt("Capacite"));
+                    e.setImage(rs.getBlob("Image"));
+                    e.setPath(rs.getString("Path"));
+                    e.setNb_place_res(rs.getInt("nb_place_res"));
+                    events.add(e);
+                }
+            }
+        }
+
+        return events;
+    }
+
+
+
 }

@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.gluonhq.charm.glisten.control.TextField?>
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -36,7 +38,7 @@
       </AnchorPane>
       <AnchorPane fx:id="Event_pane" layoutX="262.0" layoutY="94.0" prefHeight="653.0" prefWidth="1092.0">
          <children>
-              <TextField fx:id="SearchFileld" layoutX="223.0" layoutY="19.0" prefHeight="30.0" prefWidth="834.0" promptText="Search inTable" />
+              <TextField fx:id="SearchFileld" layoutX="224.0" layoutY="19.0" prefHeight="24.0" prefWidth="611.0" promptText="Search inTable" />
               <JFXButton fx:id="AjoutEvenement" layoutX="20.0" layoutY="14.0" onAction="#AjouterEvent" prefHeight="38.0" prefWidth="194.0" style="-fx-background-color: green;" text="Ajouter un Evenement" />
             <AnchorPane layoutX="20.0" layoutY="65.0" prefHeight="590.0" prefWidth="1027.0">
                <children>
@@ -49,8 +51,22 @@
                         </GridPane>
                     </content>
                   </ScrollPane>
+                  <TableView fx:id="tableEvenement" layoutX="288.0" layoutY="206.0" prefHeight="406.0" prefWidth="728.0" visible="false">
+                     <columns>
+                        <TableColumn fx:id="cd_nom" editable="false" minWidth="0.0" prefWidth="103.0" text="Nom" />
+                        <TableColumn fx:id="cd_Organisateur" editable="false" prefWidth="114.0" text="Organisateur" />
+                        <TableColumn fx:id="cd_Date_Deb" editable="false" minWidth="0.0" prefWidth="123.20004272460938" text="Date_Debut" />
+                        <TableColumn fx:id="cd_Date_Fin" editable="false" prefWidth="119.20001220703125" text="Date_Fin" />
+                        <TableColumn fx:id="cd_type" editable="false" minWidth="0.0" prefWidth="128.0" text="Type" />
+                        <TableColumn fx:id="Image_Col" prefWidth="120.0" text="Image" visible="false" />
+                        <TableColumn fx:id="Path_Col" prefWidth="152.7999267578125" text="Path" visible="false" />
+                        <TableColumn fx:id="cd_id" prefWidth="138.39996337890625" text="Identifiant" />
+                     </columns>
+                  </TableView>
                </children>
             </AnchorPane>
+            <JFXButton fx:id="PDF" layoutX="845.0" layoutY="16.0" onAction="#PDF" prefHeight="34.0" prefWidth="100.0" style="-fx-background-color: red;" text="PDF" />
+            <JFXButton fx:id="Stats" layoutX="948.0" layoutY="16.0" onAction="#Stats" prefHeight="34.0" prefWidth="108.0" style="-fx-background-color: blue;" text="Stats" />
          </children>
       </AnchorPane>
         <VBox id="MenuVbox" alignment="CENTER_LEFT" prefHeight="748.0" prefWidth="262.0">

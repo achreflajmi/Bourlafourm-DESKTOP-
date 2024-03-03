@@ -1,11 +1,12 @@
 package org.example.services;
 
 import javafx.scene.control.Alert;
+import org.example.entities.Event;
 import org.example.util.MyDataBase;
 import  org.example.entities.Reservation;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ServiceReservation implements Iservice<Reservation>{
@@ -83,13 +84,57 @@ public class ServiceReservation implements Iservice<Reservation>{
     }
 
     @Override
-    public void supprimer(int id) throws SQLException {
+    public void supprimer(int id_reservation) throws SQLException {
+        String sql= "delete from reservation where id_reservation = ?";
+        PreparedStatement preparedStatement= connection.prepareStatement(sql);
+        preparedStatement.setInt(1,id_reservation);
+        preparedStatement.executeUpdate();
 
     }
 
     @Override
     public List<Reservation> afficher() throws SQLException {
-        return null;
+        List<Reservation> reservations= new ArrayList<>();
+        String sql = "select * from reservation where id_user_reser = 10";
+        Statement statement = connection.createStatement();
+        ResultSet rs = statement.executeQuery(sql);
+        while (rs.next()){
+            Reservation r = new Reservation();
+
+            r.setId_reservation(rs.getInt("id_reservation"));
+            r.setNom_rese_event(rs.getString("nom_res_event"));
+            r.setNbr_place_reserv(rs.getInt("nbr_place_reserv"));
+            r.setEmail(rs.getString("Email"));
+            r.setId_reser_event(rs.getInt("id_reser_event"));
+
+            reservations.add(r);
+        }
+        return reservations;
     }
+
+
+    public void CapacitePlus(int nbreservation, int idevenement) {
+        try {
+            String sql = "UPDATE event SET Capacite = Capacite + '"+nbreservation+"' WHERE idEvent  = '"+idevenement+"'";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.executeUpdate();
+            //initialize(null, null)
+        }catch(Exception e){
+            System.out.println("ereur");;
+        }
+    }
+
+    public void nombrePlaceMoins(int nbreservation, int idevenement) {
+        try {
+            String sql = "UPDATE event SET nb_place_res = nb_place_res - '"+nbreservation+"' WHERE idEvent  = '"+idevenement+"'";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.executeUpdate();
+            //initialize(null, null)
+        }catch(Exception e){
+            System.out.println("ereur");;
+        }
+    }
+
+
 
 }

@@ -15,7 +15,7 @@ import javafx.stage.StageStyle;
 public class MainFX extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainFX.class.getResource("/views/Index.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainFX.class.getResource("/views/ListEventFront.fxml"));
         Parent root = fxmlLoader.load();
 
         // Create a scene with transparent fill

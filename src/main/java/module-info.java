@@ -2,8 +2,14 @@ module bourlafourme {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
+
+    requires AnimateFX;
     requires com.jfoenix;
-    requires fontawesomefx;
+
+    requires pdfjet;
+    requires charm.glisten;
+    requires java.mail;
+
 
     opens CSS to javafx.fxml;
     opens Icons to javafx.fxml;

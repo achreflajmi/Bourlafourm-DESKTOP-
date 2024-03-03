@@ -20,11 +20,12 @@ public class Reservation {
         this.id_reser_event = id_reser_event;
     }
 
-    public Reservation(String nom_rese_event,int nbr_place_reserv, String email,  int id_reser_event) {
-        this.nom_rese_event = nom_rese_event;
-        this.nbr_place_reserv = nbr_place_reserv;
-        Email = email;
-        this.id_reser_event = id_reser_event;
+    public Reservation(String nom_rese_event,int nbr_place_reserv, String email,  int i1) {
+        this.nom_rese_event=nom_rese_event;
+        this.nbr_place_reserv=nbr_place_reserv;
+        this.Email=email;
+        this.id_reser_event=i1;
+
     }
 
     public int getId_reservation() {
