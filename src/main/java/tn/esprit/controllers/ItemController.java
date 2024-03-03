@@ -106,12 +106,12 @@ public class ItemController implements Initializable {
             Listener.OnModifier(produit);
         }
     }
-    @FXML
-    void handlemodif(){
-        if(Listener != null){
-            Listener.OnModifier(produit);
-        }
-    }
+//    @FXML
+//    void handlemodif(){
+//        if(Listener != null){
+//            Listener.OnModifier(produit);
+//        }
+//    }
 
 
     public void setProduitListener(ProduitListener listener) {
