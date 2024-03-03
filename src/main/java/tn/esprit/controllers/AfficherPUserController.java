@@ -27,9 +27,15 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.scene.control.ScrollPane;
+import java.util.Comparator;
 
 public class AfficherPUserController {
 
+    @FXML
+    private JFXButton sortPrice;
+
+    @FXML
+    private JFXButton sortQuantity;
     @FXML
     private AnchorPane AfficherProduitScene;
 
@@ -132,5 +138,17 @@ public class AfficherPUserController {
             // Initialize the list of products again
             intitialisationProduitList();
         }
+    }
+    @FXML
+    private void sortByQuantity(ActionEvent event) {
+        produits.sort(Comparator.comparing(Produit::getQuantite_prod));
+        grid.getChildren().clear();
+        intitialisationProduitList();
+    }
+    @FXML
+    private void sortByPrice(ActionEvent event) {
+        produits.sort(Comparator.comparing(Produit::getPrix_prod));
+        grid.getChildren().clear();
+        intitialisationProduitList();
     }
 }
