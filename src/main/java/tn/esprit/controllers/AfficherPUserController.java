@@ -60,8 +60,53 @@ public class AfficherPUserController {
         originalProduits.addAll(produits);
         System.out.println(produits);
         intitialisationProduitList();
-    }
+        searchField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.isEmpty()) {
 
+            } else {
+                searchPrototype(newValue); // Filter products based on the search keyword
+            }
+        });
+    }
+    private void searchPrototype(String keyword) {
+        try {
+            // Clear the existing content of the GridPane
+            grid.getChildren().clear();
+
+            int row = 0;
+
+            // Iterate through the list of originalProduits
+            for (Produit produit : originalProduits) {
+                if (produit.getNom_prod().toLowerCase().contains(keyword.toLowerCase())) {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/itemPUser.fxml"));
+                    AnchorPane item = loader.load();
+
+                    ItemPUserController itemCardController = loader.getController();
+                    itemCardController.setData1(produit);
+
+                    item.setStyle("-fx-background-color: transparent; -fx-border-color: #008152; -fx-border-width: 1px;");
+
+                    grid.add(item, 0, row);
+                    GridPane.setMargin(item, new Insets(20));
+
+                    ColumnConstraints columnConstraints = new ColumnConstraints();
+                    columnConstraints.setPercentWidth(100);
+                    grid.getColumnConstraints().add(columnConstraints);
+
+                    // Set equal row heights
+                    RowConstraints rowConstraints = new RowConstraints();
+                    rowConstraints.setPercentHeight(100 / originalProduits.size()); // Each row takes an equal percentage of the height
+                    grid.getRowConstraints().add(rowConstraints);
+
+                    row++;
+                }
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Handle exceptions appropriately
+        }
+    }
     void intitialisationProduitList() {
         int row = 0;
         try {

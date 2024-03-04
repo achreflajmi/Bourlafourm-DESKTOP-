@@ -76,11 +76,6 @@
             <Font size="17.0" />
          </font>
       </JFXTextField>
-      <JFXButton fx:id="search" buttonType="RAISED" layoutX="407.0" layoutY="107.0" prefHeight="19.0" prefWidth="135.0" style="-fx-background-color: #008152;" text="Search" textFill="WHITE">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </JFXButton>
       <JFXButton fx:id="sortPrice" buttonType="RAISED" layoutX="558.0" layoutY="107.0" onAction="#sortByPrice" prefHeight="44.0" prefWidth="176.0" style="-fx-background-color: #008152;" text="Sort by price" textFill="WHITE">
          <font>
             <Font size="20.0" />

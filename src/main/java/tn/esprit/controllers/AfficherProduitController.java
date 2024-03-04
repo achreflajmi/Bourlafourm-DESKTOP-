@@ -35,8 +35,7 @@ import javafx.scene.control.ScrollPane;
 
 public class AfficherProduitController implements Initializable, ProduitListener {
     private Timeline refreshTimeline;
-    @FXML
-    private JFXButton search;
+
 
     @FXML
     private JFXTextField searchField;
@@ -133,7 +132,50 @@ public class AfficherProduitController implements Initializable, ProduitListener
             alert.showAndWait();
         }
     }
+    private void searchPrototype(String keyword) {
+        try {
+            // Fetch the list of Défis from the database
+            ServiceProduit ps = new ServiceProduit();
+            List<Produit> produits = ps.recuperer();
 
+            // Clear the existing content of the GridPane
+            grid.getChildren().clear();
+
+            int row = 0;
+
+            // Iterate through the list of produits
+            for (Produit produit : produits) {
+                if (produit.getNom_prod().toLowerCase().contains(keyword.toLowerCase())) {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/item.fxml"));
+                    AnchorPane item = loader.load();
+
+                    ItemController itemCardController = loader.getController();
+                    itemCardController.setData(produit);
+                    itemCardController.setProduitListener(this);
+                    item.setStyle("-fx-background-color: transparent; -fx-border-color: #008152; -fx-border-width: 1px;");
+
+                    grid.add(item, 0, row);
+                    GridPane.setMargin(item, new Insets(20));
+
+                    // Set equal column width (100%)
+                    ColumnConstraints columnConstraints = new ColumnConstraints();
+                    columnConstraints.setPercentWidth(100);
+                    grid.getColumnConstraints().add(columnConstraints);
+
+                    // Set equal row heights
+                    RowConstraints rowConstraints = new RowConstraints();
+                    rowConstraints.setPercentHeight(100 / produits.size()); // Each row takes an equal percentage of the height
+                    grid.getRowConstraints().add(rowConstraints);
+
+                    row++;
+                }
+            }
+
+        } catch (SQLException | IOException e) {
+            e.printStackTrace();
+            // Handle exceptions appropriately
+        }
+    }
 
     @FXML
     private void exportToExcel(ActionEvent event) throws SQLException {
@@ -148,32 +190,7 @@ public class AfficherProduitController implements Initializable, ProduitListener
         System.out.println("Export vers Excel terminé !");
     }
 
-    @FXML
-    private void searchProduct(ActionEvent event) {
-        onClose();
-        String query = searchField.getText().trim();
-        if (!query.isEmpty()) {
-            List<Produit> searchResults = new ArrayList<>();
-            for (Produit produit : originalProduits) {
-                if (produit.getNom_prod().toLowerCase().contains(query.toLowerCase())) {
-                    searchResults.add(produit);
-                }
-            }
-            // Clear the grid to remove existing products
-            grid.getChildren().clear();
-            // Initialize the list of products with search results
-            produits = searchResults;
-            intitialisationProduitList();
-        } else {
-            // If the search query is empty, reset the products list to original
-            produits.clear();
-            produits.addAll(originalProduits);
-            // Clear the grid to remove existing products
-            grid.getChildren().clear();
-            // Initialize the list of products again
-            intitialisationProduitList();
-        }
-    }
+
 
     @Override
     public void OnModifier(Produit produit) {
@@ -195,7 +212,23 @@ public class AfficherProduitController implements Initializable, ProduitListener
         refreshTimeline.setCycleCount(Timeline.INDEFINITE);
         refreshTimeline.play();
         onClose();
+
+        // Add listener to the search field textProperty
+        searchField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.isEmpty()) {
+                refreshPage(); // Reload content when search field is cleared
+            } else {
+                searchPrototype(newValue); // Filter products based on the search keyword
+            }
+        });
+
+        // Perform search if the search field is not empty initially
+        String query = searchField.getText().trim();
+        if (!query.isEmpty()) {
+            searchPrototype(query);
+        }
     }
+
 
     private void stopRefreshTimeline() {
         if (refreshTimeline != null) {
