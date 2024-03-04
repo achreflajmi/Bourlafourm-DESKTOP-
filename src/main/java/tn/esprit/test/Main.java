@@ -6,6 +6,7 @@ import tn.esprit.entities.Sexe;
 import tn.esprit.services.ServiceCoord;
 import tn.esprit.services.ServiceExercice;
 import tn.esprit.services.ServiceRegime;
+import tn.esprit.services.ServiceVideo;
 
 import java.sql.SQLException;
 
@@ -13,6 +14,7 @@ public class Main {
     public static void main(String[] args) {
         ServiceRegime sr = new ServiceRegime();
         ServiceExercice se = new ServiceExercice();
+        ServiceVideo sv = new ServiceVideo();
 
         //---------------------- Ajout Regime --------------------------------
 
@@ -54,6 +56,7 @@ public class Main {
             System.out.println(e.getMessage());;
         }
 
+        System.out.println(sv.Afficher());
 
         //---------------------- Supp Regime --------------------------------
 

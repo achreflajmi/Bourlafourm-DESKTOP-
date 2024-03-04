@@ -132,8 +132,6 @@ public class ServiceCoord implements IService<Coord> {
 
             double imc = calculateIMC(newPoids, newTaille);
             coord.setImc(imc);
-
-
             updateCoordonneesInDatabase(coord);
         }
     }

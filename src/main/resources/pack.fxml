@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.PackController">
+   <children>
+      <GridPane layoutX="49.0" layoutY="113.0" prefHeight="222.0" prefWidth="234.0" style="-fx-border-color: #D0F08B; -fx-border-radius: 29;">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <VBox prefHeight="262.0" prefWidth="242.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="27.0" prefWidth="248.0" text="Start" textFill="#65975f">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="20.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Algerian" size="27.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="27.0" prefWidth="241.0" text="120 dt" textFill="#c7ddc5" />
+                  <Label alignment="CENTER" prefHeight="27.0" prefWidth="241.0" text="One Month to test" textFill="#c7ddc5">
+                     <VBox.margin>
+                        <Insets bottom="50.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox prefHeight="49.0" prefWidth="232.0">
+                     <children>
+                        <AnchorPane prefHeight="49.0" prefWidth="81.0" />
+                        <Button fx:id="Start" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#StartFunction" style="-fx-background-color: #D0F08B;" text="Start" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </GridPane>
+      <GridPane layoutX="317.0" layoutY="113.0" prefHeight="222.0" prefWidth="234.0" style="-fx-border-color: #008152; -fx-border-radius: 29;">
+         <children>
+            <VBox prefHeight="262.0" prefWidth="242.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="27.0" prefWidth="248.0" text="Premium" textFill="#088152">
+                     <font>
+                        <Font name="Algerian" size="27.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="27.0" prefWidth="241.0" text="400 dt" textFill="#a792a3" />
+                  <Label alignment="CENTER" prefHeight="27.0" prefWidth="241.0" text="Tree month subscription" textFill="#a792a3">
+                     <VBox.margin>
+                        <Insets bottom="50.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox prefHeight="49.0" prefWidth="232.0">
+                     <children>
+                        <AnchorPane prefHeight="49.0" prefWidth="71.0" />
+                        <Button fx:id="Premium" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#PremimFunction" style="-fx-background-color: #008152;" text="Premium" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+      </GridPane>
+      <Label alignment="CENTER" layoutX="170.0" layoutY="48.0" prefHeight="27.0" prefWidth="248.0" text="Chose pack" textFill="WHITE">
+         <font>
+            <Font name="Algerian" size="27.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

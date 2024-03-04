@@ -1,5 +1,8 @@
 package tn.esprit.controllers;
-
+import com.twilio.Twilio;
+import com.twilio.rest.api.v2010.account.Message;
+import com.twilio.type.PhoneNumber;
+import com.pdfjet.*;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -7,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -26,56 +30,24 @@ import tn.esprit.services.ServiceExercice;
 import tn.esprit.services.ServiceRegime;
 import tn.esprit.services.ServiceVideo;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class AffController {
-
     @FXML
-    private Button upeBT;
-    @FXML
-    private Button sportBT;
-    @FXML
-    private Button dietBT;
-    @FXML
-    private Button detailsBT;
-
-    @FXML
-    private Label coldejL;
-
+    private Button dietBT,detailsBT,sportBT,upeBT, pdf;
     @FXML
     private VBox vBox;
-
-    @FXML
-    private Label sexeLabel;
-
-    @FXML
-    private Label ColpdejL;
-
-    @FXML
-    private Label pettidejL;
-
-    @FXML
-    private Label tailleLabel;
-
-    @FXML
-    private Label dinerL;
-
-    @FXML
-    private Label poidsLabel;
-
     @FXML
     private GridPane gridP;
-
     @FXML
-    private Label imcLabel;
-
-    @FXML
-    private Label ageLabel;
-
-    @FXML
-    private Label dejL;
+    private Label sexeLabel,imcLabel,ageLabel,dejL,poidsLabel,coldejL,dinerL,tailleLabel,pettidejL,ColpdejL;
 
     @FXML
     private Label nameLabel;
@@ -85,27 +57,31 @@ public class AffController {
     private Label nbrLabel;
     @FXML
     private ImageView imageViewl;
+   // @FXML
+   //    private WebView recaptchaWebView;
     private final int refreshIntervalInSeconds = 5; // Refresh every 5 seconds
     private Timeline refreshTimeline;
+    VideoItemController controller = new VideoItemController();
 
-    public void initialize() throws SQLException {
+    public void initialize() throws SQLException, IOException {
+
         serviceCoord = new ServiceCoord();
         serviceRegime = new ServiceRegime();
         serviceExercice = new ServiceExercice();
+        serviceVideo = new ServiceVideo();
 
+      //  AfficherVideos();
         afficherCoordonneesParId(1);
         afficherRegimeParId(1);
-
         //afficherParIdExercice(1);
-
         // Set up the refresh timeline
         setupRefreshTimeline();
     }
+
     private ServiceCoord serviceCoord;
     private ServiceRegime serviceRegime;
     private ServiceExercice serviceExercice;
     private ServiceVideo serviceVideo;
-
 
 
 

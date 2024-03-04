@@ -23,18 +23,21 @@
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/controllers/ControllerExercice.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/controllers/ExerciceController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/controllers/ExerciceItemController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/controllers/PackController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/controllers/UpDateRegimeController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/controllers/UpdateExerciceController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/controllers/UpdateFormController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/controllers/VideoItemController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/entities/Coord.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/entities/Exercice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/entities/ExerciceUtility.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/entities/ExercicesRecommandees.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/entities/Regime.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/entities/Role.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/entities/Sexe.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/entities/User.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/entities/Video.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/entities/Whatsapp.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/services/IService.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/services/ServiceCoord.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/services/ServiceExercice.java" afterDir="false" />
@@ -58,6 +61,7 @@
       <change afterPath="$PROJECT_DIR$/src/main/resources/UpdateForm.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/exercice.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/exercise_item.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/pack.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/test.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/video_item.fxml" afterDir="false" />
     </list>
@@ -72,8 +76,8 @@
         <option value="module-info" />
         <option value="Interface" />
         <option value="Enum" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -103,20 +107,24 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/ADMIN/Downloads/GestionProduit (2)/GestionProduit",
+    "last_opened_file_path": "C:/Users/ADMIN/Downloads/jar_files (4)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.38850576",
     "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
-      <recent name="tn.esprit.controllers" />
       <recent name="tn.esprit.entities" />
+      <recent name="tn.esprit.controllers" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\ADMIN\Desktop\Try\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MainFx">
+  <component name="RunManager" selected="Application.tn.esprit.test.MainFx">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="tn.esprit.test.Main" />
       <module name="Try" />
@@ -130,9 +138,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MainFx" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Whatsapp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tn.esprit.entities.Whatsapp" />
+      <module name="Try" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tn.esprit.entities.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="tn.esprit.test.MainFx" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="tn.esprit.test.MainFx" />
       <module name="Try" />
+      <option name="PROGRAM_PARAMETERS" value="--add-modules javafx.media" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="tn.esprit.test.*" />
@@ -143,9 +165,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Whatsapp" />
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.tn.esprit.test.MainFx" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MainFx" />
+        <item itemvalue="Application.tn.esprit.test.MainFx" />
+        <item itemvalue="Application.Whatsapp" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -173,6 +201,9 @@
       <workItem from="1709282667253" duration="5547000" />
       <workItem from="1709367907697" duration="1929000" />
       <workItem from="1709465042544" duration="9516000" />
+      <workItem from="1709488730009" duration="8651000" />
+      <workItem from="1709499352717" duration="33000" />
+      <workItem from="1709539063340" duration="12866000" />
     </task>
     <servers />
   </component>
