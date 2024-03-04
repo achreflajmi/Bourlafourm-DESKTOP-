@@ -1,7 +1,13 @@
 package tn.esprit.controllers;
 import com.jfoenix.controls.JFXButton;
+import com.pdfjet.*;
+import com.pdfjet.TextLine;
+import com.pdfjet.Font;
+import com.pdfjet.PDF;
+import com.pdfjet.Page;
+import com.pdfjet.Table;
+import com.pdfjet.TextLine;
 import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,16 +21,16 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
+
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import tn.esprit.entities.PDFGenerator;
+
 import tn.esprit.entities.Panier;
 import tn.esprit.entities.Produit;
 import tn.esprit.service.ServicePanier;
 import tn.esprit.service.ServiceProduit;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.*;
@@ -136,16 +142,140 @@ public class AfficherPanierController implements Initializable, ItemPanierContro
 
     }
 
-    @FXML
-    void printBasket(ActionEvent event) {
-        PDFGenerator pdfGenerator = new PDFGenerator();
-        pdfGenerator.generatePDF(panierMap);
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Success");
-        alert.setHeaderText(null);
-        alert.setContentText("Basket contents printed successfully!");
-        alert.showAndWait();
+@FXML
+public void printBasket(ActionEvent actionEvent) {
+    try {
+        File out = new File("ListeProduit.pdf");
+        FileOutputStream fos = new FileOutputStream(out);
+        PDF pdf = new PDF(fos);
+        Page page = new Page(pdf, A4.PORTRAIT);
+        com.pdfjet.Font f1 = new Font(pdf, CoreFont.HELVETICA_BOLD);
+        com.pdfjet.Font f2 = new Font(pdf, CoreFont.HELVETICA);
+        com.pdfjet.Font titleFont = new Font(pdf, CoreFont.HELVETICA_BOLD);
+        com.pdfjet.Font headerFont = new Font(pdf, CoreFont.HELVETICA_BOLD_OBLIQUE);
+
+
+        TextLine title = new TextLine(titleFont, "Basket\n");
+        title.setFontSize(16f);
+        title.setPosition(40f, 40f);
+        title.drawOn(page);
+
+        float titleWidth = title.getWidth();
+        float titleHeight = title.getHeight();
+        float lineY = 40f + titleHeight + 5f;
+        float lineLength = 550f;
+        float lineStartX = 20f;
+        float lineEndX = lineStartX + lineLength;
+
+        page.setPenWidth(1f);
+        page.moveTo(lineStartX, lineY);
+        page.lineTo(lineEndX, lineY);
+        page.strokePath();
+
+        Table table = new Table();
+        List<List<Cell>> tableData = new ArrayList<>();
+
+        List<Cell> headerRow = new ArrayList<>();
+        Cell headerCell = new Cell(f1, "Nom du produit");
+        headerCell.setFont(headerFont);
+        headerCell.setFgColor(Color.white);
+        headerCell.setBgColor(Color.darkgray);
+        headerRow.add(headerCell);
+
+        headerCell = new Cell(f1, "Price");
+        headerCell.setFont(headerFont);
+        headerCell.setFgColor(Color.white);
+        headerCell.setBgColor(Color.darkgray);
+        headerRow.add(headerCell);
+
+        headerCell = new Cell(f1, "Quantite");
+        headerCell.setFont(headerFont);
+        headerCell.setFgColor(Color.white);
+        headerCell.setBgColor(Color.darkgray);
+        headerRow.add(headerCell);
+
+        headerCell = new Cell(f1, "Total Prix");
+        headerCell.setFont(headerFont);
+        headerCell.setFgColor(Color.white);
+        headerCell.setBgColor(Color.darkgray);
+        headerRow.add(headerCell);
+
+        tableData.add(headerRow);
+
+        List<Panier> paniers = pa.recuperer();
+        float totalPrice = 0;
+        for (Panier panier : paniers) {
+            List<Cell> dataRow = new ArrayList<>();
+            Cell nomProduitCell = new Cell(f2, panier.getNom_prod());
+            Cell prixProduitCell = new Cell(f2, String.valueOf(panier.getPrix_prod()));
+            Cell quantiteProduitCell = new Cell(f2, String.valueOf(panier.getQuantite_panier()));
+            Cell totalPrixCell = new Cell(f2, String.valueOf(panier.getTotal_panier()));
+
+            dataRow.add(nomProduitCell);
+            dataRow.add(prixProduitCell);
+            dataRow.add(quantiteProduitCell);
+            dataRow.add(totalPrixCell);
+
+            totalPrice += panier.getTotal_panier(); // Accumulate total price
+            tableData.add(dataRow);
+        }
+
+        List<Cell> totalRow = new ArrayList<>();
+        totalRow.add(new Cell(f1, "Total:"));
+        totalRow.add(new Cell(f1, ""));
+        totalRow.add(new Cell(f1, ""));
+        totalRow.add(new Cell(f1, String.valueOf(totalPrice)));
+        tableData.add(totalRow);
+
+        table.setData(tableData);
+        table.setPosition(40f, 60f);
+        table.setColumnWidth(0, 150f);
+        table.setColumnWidth(1, 80f);
+        table.setColumnWidth(2, 70f);
+        table.setColumnWidth(3, 90f);
+        table.setPosition(50f, 110f);
+
+        while (true) {
+            table.drawOn(page);
+            if (!table.hasMoreData()) {
+                table.resetRenderedPagesCount();
+                break;
+            }
+            page = new Page(pdf, A4.PORTRAIT);
+        }
+
+        TextLine contactTitle = new TextLine(titleFont, "Pour nous contacter!\n");
+        contactTitle.setFontSize(12f);
+        contactTitle.setPosition(50f, 300f);
+        contactTitle.drawOn(page);
+
+        TextLine phoneNumber = new TextLine(f2, "+216 56809401\n");
+        phoneNumber.setFontSize(10f);
+        phoneNumber.setPosition(50f, 320f);
+        phoneNumber.drawOn(page);
+
+        TextLine websiteTitle = new TextLine(titleFont, "Veuillez consulter notre page web\n");
+        websiteTitle.setFontSize(12f);
+        websiteTitle.setPosition(50f, 350f);
+        websiteTitle.drawOn(page);
+
+        TextLine websiteUrl = new TextLine(f2, "www.BourLaFourme.com\n");
+        websiteUrl.setFontSize(10f);
+        websiteUrl.setPosition(50f, 370f);
+        websiteUrl.drawOn(page);
+
+        pdf.flush();
+        Alert alertSuces = new Alert(Alert.AlertType.CONFIRMATION);
+        alertSuces.setTitle("Succes");
+        alertSuces.setContentText("PDF bien enregistré");
+        alertSuces.showAndWait();
+
+        System.out.println("Saved to " + out.getAbsolutePath());
+    } catch (Exception e) {
+        throw new RuntimeException(e);
     }
+}
+
 
     @Override
     public void onQuantityUpdate(int productId, int newQuantity) {

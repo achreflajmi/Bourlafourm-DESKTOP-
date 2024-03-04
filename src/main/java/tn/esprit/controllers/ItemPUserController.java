@@ -79,8 +79,8 @@ public class ItemPUserController implements Initializable {
         try {
             servicePanier.ajouter(panier);
             //Twilo API              //Twilo API
-            /**/      String recipientPhoneNumber = "+21658911780"; // Replace with the recipient's phone number
-            /**/  String messageText = "Votre produit est ajoutée au panier avec succès !"; // Provide your message
+            /**/      String recipientPhoneNumber = "+21696378492"; // Replace with the recipient's phone number
+            /**/  String messageText = "Votre produit "+nom_prod+" est ajoutée au panier avec succès !"; // Provide your message
             /**/ Sms.sendTwilioSMS(recipientPhoneNumber, messageText);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/AfficherPanier.fxml"));
             Parent root = loader.load(); // Load the FXML file
