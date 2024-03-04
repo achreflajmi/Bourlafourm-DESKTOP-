@@ -10,9 +10,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="2000.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.AffController">
+<ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="2144.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.AffController">
     <content>
-        <AnchorPane prefHeight="1175.0" prefWidth="785.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+        <AnchorPane prefHeight="2071.0" prefWidth="799.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
             <children>
                 <GridPane fx:id="gridP" hgap="4.0" layoutX="59.0" layoutY="231.0" prefHeight="261.0" prefWidth="182.0">
                     <columnConstraints>

@@ -24,6 +24,7 @@
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/controllers/ExerciceController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/controllers/ExerciceItemController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/controllers/PackController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/controllers/RecordsController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/controllers/UpDateRegimeController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/controllers/UpdateExerciceController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/controllers/UpdateFormController.java" afterDir="false" />
@@ -56,6 +57,7 @@
       <change afterPath="$PROJECT_DIR$/src/main/resources/AjoutRegime.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/CoordLayout.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/PatientRecord.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Records.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/UpDateRegime.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/UpdateExercice.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/UpdateForm.fxml" afterDir="false" />
@@ -203,7 +205,7 @@
       <workItem from="1709465042544" duration="9516000" />
       <workItem from="1709488730009" duration="8651000" />
       <workItem from="1709499352717" duration="33000" />
-      <workItem from="1709539063340" duration="12866000" />
+      <workItem from="1709539063340" duration="18133000" />
     </task>
     <servers />
   </component>
